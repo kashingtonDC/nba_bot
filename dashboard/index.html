@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBA Series Bot · v0</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0d0e10;
+  --bg-elev: #15171a;
+  --bg-row: #111316;
+  --border: #25282d;
+  --border-strong: #3a3f47;
+  --fg: #e8eaed;
+  --fg-dim: #9aa0a8;
+  --fg-faint: #5c6168;
+  --accent: #d4a574;          /* warm tan, intentional choice over generic blue */
+  --accent-dim: #8c6e4e;
+  --pos: #6abf7a;             /* muted green for positive edges */
+  --neg: #d97070;             /* muted red for negative edges */
+  --warn: #d4a574;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --serif: 'Newsreader', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+body::before {
+  /* Subtle grain texture for depth */
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
+  background-size: 3px 3px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+}
+
+/* --- Header --- */
+header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 38px;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+h1 em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.tagline {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--fg-faint);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.run-meta {
+  text-align: right;
+  font-size: 11px;
+  color: var(--fg-dim);
+}
+.run-meta .big {
+  font-size: 14px;
+  color: var(--fg);
+  margin-bottom: 2px;
+}
+.run-meta .label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: var(--fg-faint);
+  margin-right: 6px;
+}
+.run-meta .pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pos);
+  margin-right: 6px;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+button {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  padding: 8px 14px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+button:hover {
+  background: var(--accent-dim);
+  color: var(--bg);
+}
+
+/* --- Status / loading / error --- */
+.status {
+  padding: 24px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--fg-dim);
+}
+.status.error {
+  border-color: var(--neg);
+  color: var(--neg);
+}
+
+/* --- Table --- */
+.table-wrap {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+}
+
+thead th.num { text-align: right; }
+
+tbody td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr:hover { background: var(--bg-row); }
+
+.matchup {
+  font-size: 14px;
+}
+.matchup .fav {
+  font-weight: 600;
+  color: var(--fg);
+}
+.matchup .vs {
+  color: var(--fg-faint);
+  margin: 0 6px;
+  font-size: 11px;
+}
+.matchup .und {
+  color: var(--fg-dim);
+}
+.matchup .state {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+}
+
+td.prob-model { color: var(--accent); font-weight: 500; }
+td.prob-market { color: var(--fg); }
+
+td.edge {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+td.edge.pos { color: var(--pos); }
+td.edge.neg { color: var(--neg); }
+td.edge.neutral { color: var(--fg-faint); }
+
+td.dim { color: var(--fg-faint); }
+
+/* edge bar visualization */
+.edge-bar {
+  display: inline-block;
+  width: 60px;
+  height: 3px;
+  background: var(--border);
+  margin-left: 10px;
+  position: relative;
+  vertical-align: middle;
+}
+.edge-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--border-strong);
+}
+.edge-bar .fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  background: var(--fg-faint);
+  transform-origin: left;
+}
+
+/* --- Footer --- */
+footer {
+  margin-top: 36px;
+  font-size: 11px;
+  color: var(--fg-faint);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+footer .legend {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+footer .legend span {
+  letter-spacing: 0.04em;
+}
+footer .legend strong {
+  color: var(--fg-dim);
+  font-weight: 500;
+}
+
+footer .disclaimer {
+  font-style: italic;
+  font-family: var(--serif);
+  color: var(--fg-faint);
+  font-size: 12px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 880px) {
+  .shell { padding: 28px 16px; }
+  header { grid-template-columns: 1fr; gap: 16px; }
+  .run-meta { text-align: left; }
+  thead th { padding: 8px 10px; font-size: 9px; }
+  tbody td { padding: 10px; }
+  /* Hide less-essential columns on narrow viewports */
+  .col-volume, .col-uncertainty { display: none; }
+  h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header>
+    <div>
+      <h1>nba series <em>bot</em></h1>
+      <div class="tagline">model · market · edge — logging only, v0</div>
+    </div>
+    <div class="run-meta" id="run-meta">
+      <div class="big"><span class="pulse"></span><span id="last-run">loading…</span></div>
+      <div><span class="label">run</span><span id="run-id">—</span></div>
+      <div style="margin-top: 8px;">
+        <button id="refresh-btn" type="button">refresh</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="status" class="status">Loading observations from Supabase…</div>
+
+  <div id="table-wrap" class="table-wrap" style="display: none;">
+    <table>
+      <thead>
+        <tr>
+          <th>Matchup</th>
+          <th class="num">NRtg Δ</th>
+          <th class="num col-uncertainty">Uncert.</th>
+          <th class="num">P(home)</th>
+          <th class="num">P(road)</th>
+          <th class="num">Model %</th>
+          <th class="num">Tail-adj</th>
+          <th class="num">Market %</th>
+          <th class="num">Edge</th>
+          <th class="num col-volume">Vol</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    <div class="legend">
+      <span><strong>NRtg Δ</strong> posterior mean of net-rating differential</span>
+      <span><strong>Edge</strong> model − market; sell tails, buy near-certainties</span>
+      <span><strong>Tail-adj</strong> +2pp at &gt;85¢ / −2pp at &lt;15¢</span>
+    </div>
+    <div class="disclaimer">simulation only · no orders are placed</div>
+  </footer>
+</div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://wgdoqojxeaurrivctqwr.supabase.co';
+// Anon key — safe to embed; RLS controls access. v0 has RLS disabled on
+// the relevant tables, so this key has read access to runs/observations.
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndnZG9xb2p4ZWF1cnJpdmN0cXdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNDEwMzksImV4cCI6MjA5MjgxNzAzOX0.9_fT0KkmJMUi4KPEKUOSQmtUxGF9IzReh2M94svaTP4';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+const fmtPct = (v) =>
+  v === null || v === undefined ? '—' : `${(v * 100).toFixed(1)}%`;
+const fmtSigned = (v, digits = 1) =>
+  v === null || v === undefined ? '—' :
+  `${v >= 0 ? '+' : ''}${v.toFixed(digits)}`;
+const fmtSignedPct = (v) =>
+  v === null || v === undefined ? '—' :
+  `${v >= 0 ? '+' : ''}${(v * 100).toFixed(1)}%`;
+const fmtVolume = (v) =>
+  v === null || v === undefined ? '—' :
+  v >= 1e6 ? `${(v / 1e6).toFixed(1)}M` :
+  v >= 1e3 ? `${(v / 1e3).toFixed(0)}K` :
+  String(Math.round(v));
+
+function relativeTime(iso) {
+  if (!iso) return '—';
+  const ms = Date.now() - new Date(iso).getTime();
+  if (ms < 0) return new Date(iso).toLocaleString();
+  const s = Math.floor(ms / 1000);
+  if (s < 60) return `${s}s ago`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h}h ago`;
+  return new Date(iso).toLocaleDateString();
+}
+
+function edgeBar(edgeFraction) {
+  if (edgeFraction === null || edgeFraction === undefined) return '';
+  // Cap visualization at ±15% edge
+  const clamped = Math.max(-0.15, Math.min(0.15, edgeFraction));
+  const widthPct = Math.abs(clamped) / 0.15 * 50; // half the bar
+  const color = edgeFraction > 0 ? 'var(--pos)' : 'var(--neg)';
+  const offset = edgeFraction > 0 ? '0' : `${-widthPct}%`;
+  return `<span class="edge-bar"><span class="fill" style="width: ${widthPct}%; left: calc(50% + ${offset}); background: ${color};"></span></span>`;
+}
+
+function edgeClass(e) {
+  if (e === null || e === undefined) return 'neutral';
+  if (Math.abs(e) < 0.02) return 'neutral';
+  return e > 0 ? 'pos' : 'neg';
+}
+
+async function loadLatestRun() {
+  const status = document.getElementById('status');
+  const tableWrap = document.getElementById('table-wrap');
+  status.classList.remove('error');
+
+  // Find the most recent run
+  const { data: runs, error: runsErr } = await supabase
+    .from('runs')
+    .select('*')
+    .order('started_at', { ascending: false })
+    .limit(1);
+
+  if (runsErr) {
+    status.textContent = `Error loading runs: ${runsErr.message}`;
+    status.classList.add('error');
+    return;
+  }
+
+  if (!runs || runs.length === 0) {
+    status.textContent = 'No runs found yet. Run `python bot.py` locally to populate.';
+    return;
+  }
+
+  const run = runs[0];
+  document.getElementById('last-run').textContent =
+    `${relativeTime(run.finished_at || run.started_at)}`;
+  document.getElementById('run-id').textContent = `#${run.id}`;
+
+  // Pull observations for that run, one row per series
+  const { data: obs, error: obsErr } = await supabase
+    .from('observations')
+    .select('*')
+    .eq('run_id', run.id)
+    .order('series_key', { ascending: true });
+
+  if (obsErr) {
+    status.textContent = `Error loading observations: ${obsErr.message}`;
+    status.classList.add('error');
+    return;
+  }
+
+  if (!obs || obs.length === 0) {
+    status.textContent = `Run #${run.id} has no observations.`;
+    return;
+  }
+
+  // Render table
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = obs.map(o => {
+    const stateLabel = `${o.favorite_wins}–${o.underdog_wins}`;
+    const edgeCls = edgeClass(o.edge_raw);
+    return `
+      <tr>
+        <td class="matchup">
+          <span class="fav">${o.favorite}</span><span class="vs">vs</span><span class="und">${o.underdog}</span>
+          <span class="state">series ${stateLabel}${o.next_game_home ? ` · next at ${o.next_game_home}` : ''}</span>
+        </td>
+        <td class="num">${fmtSigned(o.net_rating_diff, 2)}</td>
+        <td class="num dim col-uncertainty">±${(o.posterior_uncertainty || 0).toFixed(2)}</td>
+        <td class="num dim">${fmtPct(o.p_fav_home)}</td>
+        <td class="num dim">${fmtPct(o.p_fav_road)}</td>
+        <td class="num prob-model">${fmtPct(o.p_fav_series_raw)}</td>
+        <td class="num dim">${fmtPct(o.p_fav_series_tail_adj)}</td>
+        <td class="num prob-market">${fmtPct(o.market_yes_mid)}</td>
+        <td class="num edge ${edgeCls}">
+          ${fmtSignedPct(o.edge_raw)}${edgeBar(o.edge_raw)}
+        </td>
+        <td class="num dim col-volume">${fmtVolume(o.market_volume)}</td>
+      </tr>
+    `;
+  }).join('');
+
+  status.style.display = 'none';
+  tableWrap.style.display = 'block';
+}
+
+// Initial load
+loadLatestRun().catch(err => {
+  const s = document.getElementById('status');
+  s.textContent = `Unexpected error: ${err.message}`;
+  s.classList.add('error');
+});
+
+document.getElementById('refresh-btn').addEventListener('click', () => {
+  document.getElementById('status').style.display = 'block';
+  document.getElementById('status').textContent = 'Refreshing…';
+  document.getElementById('status').classList.remove('error');
+  document.getElementById('table-wrap').style.display = 'none';
+  loadLatestRun();
+});
+</script>
+
+</body>
+</html>
