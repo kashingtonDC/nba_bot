@@ -17,7 +17,7 @@ import json
 import logging
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Any, Dict, List, Tuple, Optional
 
 log = logging.getLogger(__name__)
 
@@ -28,6 +28,23 @@ HCA = 2.5            # home court advantage (points)
 SIGMA_GAME = 11.5    # std dev of single-game margin (points)
 SIGMA_THETA = 2.0    # prior uncertainty on team net rating
 TAIL_CORRECTION_PP = 0.02  # magnitude of tail-bias adjustment
+
+# Four Factors variance-weighting strength. When > 0, games where the actual
+# margin diverges from the Four Factors-implied margin contribute less to
+# the posterior (their likelihood variance is inflated). 0 disables the
+# weighting entirely and preserves the original constant-variance behavior.
+#
+# Starting value 0.0 = ship the plumbing tonight, leave the model unchanged.
+# Tomorrow, sweep this and find the value with the best calibration.
+KAPPA = 0.0
+
+# Prior regression coefficient. Multiplies the regular-season NRtg
+# differential before forming the Bayesian prior. Empirically calibrated
+# from a 5-season backtest (see README "Calibration" section): c=0.6 reduces
+# expected calibration error from ~0.064 to ~0.044 with negligible log-loss
+# cost. Interpretation: regular-season NRtg overstates playoff team-strength
+# gaps by ~40%, so we shrink the gap before forming the prior.
+PRIOR_REGRESSION = 0.6
 
 
 # --- Team net ratings -------------------------------------------------------
@@ -102,6 +119,10 @@ class CompletedGame:
     """One completed game in a series."""
     margin: float           # positive if favorite won, negative if underdog won
     favorite_was_home: bool
+    # Optional advanced data — present when refresh_series.py was run with
+    # the summary endpoint (default since v0.4). Used for Four Factors.
+    fav_box: Optional[Dict[str, Any]] = None
+    und_box: Optional[Dict[str, Any]] = None
 
 
 @dataclass
@@ -280,6 +301,8 @@ def _load_series() -> List[SeriesState]:
                 CompletedGame(
                     margin=float(g["margin"]),
                     favorite_was_home=bool(g["favorite_was_home"]),
+                    fav_box=g.get("fav_box"),
+                    und_box=g.get("und_box"),
                 )
                 for g in data.get("completed_games", [])
             ]

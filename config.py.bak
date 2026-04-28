@@ -1,0 +1,205 @@
+"""
+Configuration for the NBA series prediction bot.
+
+Edit this file to update:
+  - Team net ratings after the regular season closes (TEAM_NET_RATINGS)
+  - Current series state after each game completes (SERIES)
+  - Model constants if you want to tune the calibration
+
+All values flagged `# TODO_VERIFY` should be checked against
+basketball-reference (https://www.basketball-reference.com/leagues/NBA_2026_ratings.html)
+before relying on outputs. They were entered as best-guess placeholders for
+v0 setup. The bot will log the values it uses on each run for audit.
+"""
+from __future__ import annotations
+from dataclasses import dataclass, field
+from typing import List, Tuple, Optional
+
+
+# --- Model constants --------------------------------------------------------
+
+HCA = 2.5            # home court advantage (points)
+SIGMA_GAME = 11.5    # std dev of single-game margin (points)
+SIGMA_THETA = 2.0    # prior uncertainty on team net rating
+TAIL_CORRECTION_PP = 0.02  # magnitude of tail-bias adjustment
+
+
+# --- Team net ratings (end of 2025-26 regular season) -----------------------
+
+# Source: basketball-reference.com/leagues/NBA_2026_ratings.html
+# Confirmed: OKC at +11.1 (per StatMuse / nbastuffer references)
+# Many others below are placeholders — verify before trusting outputs.
+
+TEAM_NET_RATINGS = {
+    # Western Conference playoff teams
+    "OKC": 11.1,    # confirmed
+    "LAL": 4.5,     # TODO_VERIFY — placeholder
+    "DEN": 5.2,     # TODO_VERIFY — derived from earlier conversation
+    "MIN": 3.0,     # TODO_VERIFY — derived from earlier conversation
+    "SAS": 4.0,     # TODO_VERIFY — Wemby-led 2-seed, placeholder
+    "HOU": 1.5,     # TODO_VERIFY — placeholder for 5-seed
+    "POR": -0.5,    # TODO_VERIFY — placeholder for 7-seed
+    "PHX": -1.0,    # TODO_VERIFY — placeholder for 8-seed
+
+    # Eastern Conference playoff teams
+    "BOS": 7.0,     # TODO_VERIFY — placeholder for 2-seed
+    "DET": 6.0,     # TODO_VERIFY — best record in East per earlier conversation
+    "CLE": 4.0,     # TODO_VERIFY — placeholder for 4-seed
+    "NYK": 3.5,     # TODO_VERIFY — placeholder for 3-seed
+    "TOR": 0.5,     # TODO_VERIFY — placeholder for 5-seed
+    "ATL": 1.0,     # TODO_VERIFY — placeholder for 6-seed
+    "PHI": 0.0,     # TODO_VERIFY — placeholder for 7-seed
+    "ORL": 1.5,     # TODO_VERIFY — placeholder for 8-seed
+}
+
+
+# --- Current series state ---------------------------------------------------
+
+@dataclass
+class CompletedGame:
+    """One completed game in a series."""
+    margin: float           # positive if favorite won, negative if underdog won
+    favorite_was_home: bool
+
+
+@dataclass
+class SeriesState:
+    """
+    Current state of one playoff series.
+
+    The "favorite" is the team with home-court advantage (typically the
+    higher seed). `favorite_has_home_court` is almost always True; only set
+    False if for some reason the lower seed has home-court (rare).
+
+    `kalshi_market_match` is a substring used to find this series' market in
+    the list of open Kalshi markets. The bot fetches all KXNBASERIES markets
+    and matches by ticker substring.
+    """
+    series_key: str                              # e.g. "DEN_MIN"
+    favorite: str                                # 3-letter abbrev (must be in TEAM_NET_RATINGS)
+    underdog: str
+    favorite_wins: int
+    underdog_wins: int
+    completed_games: List[CompletedGame] = field(default_factory=list)
+    favorite_has_home_court: bool = True
+    # Substring of the Kalshi ticker for this series. Examples we've seen:
+    # "26HOULALR1" for HOU vs LAL. We match case-insensitively on the suffix.
+    kalshi_ticker_match: Optional[str] = None
+
+
+# As of 2026-04-26 (Sunday). Update after each completed game.
+# Note: we track game margins from the favorite's perspective (positive when
+# the favorite won), and whether the favorite was home for that game.
+#
+# Series ordering follows the 2-2-1-1-1 pattern: G1, G2 at favorite's home;
+# G3, G4 at underdog's home; G5 favorite home; G6 underdog home; G7 favorite home.
+
+SERIES: List[SeriesState] = [
+    # West
+    SeriesState(
+        series_key="OKC_PHX",
+        favorite="OKC", underdog="PHX",
+        favorite_wins=3, underdog_wins=0,
+        completed_games=[
+            # TODO_VERIFY game margins — placeholders consistent with a sweep
+            CompletedGame(margin=15.0, favorite_was_home=True),
+            CompletedGame(margin=10.0, favorite_was_home=True),
+            CompletedGame(margin=8.0,  favorite_was_home=False),
+        ],
+        kalshi_ticker_match="PHXOKCR1-OKC",
+    ),
+    SeriesState(
+        series_key="LAL_HOU",
+        favorite="LAL", underdog="HOU",
+        favorite_wins=3, underdog_wins=0,
+        completed_games=[
+            # TODO_VERIFY — placeholders
+            CompletedGame(margin=8.0,  favorite_was_home=True),
+            CompletedGame(margin=12.0, favorite_was_home=True),
+            CompletedGame(margin=5.0,  favorite_was_home=False),
+        ],
+        kalshi_ticker_match="HOULALR1-LAL",
+    ),
+    SeriesState(
+        series_key="DEN_MIN",
+        favorite="DEN", underdog="MIN",
+        favorite_wins=1, underdog_wins=3,
+        completed_games=[
+            CompletedGame(margin=11.0,  favorite_was_home=True),   # G1: DEN won by 11 home
+            CompletedGame(margin=-5.0,  favorite_was_home=True),   # G2: DEN lost by 5 home
+            CompletedGame(margin=-17.0, favorite_was_home=False),  # G3: DEN lost by 17 road
+            CompletedGame(margin=-2.0,  favorite_was_home=False),  # G4: DEN lost (close, TODO_VERIFY margin)
+        ],
+        kalshi_ticker_match="MINDENR1-DEN",
+    ),
+    SeriesState(
+        series_key="SAS_POR",
+        favorite="SAS", underdog="POR",
+        favorite_wins=2, underdog_wins=1,
+        completed_games=[
+            # TODO_VERIFY all
+            CompletedGame(margin=10.0,  favorite_was_home=True),
+            CompletedGame(margin=8.0,   favorite_was_home=True),
+            CompletedGame(margin=-4.0,  favorite_was_home=False),
+        ],
+        kalshi_ticker_match="PORSASR1-SAS",
+    ),
+
+    # East
+    SeriesState(
+        series_key="BOS_PHI",
+        favorite="BOS", underdog="PHI",
+        favorite_wins=2, underdog_wins=1,
+        completed_games=[
+            # TODO_VERIFY all
+            CompletedGame(margin=12.0,  favorite_was_home=True),
+            CompletedGame(margin=8.0,   favorite_was_home=True),
+            CompletedGame(margin=-3.0,  favorite_was_home=False),
+        ],
+        kalshi_ticker_match="PHIBOSR1-BOS",
+    ),
+    SeriesState(
+        series_key="DET_ORL",
+        favorite="DET", underdog="ORL",
+        favorite_wins=1, underdog_wins=2,
+        completed_games=[
+            # TODO_VERIFY all
+            CompletedGame(margin=6.0,   favorite_was_home=True),
+            CompletedGame(margin=-4.0,  favorite_was_home=True),
+            CompletedGame(margin=-8.0,  favorite_was_home=False),
+        ],
+        kalshi_ticker_match="ORLDETR1-DET",
+    ),
+    SeriesState(
+        series_key="CLE_TOR",
+        favorite="CLE", underdog="TOR",
+        favorite_wins=2, underdog_wins=1,
+        completed_games=[
+            # TODO_VERIFY all
+            CompletedGame(margin=10.0,  favorite_was_home=True),
+            CompletedGame(margin=8.0,   favorite_was_home=True),
+            CompletedGame(margin=-22.0, favorite_was_home=False),  # large blowout per earlier discussion
+        ],
+        kalshi_ticker_match="TORCLER1-CLE",
+    ),
+    SeriesState(
+        series_key="NYK_ATL",
+        favorite="NYK", underdog="ATL",
+        favorite_wins=2, underdog_wins=2,
+        completed_games=[
+            # TODO_VERIFY all
+            CompletedGame(margin=5.0,   favorite_was_home=True),
+            CompletedGame(margin=-3.0,  favorite_was_home=True),
+            CompletedGame(margin=-6.0,  favorite_was_home=False),
+            CompletedGame(margin=4.0,   favorite_was_home=False),  # NYK won G4 today
+        ],
+        kalshi_ticker_match="ATLNYKR1-NYK",
+    ),
+]
+
+
+def get_series(key: str) -> Optional[SeriesState]:
+    for s in SERIES:
+        if s.series_key == key:
+            return s
+    return None

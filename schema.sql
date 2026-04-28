@@ -52,6 +52,22 @@ create table if not exists observations (
     edge_raw                    numeric,              -- p_fav_series_raw - market_yes_mid
     edge_tail_adj               numeric,              -- p_fav_series_tail_adj - market_yes_mid
 
+    -- Orderbook depth (added in migrations/001_orderbook.sql)
+    ob_best_bid                 numeric,
+    ob_best_bid_size            integer,
+    ob_best_ask                 numeric,
+    ob_best_ask_size            integer,
+    ob_spread                   numeric,
+    ob_mid                      numeric,
+    ob_depth_top                integer,
+
+    -- Four Factors (added in migrations/002_four_factors.sql)
+    kappa                       numeric,   -- variance-weighting strength used
+    n_games_with_factors        integer,   -- how many completed games had box scores
+    avg_observed_margin         numeric,   -- avg actual margin across completed games
+    avg_expected_margin         numeric,   -- avg Four Factors-implied margin
+    avg_margin_divergence       numeric,   -- observed - expected (signed)
+
     -- Free-form for debugging
     raw_market_payload          jsonb
 );

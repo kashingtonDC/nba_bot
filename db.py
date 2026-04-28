@@ -20,11 +20,18 @@ log = logging.getLogger(__name__)
 
 
 def get_client() -> Client:
+    """
+    Build a Supabase client. Prefers SUPABASE_SERVICE_KEY (the service-role
+    key, which bypasses RLS) and falls back to SUPABASE_KEY for legacy setups.
+
+    With RLS enabled (see migrations/004_enable_rls.sql), the bot MUST use
+    the service-role key — the anon key will be rejected for writes.
+    """
     url = os.environ.get("SUPABASE_URL")
-    key = os.environ.get("SUPABASE_KEY")
+    key = os.environ.get("SUPABASE_SERVICE_KEY") or os.environ.get("SUPABASE_KEY")
     if not url or not key:
         raise RuntimeError(
-            "SUPABASE_URL and SUPABASE_KEY must be set (see .env.example)"
+            "SUPABASE_URL and SUPABASE_SERVICE_KEY must be set (see .env.example)"
         )
     return create_client(url, key)
 

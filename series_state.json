@@ -1,0 +1,3787 @@
+{
+  "fetched_at": "2026-04-27T04:55:43.593154+00:00",
+  "source": "site.api.espn.com",
+  "date_range": [
+    "2026-04-12",
+    "2026-04-26"
+  ],
+  "series": {
+    "OKC_PHX": {
+      "favorite": "OKC",
+      "underdog": "PHX",
+      "favorite_wins": 3,
+      "underdog_wins": 1,
+      "completed_games": [
+        {
+          "margin": -32.0,
+          "favorite_was_home": true,
+          "date": "2026-04-13",
+          "fav_score": 103,
+          "und_score": 135,
+          "espn_event_id": "401811051",
+          "fav_box": {
+            "fgm": 41,
+            "fga": 95,
+            "fg3m": 18,
+            "fg3a": 46,
+            "ftm": 3,
+            "fta": 9,
+            "oreb": 9,
+            "dreb": 27,
+            "reb": 36,
+            "ast": 32,
+            "stl": 9,
+            "blk": 7,
+            "tov": 10,
+            "pf": 8
+          },
+          "und_box": {
+            "fgm": 56,
+            "fga": 101,
+            "fg3m": 20,
+            "fg3a": 41,
+            "ftm": 3,
+            "fta": 6,
+            "oreb": 13,
+            "dreb": 41,
+            "reb": 54,
+            "ast": 28,
+            "stl": 5,
+            "blk": 8,
+            "tov": 11,
+            "pf": 9
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Branden Carlson",
+              "min": 42,
+              "pts": 26,
+              "reb": 10,
+              "ast": 1
+            },
+            {
+              "name": "Nikola Topic",
+              "min": 39,
+              "pts": 18,
+              "reb": 4,
+              "ast": 14
+            },
+            {
+              "name": "Kenrich Williams",
+              "min": 33,
+              "pts": 13,
+              "reb": 9,
+              "ast": 8
+            },
+            {
+              "name": "Payton Sandfort",
+              "min": 28,
+              "pts": 23,
+              "reb": 4,
+              "ast": 0
+            },
+            {
+              "name": "Aaron Wiggins",
+              "min": 27,
+              "pts": 3,
+              "reb": 2,
+              "ast": 5
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Jamaree Bouyea",
+              "min": 40,
+              "pts": 27,
+              "reb": 5,
+              "ast": 9
+            },
+            {
+              "name": "Rasheer Fleming",
+              "min": 38,
+              "pts": 16,
+              "reb": 6,
+              "ast": 2
+            },
+            {
+              "name": "CJ Huntley",
+              "min": 29,
+              "pts": 10,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Khaman Maluach",
+              "min": 29,
+              "pts": 18,
+              "reb": 14,
+              "ast": 0
+            },
+            {
+              "name": "Koby Brea",
+              "min": 29,
+              "pts": 20,
+              "reb": 5,
+              "ast": 3
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18203,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 35.0,
+          "favorite_was_home": true,
+          "date": "2026-04-19",
+          "fav_score": 119,
+          "und_score": 84,
+          "espn_event_id": "401869192",
+          "fav_box": {
+            "fgm": 42,
+            "fga": 93,
+            "fg3m": 14,
+            "fg3a": 46,
+            "ftm": 21,
+            "fta": 23,
+            "oreb": 19,
+            "dreb": 35,
+            "reb": 54,
+            "ast": 28,
+            "stl": 13,
+            "blk": 7,
+            "tov": 6,
+            "pf": 22
+          },
+          "und_box": {
+            "fgm": 29,
+            "fga": 83,
+            "fg3m": 13,
+            "fg3a": 39,
+            "ftm": 13,
+            "fta": 18,
+            "oreb": 14,
+            "dreb": 31,
+            "reb": 45,
+            "ast": 16,
+            "stl": 3,
+            "blk": 2,
+            "tov": 17,
+            "pf": 18
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Shai Gilgeous-Alexander",
+              "min": 29,
+              "pts": 25,
+              "reb": 4,
+              "ast": 7
+            },
+            {
+              "name": "Jalen Williams",
+              "min": 29,
+              "pts": 22,
+              "reb": 7,
+              "ast": 6
+            },
+            {
+              "name": "Chet Holmgren",
+              "min": 25,
+              "pts": 16,
+              "reb": 7,
+              "ast": 0
+            },
+            {
+              "name": "Luguentz Dort",
+              "min": 24,
+              "pts": 8,
+              "reb": 2,
+              "ast": 2
+            },
+            {
+              "name": "Ajay Mitchell",
+              "min": 22,
+              "pts": 9,
+              "reb": 5,
+              "ast": 2
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Devin Booker",
+              "min": 33,
+              "pts": 23,
+              "reb": 6,
+              "ast": 2
+            },
+            {
+              "name": "Dillon Brooks",
+              "min": 32,
+              "pts": 18,
+              "reb": 7,
+              "ast": 2
+            },
+            {
+              "name": "Jalen Green",
+              "min": 32,
+              "pts": 17,
+              "reb": 5,
+              "ast": 1
+            },
+            {
+              "name": "Oso Ighodaro",
+              "min": 26,
+              "pts": 0,
+              "reb": 9,
+              "ast": 3
+            },
+            {
+              "name": "Ryan Dunn",
+              "min": 25,
+              "pts": 0,
+              "reb": 5,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18203,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 13.0,
+          "favorite_was_home": true,
+          "date": "2026-04-23",
+          "fav_score": 120,
+          "und_score": 107,
+          "espn_event_id": "401869368",
+          "fav_box": {
+            "fgm": 43,
+            "fga": 91,
+            "fg3m": 14,
+            "fg3a": 40,
+            "ftm": 20,
+            "fta": 25,
+            "oreb": 12,
+            "dreb": 28,
+            "reb": 40,
+            "ast": 24,
+            "stl": 14,
+            "blk": 6,
+            "tov": 10,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 85,
+            "fg3m": 11,
+            "fg3a": 31,
+            "ftm": 18,
+            "fta": 22,
+            "oreb": 15,
+            "dreb": 29,
+            "reb": 44,
+            "ast": 23,
+            "stl": 7,
+            "blk": 1,
+            "tov": 21,
+            "pf": 25
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Shai Gilgeous-Alexander",
+              "min": 38,
+              "pts": 37,
+              "reb": 5,
+              "ast": 9
+            },
+            {
+              "name": "Chet Holmgren",
+              "min": 32,
+              "pts": 19,
+              "reb": 8,
+              "ast": 0
+            },
+            {
+              "name": "Ajay Mitchell",
+              "min": 29,
+              "pts": 14,
+              "reb": 5,
+              "ast": 5
+            },
+            {
+              "name": "Luguentz Dort",
+              "min": 24,
+              "pts": 9,
+              "reb": 1,
+              "ast": 0
+            },
+            {
+              "name": "Jalen Williams",
+              "min": 23,
+              "pts": 19,
+              "reb": 1,
+              "ast": 4
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Jalen Green",
+              "min": 41,
+              "pts": 21,
+              "reb": 5,
+              "ast": 3
+            },
+            {
+              "name": "Devin Booker",
+              "min": 40,
+              "pts": 22,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "Dillon Brooks",
+              "min": 38,
+              "pts": 30,
+              "reb": 6,
+              "ast": 1
+            },
+            {
+              "name": "Royce O'Neale",
+              "min": 34,
+              "pts": 16,
+              "reb": 9,
+              "ast": 4
+            },
+            {
+              "name": "Oso Ighodaro",
+              "min": 29,
+              "pts": 7,
+              "reb": 8,
+              "ast": 5
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18203,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 12.0,
+          "favorite_was_home": false,
+          "date": "2026-04-25",
+          "fav_score": 121,
+          "und_score": 109,
+          "espn_event_id": "401869370",
+          "fav_box": {
+            "fgm": 45,
+            "fga": 91,
+            "fg3m": 12,
+            "fg3a": 37,
+            "ftm": 19,
+            "fta": 21,
+            "oreb": 8,
+            "dreb": 35,
+            "reb": 43,
+            "ast": 23,
+            "stl": 6,
+            "blk": 6,
+            "tov": 7,
+            "pf": 22
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 87,
+            "fg3m": 13,
+            "fg3a": 41,
+            "ftm": 20,
+            "fta": 23,
+            "oreb": 9,
+            "dreb": 30,
+            "reb": 39,
+            "ast": 25,
+            "stl": 2,
+            "blk": 2,
+            "tov": 11,
+            "pf": 25
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Shai Gilgeous-Alexander",
+              "min": 38,
+              "pts": 42,
+              "reb": 4,
+              "ast": 8
+            },
+            {
+              "name": "Ajay Mitchell",
+              "min": 32,
+              "pts": 15,
+              "reb": 6,
+              "ast": 2
+            },
+            {
+              "name": "Chet Holmgren",
+              "min": 29,
+              "pts": 10,
+              "reb": 7,
+              "ast": 2
+            },
+            {
+              "name": "Cason Wallace",
+              "min": 26,
+              "pts": 6,
+              "reb": 1,
+              "ast": 2
+            },
+            {
+              "name": "Isaiah Hartenstein",
+              "min": 23,
+              "pts": 9,
+              "reb": 3,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Oso Ighodaro",
+              "min": 39,
+              "pts": 15,
+              "reb": 3,
+              "ast": 4
+            },
+            {
+              "name": "Devin Booker",
+              "min": 39,
+              "pts": 16,
+              "reb": 4,
+              "ast": 7
+            },
+            {
+              "name": "Jalen Green",
+              "min": 39,
+              "pts": 26,
+              "reb": 5,
+              "ast": 6
+            },
+            {
+              "name": "Dillon Brooks",
+              "min": 37,
+              "pts": 33,
+              "reb": 7,
+              "ast": 1
+            },
+            {
+              "name": "Collin Gillespie",
+              "min": 33,
+              "pts": 7,
+              "reb": 10,
+              "ast": 5
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 17071,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "LAL_HOU": {
+      "favorite": "LAL",
+      "underdog": "HOU",
+      "favorite_wins": 3,
+      "underdog_wins": 1,
+      "completed_games": [
+        {
+          "margin": 9.0,
+          "favorite_was_home": true,
+          "date": "2026-04-19",
+          "fav_score": 107,
+          "und_score": 98,
+          "espn_event_id": "401869190",
+          "fav_box": {
+            "fgm": 40,
+            "fga": 66,
+            "fg3m": 10,
+            "fg3a": 19,
+            "ftm": 17,
+            "fta": 26,
+            "oreb": 3,
+            "dreb": 32,
+            "reb": 35,
+            "ast": 29,
+            "stl": 7,
+            "blk": 8,
+            "tov": 18,
+            "pf": 25
+          },
+          "und_box": {
+            "fgm": 35,
+            "fga": 93,
+            "fg3m": 11,
+            "fg3a": 33,
+            "ftm": 17,
+            "fta": 25,
+            "oreb": 21,
+            "dreb": 23,
+            "reb": 44,
+            "ast": 24,
+            "stl": 13,
+            "blk": 3,
+            "tov": 13,
+            "pf": 22
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Rui Hachimura",
+              "min": 42,
+              "pts": 14,
+              "reb": 2,
+              "ast": 0
+            },
+            {
+              "name": "LeBron James",
+              "min": 38,
+              "pts": 19,
+              "reb": 8,
+              "ast": 13
+            },
+            {
+              "name": "Luke Kennard",
+              "min": 38,
+              "pts": 27,
+              "reb": 4,
+              "ast": 3
+            },
+            {
+              "name": "Deandre Ayton",
+              "min": 35,
+              "pts": 19,
+              "reb": 11,
+              "ast": 2
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 34,
+              "pts": 15,
+              "reb": 2,
+              "ast": 8
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Jabari Smith Jr.",
+              "min": 43,
+              "pts": 16,
+              "reb": 12,
+              "ast": 0
+            },
+            {
+              "name": "Amen Thompson",
+              "min": 43,
+              "pts": 17,
+              "reb": 7,
+              "ast": 7
+            },
+            {
+              "name": "Alperen Sengun",
+              "min": 36,
+              "pts": 19,
+              "reb": 8,
+              "ast": 6
+            },
+            {
+              "name": "Reed Sheppard",
+              "min": 36,
+              "pts": 17,
+              "reb": 1,
+              "ast": 8
+            },
+            {
+              "name": "Josh Okogie",
+              "min": 26,
+              "pts": 7,
+              "reb": 0,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19057,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 7.0,
+          "favorite_was_home": true,
+          "date": "2026-04-22",
+          "fav_score": 101,
+          "und_score": 94,
+          "espn_event_id": "401869397",
+          "fav_box": {
+            "fgm": 33,
+            "fga": 72,
+            "fg3m": 13,
+            "fg3a": 28,
+            "ftm": 22,
+            "fta": 28,
+            "oreb": 9,
+            "dreb": 28,
+            "reb": 37,
+            "ast": 21,
+            "stl": 11,
+            "blk": 5,
+            "tov": 12,
+            "pf": 20
+          },
+          "und_box": {
+            "fgm": 36,
+            "fga": 89,
+            "fg3m": 7,
+            "fg3a": 29,
+            "ftm": 15,
+            "fta": 19,
+            "oreb": 17,
+            "dreb": 25,
+            "reb": 42,
+            "ast": 23,
+            "stl": 8,
+            "blk": 6,
+            "tov": 15,
+            "pf": 22
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Rui Hachimura",
+              "min": 43,
+              "pts": 13,
+              "reb": 5,
+              "ast": 2
+            },
+            {
+              "name": "Luke Kennard",
+              "min": 42,
+              "pts": 23,
+              "reb": 6,
+              "ast": 2
+            },
+            {
+              "name": "LeBron James",
+              "min": 39,
+              "pts": 28,
+              "reb": 8,
+              "ast": 7
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 35,
+              "pts": 25,
+              "reb": 2,
+              "ast": 7
+            },
+            {
+              "name": "Deandre Ayton",
+              "min": 27,
+              "pts": 6,
+              "reb": 5,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Amen Thompson",
+              "min": 42,
+              "pts": 16,
+              "reb": 5,
+              "ast": 9
+            },
+            {
+              "name": "Kevin Durant",
+              "min": 41,
+              "pts": 23,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Jabari Smith Jr.",
+              "min": 39,
+              "pts": 18,
+              "reb": 6,
+              "ast": 1
+            },
+            {
+              "name": "Alperen Sengun",
+              "min": 35,
+              "pts": 20,
+              "reb": 11,
+              "ast": 5
+            },
+            {
+              "name": "Tari Eason",
+              "min": 27,
+              "pts": 10,
+              "reb": 8,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19057,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 4.0,
+          "favorite_was_home": false,
+          "date": "2026-04-25",
+          "fav_score": 112,
+          "und_score": 108,
+          "espn_event_id": "401869400",
+          "fav_box": {
+            "fgm": 38,
+            "fga": 79,
+            "fg3m": 12,
+            "fg3a": 29,
+            "ftm": 24,
+            "fta": 32,
+            "oreb": 9,
+            "dreb": 36,
+            "reb": 45,
+            "ast": 28,
+            "stl": 12,
+            "blk": 6,
+            "tov": 20,
+            "pf": 23
+          },
+          "und_box": {
+            "fgm": 40,
+            "fga": 98,
+            "fg3m": 11,
+            "fg3a": 39,
+            "ftm": 17,
+            "fta": 23,
+            "oreb": 18,
+            "dreb": 31,
+            "reb": 49,
+            "ast": 21,
+            "stl": 15,
+            "blk": 6,
+            "tov": 15,
+            "pf": 20
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "LeBron James",
+              "min": 45,
+              "pts": 29,
+              "reb": 13,
+              "ast": 6
+            },
+            {
+              "name": "Luke Kennard",
+              "min": 45,
+              "pts": 14,
+              "reb": 6,
+              "ast": 6
+            },
+            {
+              "name": "Rui Hachimura",
+              "min": 44,
+              "pts": 22,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 39,
+              "pts": 21,
+              "reb": 4,
+              "ast": 10
+            },
+            {
+              "name": "Deandre Ayton",
+              "min": 33,
+              "pts": 2,
+              "reb": 6,
+              "ast": 2
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Amen Thompson",
+              "min": 48,
+              "pts": 26,
+              "reb": 11,
+              "ast": 4
+            },
+            {
+              "name": "Alperen Sengun",
+              "min": 47,
+              "pts": 33,
+              "reb": 16,
+              "ast": 6
+            },
+            {
+              "name": "Tari Eason",
+              "min": 46,
+              "pts": 5,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Reed Sheppard",
+              "min": 46,
+              "pts": 17,
+              "reb": 4,
+              "ast": 7
+            },
+            {
+              "name": "Jabari Smith Jr.",
+              "min": 44,
+              "pts": 24,
+              "reb": 6,
+              "ast": 1
+            }
+          ],
+          "is_overtime": true,
+          "attendance": 18055,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -19.0,
+          "favorite_was_home": false,
+          "date": "2026-04-27",
+          "fav_score": 96,
+          "und_score": 115,
+          "espn_event_id": "401869405",
+          "fav_box": {
+            "fgm": 37,
+            "fga": 74,
+            "fg3m": 5,
+            "fg3a": 22,
+            "ftm": 17,
+            "fta": 21,
+            "oreb": 10,
+            "dreb": 27,
+            "reb": 37,
+            "ast": 23,
+            "stl": 6,
+            "blk": 7,
+            "tov": 23,
+            "pf": 20
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 81,
+            "fg3m": 12,
+            "fg3a": 30,
+            "ftm": 25,
+            "fta": 31,
+            "oreb": 11,
+            "dreb": 24,
+            "reb": 35,
+            "ast": 19,
+            "stl": 17,
+            "blk": 4,
+            "tov": 13,
+            "pf": 22
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "LeBron James",
+              "min": 33,
+              "pts": 10,
+              "reb": 4,
+              "ast": 9
+            },
+            {
+              "name": "Luke Kennard",
+              "min": 32,
+              "pts": 7,
+              "reb": 3,
+              "ast": 2
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 31,
+              "pts": 9,
+              "reb": 2,
+              "ast": 5
+            },
+            {
+              "name": "Rui Hachimura",
+              "min": 30,
+              "pts": 13,
+              "reb": 3,
+              "ast": 1
+            },
+            {
+              "name": "Deandre Ayton",
+              "min": 25,
+              "pts": 19,
+              "reb": 10,
+              "ast": 0
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Jabari Smith Jr.",
+              "min": 42,
+              "pts": 16,
+              "reb": 8,
+              "ast": 3
+            },
+            {
+              "name": "Amen Thompson",
+              "min": 41,
+              "pts": 23,
+              "reb": 4,
+              "ast": 7
+            },
+            {
+              "name": "Alperen Sengun",
+              "min": 33,
+              "pts": 19,
+              "reb": 6,
+              "ast": 2
+            },
+            {
+              "name": "Tari Eason",
+              "min": 30,
+              "pts": 20,
+              "reb": 8,
+              "ast": 2
+            },
+            {
+              "name": "Reed Sheppard",
+              "min": 29,
+              "pts": 17,
+              "reb": 1,
+              "ast": 3
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18055,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "DEN_MIN": {
+      "favorite": "DEN",
+      "underdog": "MIN",
+      "favorite_wins": 1,
+      "underdog_wins": 3,
+      "completed_games": [
+        {
+          "margin": 11.0,
+          "favorite_was_home": true,
+          "date": "2026-04-18",
+          "fav_score": 116,
+          "und_score": 105,
+          "espn_event_id": "401869188",
+          "fav_box": {
+            "fgm": 38,
+            "fga": 87,
+            "fg3m": 10,
+            "fg3a": 36,
+            "ftm": 30,
+            "fta": 33,
+            "oreb": 8,
+            "dreb": 39,
+            "reb": 47,
+            "ast": 27,
+            "stl": 7,
+            "blk": 1,
+            "tov": 13,
+            "pf": 17
+          },
+          "und_box": {
+            "fgm": 40,
+            "fga": 87,
+            "fg3m": 11,
+            "fg3a": 34,
+            "ftm": 14,
+            "fta": 19,
+            "oreb": 7,
+            "dreb": 36,
+            "reb": 43,
+            "ast": 21,
+            "stl": 7,
+            "blk": 3,
+            "tov": 13,
+            "pf": 25
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Nikola Jokic",
+              "min": 40,
+              "pts": 25,
+              "reb": 13,
+              "ast": 11
+            },
+            {
+              "name": "Jamal Murray",
+              "min": 39,
+              "pts": 30,
+              "reb": 5,
+              "ast": 7
+            },
+            {
+              "name": "Christian Braun",
+              "min": 36,
+              "pts": 12,
+              "reb": 8,
+              "ast": 1
+            },
+            {
+              "name": "Cameron Johnson",
+              "min": 33,
+              "pts": 12,
+              "reb": 0,
+              "ast": 1
+            },
+            {
+              "name": "Aaron Gordon",
+              "min": 29,
+              "pts": 17,
+              "reb": 8,
+              "ast": 3
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Rudy Gobert",
+              "min": 38,
+              "pts": 17,
+              "reb": 10,
+              "ast": 2
+            },
+            {
+              "name": "Anthony Edwards",
+              "min": 38,
+              "pts": 22,
+              "reb": 9,
+              "ast": 7
+            },
+            {
+              "name": "Jaden McDaniels",
+              "min": 33,
+              "pts": 16,
+              "reb": 8,
+              "ast": 3
+            },
+            {
+              "name": "Julius Randle",
+              "min": 31,
+              "pts": 16,
+              "reb": 7,
+              "ast": 2
+            },
+            {
+              "name": "Donte DiVincenzo",
+              "min": 31,
+              "pts": 12,
+              "reb": 4,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19796,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -5.0,
+          "favorite_was_home": true,
+          "date": "2026-04-21",
+          "fav_score": 114,
+          "und_score": 119,
+          "espn_event_id": "401869395",
+          "fav_box": {
+            "fgm": 38,
+            "fga": 86,
+            "fg3m": 15,
+            "fg3a": 41,
+            "ftm": 23,
+            "fta": 30,
+            "oreb": 5,
+            "dreb": 38,
+            "reb": 43,
+            "ast": 28,
+            "stl": 5,
+            "blk": 1,
+            "tov": 9,
+            "pf": 24
+          },
+          "und_box": {
+            "fgm": 43,
+            "fga": 90,
+            "fg3m": 14,
+            "fg3a": 34,
+            "ftm": 19,
+            "fta": 30,
+            "oreb": 9,
+            "dreb": 40,
+            "reb": 49,
+            "ast": 30,
+            "stl": 6,
+            "blk": 2,
+            "tov": 12,
+            "pf": 30
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jamal Murray",
+              "min": 43,
+              "pts": 30,
+              "reb": 7,
+              "ast": 7
+            },
+            {
+              "name": "Nikola Jokic",
+              "min": 40,
+              "pts": 24,
+              "reb": 15,
+              "ast": 8
+            },
+            {
+              "name": "Aaron Gordon",
+              "min": 37,
+              "pts": 8,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "Christian Braun",
+              "min": 35,
+              "pts": 16,
+              "reb": 3,
+              "ast": 5
+            },
+            {
+              "name": "Cameron Johnson",
+              "min": 28,
+              "pts": 13,
+              "reb": 1,
+              "ast": 2
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Anthony Edwards",
+              "min": 40,
+              "pts": 30,
+              "reb": 10,
+              "ast": 2
+            },
+            {
+              "name": "Jaden McDaniels",
+              "min": 37,
+              "pts": 14,
+              "reb": 2,
+              "ast": 3
+            },
+            {
+              "name": "Julius Randle",
+              "min": 36,
+              "pts": 24,
+              "reb": 9,
+              "ast": 6
+            },
+            {
+              "name": "Donte DiVincenzo",
+              "min": 31,
+              "pts": 16,
+              "reb": 7,
+              "ast": 6
+            },
+            {
+              "name": "Rudy Gobert",
+              "min": 28,
+              "pts": 2,
+              "reb": 7,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19692,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -17.0,
+          "favorite_was_home": false,
+          "date": "2026-04-24",
+          "fav_score": 96,
+          "und_score": 113,
+          "espn_event_id": "401869398",
+          "fav_box": {
+            "fgm": 28,
+            "fga": 82,
+            "fg3m": 8,
+            "fg3a": 32,
+            "ftm": 32,
+            "fta": 40,
+            "oreb": 6,
+            "dreb": 34,
+            "reb": 40,
+            "ast": 12,
+            "stl": 5,
+            "blk": 2,
+            "tov": 10,
+            "pf": 18
+          },
+          "und_box": {
+            "fgm": 44,
+            "fga": 93,
+            "fg3m": 9,
+            "fg3a": 34,
+            "ftm": 16,
+            "fta": 21,
+            "oreb": 12,
+            "dreb": 41,
+            "reb": 53,
+            "ast": 31,
+            "stl": 6,
+            "blk": 5,
+            "tov": 10,
+            "pf": 27
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Nikola Jokic",
+              "min": 35,
+              "pts": 27,
+              "reb": 15,
+              "ast": 3
+            },
+            {
+              "name": "Jamal Murray",
+              "min": 35,
+              "pts": 16,
+              "reb": 3,
+              "ast": 4
+            },
+            {
+              "name": "Spencer Jones",
+              "min": 28,
+              "pts": 6,
+              "reb": 1,
+              "ast": 0
+            },
+            {
+              "name": "Tim Hardaway Jr.",
+              "min": 28,
+              "pts": 11,
+              "reb": 5,
+              "ast": 0
+            },
+            {
+              "name": "Cameron Johnson",
+              "min": 24,
+              "pts": 6,
+              "reb": 2,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Jaden McDaniels",
+              "min": 41,
+              "pts": 20,
+              "reb": 10,
+              "ast": 3
+            },
+            {
+              "name": "Rudy Gobert",
+              "min": 36,
+              "pts": 10,
+              "reb": 12,
+              "ast": 3
+            },
+            {
+              "name": "Julius Randle",
+              "min": 33,
+              "pts": 15,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Donte DiVincenzo",
+              "min": 33,
+              "pts": 15,
+              "reb": 4,
+              "ast": 7
+            },
+            {
+              "name": "Ayo Dosunmu",
+              "min": 32,
+              "pts": 25,
+              "reb": 3,
+              "ast": 9
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18978,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -16.0,
+          "favorite_was_home": false,
+          "date": "2026-04-26",
+          "fav_score": 96,
+          "und_score": 112,
+          "espn_event_id": "401869399",
+          "fav_box": {
+            "fgm": 33,
+            "fga": 87,
+            "fg3m": 6,
+            "fg3a": 28,
+            "ftm": 24,
+            "fta": 28,
+            "oreb": 12,
+            "dreb": 26,
+            "reb": 38,
+            "ast": 21,
+            "stl": 7,
+            "blk": 7,
+            "tov": 10,
+            "pf": 22
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 89,
+            "fg3m": 9,
+            "fg3a": 25,
+            "ftm": 25,
+            "fta": 26,
+            "oreb": 16,
+            "dreb": 34,
+            "reb": 50,
+            "ast": 22,
+            "stl": 6,
+            "blk": 5,
+            "tov": 12,
+            "pf": 22
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jamal Murray",
+              "min": 42,
+              "pts": 30,
+              "reb": 5,
+              "ast": 5
+            },
+            {
+              "name": "Nikola Jokic",
+              "min": 41,
+              "pts": 24,
+              "reb": 15,
+              "ast": 9
+            },
+            {
+              "name": "Christian Braun",
+              "min": 34,
+              "pts": 8,
+              "reb": 5,
+              "ast": 1
+            },
+            {
+              "name": "Tim Hardaway Jr.",
+              "min": 28,
+              "pts": 10,
+              "reb": 5,
+              "ast": 2
+            },
+            {
+              "name": "Cameron Johnson",
+              "min": 27,
+              "pts": 9,
+              "reb": 2,
+              "ast": 2
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Ayo Dosunmu",
+              "min": 42,
+              "pts": 43,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Rudy Gobert",
+              "min": 36,
+              "pts": 4,
+              "reb": 15,
+              "ast": 2
+            },
+            {
+              "name": "Jaden McDaniels",
+              "min": 33,
+              "pts": 12,
+              "reb": 8,
+              "ast": 3
+            },
+            {
+              "name": "Julius Randle",
+              "min": 32,
+              "pts": 15,
+              "reb": 9,
+              "ast": 2
+            },
+            {
+              "name": "Naz Reid",
+              "min": 28,
+              "pts": 17,
+              "reb": 9,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18978,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "SAS_POR": {
+      "favorite": "SAS",
+      "underdog": "POR",
+      "favorite_wins": 3,
+      "underdog_wins": 1,
+      "completed_games": [
+        {
+          "margin": 13.0,
+          "favorite_was_home": true,
+          "date": "2026-04-20",
+          "fav_score": 111,
+          "und_score": 98,
+          "espn_event_id": "401869194",
+          "fav_box": {
+            "fgm": 40,
+            "fga": 84,
+            "fg3m": 15,
+            "fg3a": 33,
+            "ftm": 16,
+            "fta": 19,
+            "oreb": 11,
+            "dreb": 34,
+            "reb": 45,
+            "ast": 24,
+            "stl": 6,
+            "blk": 5,
+            "tov": 13,
+            "pf": 19
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 91,
+            "fg3m": 10,
+            "fg3a": 38,
+            "ftm": 10,
+            "fta": 12,
+            "oreb": 8,
+            "dreb": 30,
+            "reb": 38,
+            "ast": 28,
+            "stl": 9,
+            "blk": 2,
+            "tov": 10,
+            "pf": 17
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Deni Avdija",
+              "min": 39,
+              "pts": 30,
+              "reb": 10,
+              "ast": 5
+            },
+            {
+              "name": "Jrue Holiday",
+              "min": 36,
+              "pts": 9,
+              "reb": 4,
+              "ast": 11
+            },
+            {
+              "name": "Toumani Camara",
+              "min": 32,
+              "pts": 8,
+              "reb": 2,
+              "ast": 1
+            },
+            {
+              "name": "Scoot Henderson",
+              "min": 27,
+              "pts": 18,
+              "reb": 3,
+              "ast": 3
+            },
+            {
+              "name": "Donovan Clingan",
+              "min": 22,
+              "pts": 4,
+              "reb": 7,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19372,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -3.0,
+          "favorite_was_home": true,
+          "date": "2026-04-22",
+          "fav_score": 103,
+          "und_score": 106,
+          "espn_event_id": "401869378",
+          "fav_box": {
+            "fgm": 38,
+            "fga": 86,
+            "fg3m": 7,
+            "fg3a": 24,
+            "ftm": 20,
+            "fta": 28,
+            "oreb": 12,
+            "dreb": 33,
+            "reb": 45,
+            "ast": 19,
+            "stl": 13,
+            "blk": 5,
+            "tov": 16,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 89,
+            "fg3m": 13,
+            "fg3a": 38,
+            "ftm": 17,
+            "fta": 23,
+            "oreb": 15,
+            "dreb": 28,
+            "reb": 43,
+            "ast": 20,
+            "stl": 8,
+            "blk": 11,
+            "tov": 15,
+            "pf": 23
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Jrue Holiday",
+              "min": 39,
+              "pts": 16,
+              "reb": 5,
+              "ast": 9
+            },
+            {
+              "name": "Scoot Henderson",
+              "min": 38,
+              "pts": 31,
+              "reb": 1,
+              "ast": 0
+            },
+            {
+              "name": "Toumani Camara",
+              "min": 35,
+              "pts": 10,
+              "reb": 9,
+              "ast": 1
+            },
+            {
+              "name": "Deni Avdija",
+              "min": 30,
+              "pts": 14,
+              "reb": 4,
+              "ast": 3
+            },
+            {
+              "name": "Donovan Clingan",
+              "min": 24,
+              "pts": 9,
+              "reb": 10,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19338,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 12.0,
+          "favorite_was_home": false,
+          "date": "2026-04-25",
+          "fav_score": 120,
+          "und_score": 108,
+          "espn_event_id": "401869382",
+          "fav_box": {
+            "fgm": 41,
+            "fga": 87,
+            "fg3m": 16,
+            "fg3a": 33,
+            "ftm": 22,
+            "fta": 28,
+            "oreb": 14,
+            "dreb": 36,
+            "reb": 50,
+            "ast": 27,
+            "stl": 6,
+            "blk": 8,
+            "tov": 13,
+            "pf": 25
+          },
+          "und_box": {
+            "fgm": 37,
+            "fga": 90,
+            "fg3m": 14,
+            "fg3a": 38,
+            "ftm": 20,
+            "fta": 29,
+            "oreb": 16,
+            "dreb": 29,
+            "reb": 45,
+            "ast": 21,
+            "stl": 7,
+            "blk": 4,
+            "tov": 10,
+            "pf": 24
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Jrue Holiday",
+              "min": 41,
+              "pts": 29,
+              "reb": 6,
+              "ast": 5
+            },
+            {
+              "name": "Deni Avdija",
+              "min": 37,
+              "pts": 19,
+              "reb": 6,
+              "ast": 9
+            },
+            {
+              "name": "Scoot Henderson",
+              "min": 36,
+              "pts": 21,
+              "reb": 2,
+              "ast": 1
+            },
+            {
+              "name": "Toumani Camara",
+              "min": 33,
+              "pts": 2,
+              "reb": 3,
+              "ast": 1
+            },
+            {
+              "name": "Robert Williams III",
+              "min": 25,
+              "pts": 11,
+              "reb": 9,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 20438,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 21.0,
+          "favorite_was_home": false,
+          "date": "2026-04-26",
+          "fav_score": 114,
+          "und_score": 93,
+          "espn_event_id": "401869385",
+          "fav_box": {
+            "fgm": 43,
+            "fga": 87,
+            "fg3m": 14,
+            "fg3a": 33,
+            "ftm": 14,
+            "fta": 17,
+            "oreb": 9,
+            "dreb": 31,
+            "reb": 40,
+            "ast": 26,
+            "stl": 12,
+            "blk": 10,
+            "tov": 12,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 32,
+            "fga": 80,
+            "fg3m": 10,
+            "fg3a": 31,
+            "ftm": 19,
+            "fta": 23,
+            "oreb": 7,
+            "dreb": 32,
+            "reb": 39,
+            "ast": 14,
+            "stl": 6,
+            "blk": 5,
+            "tov": 18,
+            "pf": 20
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Deni Avdija",
+              "min": 37,
+              "pts": 26,
+              "reb": 7,
+              "ast": 3
+            },
+            {
+              "name": "Jrue Holiday",
+              "min": 37,
+              "pts": 20,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Jerami Grant",
+              "min": 33,
+              "pts": 17,
+              "reb": 5,
+              "ast": 1
+            },
+            {
+              "name": "Toumani Camara",
+              "min": 31,
+              "pts": 8,
+              "reb": 5,
+              "ast": 1
+            },
+            {
+              "name": "Scoot Henderson",
+              "min": 27,
+              "pts": 0,
+              "reb": 0,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19717,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "BOS_PHI": {
+      "favorite": "BOS",
+      "underdog": "PHI",
+      "favorite_wins": 3,
+      "underdog_wins": 1,
+      "completed_games": [
+        {
+          "margin": 32.0,
+          "favorite_was_home": true,
+          "date": "2026-04-19",
+          "fav_score": 123,
+          "und_score": 91,
+          "espn_event_id": "401869191",
+          "fav_box": {
+            "fgm": 45,
+            "fga": 90,
+            "fg3m": 16,
+            "fg3a": 44,
+            "ftm": 17,
+            "fta": 22,
+            "oreb": 5,
+            "dreb": 38,
+            "reb": 43,
+            "ast": 31,
+            "stl": 7,
+            "blk": 3,
+            "tov": 8,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 35,
+            "fga": 90,
+            "fg3m": 4,
+            "fg3a": 23,
+            "ftm": 17,
+            "fta": 23,
+            "oreb": 11,
+            "dreb": 29,
+            "reb": 40,
+            "ast": 20,
+            "stl": 3,
+            "blk": 1,
+            "tov": 14,
+            "pf": 20
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Payton Pritchard",
+              "min": 34,
+              "pts": 12,
+              "reb": 3,
+              "ast": 6
+            },
+            {
+              "name": "Derrick White",
+              "min": 33,
+              "pts": 10,
+              "reb": 3,
+              "ast": 6
+            },
+            {
+              "name": "Jayson Tatum",
+              "min": 32,
+              "pts": 25,
+              "reb": 11,
+              "ast": 7
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 30,
+              "pts": 26,
+              "reb": 4,
+              "ast": 3
+            },
+            {
+              "name": "Sam Hauser",
+              "min": 28,
+              "pts": 12,
+              "reb": 7,
+              "ast": 2
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 37,
+              "pts": 21,
+              "reb": 1,
+              "ast": 8
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 34,
+              "pts": 13,
+              "reb": 3,
+              "ast": 3
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 31,
+              "pts": 10,
+              "reb": 7,
+              "ast": 2
+            },
+            {
+              "name": "Paul George",
+              "min": 28,
+              "pts": 17,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Quentin Grimes",
+              "min": 25,
+              "pts": 7,
+              "reb": 4,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19156,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -14.0,
+          "favorite_was_home": true,
+          "date": "2026-04-21",
+          "fav_score": 97,
+          "und_score": 111,
+          "espn_event_id": "401869396",
+          "fav_box": {
+            "fgm": 35,
+            "fga": 89,
+            "fg3m": 13,
+            "fg3a": 50,
+            "ftm": 14,
+            "fta": 18,
+            "oreb": 18,
+            "dreb": 32,
+            "reb": 50,
+            "ast": 24,
+            "stl": 3,
+            "blk": 4,
+            "tov": 11,
+            "pf": 17
+          },
+          "und_box": {
+            "fgm": 43,
+            "fga": 90,
+            "fg3m": 19,
+            "fg3a": 39,
+            "ftm": 6,
+            "fta": 11,
+            "oreb": 12,
+            "dreb": 30,
+            "reb": 42,
+            "ast": 18,
+            "stl": 6,
+            "blk": 4,
+            "tov": 7,
+            "pf": 17
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jayson Tatum",
+              "min": 39,
+              "pts": 19,
+              "reb": 14,
+              "ast": 9
+            },
+            {
+              "name": "Derrick White",
+              "min": 39,
+              "pts": 8,
+              "reb": 2,
+              "ast": 3
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 38,
+              "pts": 36,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "Neemias Queta",
+              "min": 28,
+              "pts": 8,
+              "reb": 6,
+              "ast": 0
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 27,
+              "pts": 4,
+              "reb": 5,
+              "ast": 5
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 40,
+              "pts": 29,
+              "reb": 4,
+              "ast": 9
+            },
+            {
+              "name": "Paul George",
+              "min": 35,
+              "pts": 19,
+              "reb": 4,
+              "ast": 3
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 35,
+              "pts": 30,
+              "reb": 10,
+              "ast": 2
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 32,
+              "pts": 12,
+              "reb": 5,
+              "ast": 0
+            },
+            {
+              "name": "Andre Drummond",
+              "min": 26,
+              "pts": 10,
+              "reb": 8,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19156,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 8.0,
+          "favorite_was_home": false,
+          "date": "2026-04-24",
+          "fav_score": 108,
+          "und_score": 100,
+          "espn_event_id": "401869404",
+          "fav_box": {
+            "fgm": 36,
+            "fga": 81,
+            "fg3m": 20,
+            "fg3a": 47,
+            "ftm": 16,
+            "fta": 17,
+            "oreb": 15,
+            "dreb": 30,
+            "reb": 45,
+            "ast": 21,
+            "stl": 6,
+            "blk": 11,
+            "tov": 17,
+            "pf": 19
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 87,
+            "fg3m": 12,
+            "fg3a": 35,
+            "ftm": 12,
+            "fta": 16,
+            "oreb": 13,
+            "dreb": 24,
+            "reb": 37,
+            "ast": 18,
+            "stl": 6,
+            "blk": 8,
+            "tov": 11,
+            "pf": 20
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jayson Tatum",
+              "min": 42,
+              "pts": 25,
+              "reb": 5,
+              "ast": 7
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 40,
+              "pts": 25,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "Derrick White",
+              "min": 34,
+              "pts": 11,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 33,
+              "pts": 15,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Nikola Vucevic",
+              "min": 31,
+              "pts": 11,
+              "reb": 6,
+              "ast": 4
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 42,
+              "pts": 31,
+              "reb": 4,
+              "ast": 6
+            },
+            {
+              "name": "Paul George",
+              "min": 41,
+              "pts": 18,
+              "reb": 0,
+              "ast": 5
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 41,
+              "pts": 10,
+              "reb": 10,
+              "ast": 5
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 40,
+              "pts": 17,
+              "reb": 6,
+              "ast": 1
+            },
+            {
+              "name": "Andre Drummond",
+              "min": 26,
+              "pts": 12,
+              "reb": 6,
+              "ast": 0
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 32.0,
+          "favorite_was_home": false,
+          "date": "2026-04-26",
+          "fav_score": 128,
+          "und_score": 96,
+          "espn_event_id": "401869406",
+          "fav_box": {
+            "fgm": 42,
+            "fga": 87,
+            "fg3m": 24,
+            "fg3a": 53,
+            "ftm": 20,
+            "fta": 28,
+            "oreb": 14,
+            "dreb": 37,
+            "reb": 51,
+            "ast": 28,
+            "stl": 5,
+            "blk": 5,
+            "tov": 12,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 33,
+            "fga": 80,
+            "fg3m": 9,
+            "fg3a": 30,
+            "ftm": 21,
+            "fta": 24,
+            "oreb": 6,
+            "dreb": 24,
+            "reb": 30,
+            "ast": 25,
+            "stl": 6,
+            "blk": 7,
+            "tov": 8,
+            "pf": 21
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jayson Tatum",
+              "min": 35,
+              "pts": 30,
+              "reb": 7,
+              "ast": 11
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 35,
+              "pts": 32,
+              "reb": 4,
+              "ast": 5
+            },
+            {
+              "name": "Derrick White",
+              "min": 33,
+              "pts": 6,
+              "reb": 6,
+              "ast": 3
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 31,
+              "pts": 20,
+              "reb": 7,
+              "ast": 1
+            },
+            {
+              "name": "Sam Hauser",
+              "min": 22,
+              "pts": 6,
+              "reb": 4,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 40,
+              "pts": 22,
+              "reb": 2,
+              "ast": 6
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 36,
+              "pts": 6,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 34,
+              "pts": 26,
+              "reb": 10,
+              "ast": 6
+            },
+            {
+              "name": "Paul George",
+              "min": 31,
+              "pts": 16,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 31,
+              "pts": 2,
+              "reb": 4,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "DET_ORL": {
+      "favorite": "DET",
+      "underdog": "ORL",
+      "favorite_wins": 1,
+      "underdog_wins": 2,
+      "completed_games": [
+        {
+          "margin": -11.0,
+          "favorite_was_home": true,
+          "date": "2026-04-19",
+          "fav_score": 101,
+          "und_score": 112,
+          "espn_event_id": "401869193",
+          "fav_box": {
+            "fgm": 31,
+            "fga": 77,
+            "fg3m": 10,
+            "fg3a": 32,
+            "ftm": 29,
+            "fta": 38,
+            "oreb": 6,
+            "dreb": 33,
+            "reb": 39,
+            "ast": 19,
+            "stl": 9,
+            "blk": 6,
+            "tov": 14,
+            "pf": 17
+          },
+          "und_box": {
+            "fgm": 44,
+            "fga": 90,
+            "fg3m": 10,
+            "fg3a": 34,
+            "ftm": 14,
+            "fta": 19,
+            "oreb": 11,
+            "dreb": 34,
+            "reb": 45,
+            "ast": 26,
+            "stl": 11,
+            "blk": 6,
+            "tov": 12,
+            "pf": 24
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Cade Cunningham",
+              "min": 40,
+              "pts": 39,
+              "reb": 5,
+              "ast": 4
+            },
+            {
+              "name": "Tobias Harris",
+              "min": 36,
+              "pts": 17,
+              "reb": 6,
+              "ast": 3
+            },
+            {
+              "name": "Jalen Duren",
+              "min": 33,
+              "pts": 8,
+              "reb": 7,
+              "ast": 1
+            },
+            {
+              "name": "Duncan Robinson",
+              "min": 26,
+              "pts": 9,
+              "reb": 0,
+              "ast": 4
+            },
+            {
+              "name": "Ausar Thompson",
+              "min": 25,
+              "pts": 8,
+              "reb": 7,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Paolo Banchero",
+              "min": 37,
+              "pts": 23,
+              "reb": 9,
+              "ast": 4
+            },
+            {
+              "name": "Wendell Carter Jr.",
+              "min": 37,
+              "pts": 17,
+              "reb": 7,
+              "ast": 5
+            },
+            {
+              "name": "Jalen Suggs",
+              "min": 36,
+              "pts": 16,
+              "reb": 4,
+              "ast": 4
+            },
+            {
+              "name": "Desmond Bane",
+              "min": 35,
+              "pts": 17,
+              "reb": 6,
+              "ast": 5
+            },
+            {
+              "name": "Franz Wagner",
+              "min": 32,
+              "pts": 19,
+              "reb": 5,
+              "ast": 4
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 20062,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 15.0,
+          "favorite_was_home": true,
+          "date": "2026-04-22",
+          "fav_score": 98,
+          "und_score": 83,
+          "espn_event_id": "401869411",
+          "fav_box": {
+            "fgm": 39,
+            "fga": 85,
+            "fg3m": 6,
+            "fg3a": 26,
+            "ftm": 14,
+            "fta": 24,
+            "oreb": 17,
+            "dreb": 40,
+            "reb": 57,
+            "ast": 22,
+            "stl": 9,
+            "blk": 11,
+            "tov": 22,
+            "pf": 23
+          },
+          "und_box": {
+            "fgm": 26,
+            "fga": 80,
+            "fg3m": 8,
+            "fg3a": 32,
+            "ftm": 23,
+            "fta": 32,
+            "oreb": 13,
+            "dreb": 29,
+            "reb": 42,
+            "ast": 17,
+            "stl": 16,
+            "blk": 6,
+            "tov": 17,
+            "pf": 25
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Cade Cunningham",
+              "min": 37,
+              "pts": 27,
+              "reb": 6,
+              "ast": 11
+            },
+            {
+              "name": "Tobias Harris",
+              "min": 33,
+              "pts": 16,
+              "reb": 11,
+              "ast": 1
+            },
+            {
+              "name": "Duncan Robinson",
+              "min": 32,
+              "pts": 10,
+              "reb": 6,
+              "ast": 3
+            },
+            {
+              "name": "Jalen Duren",
+              "min": 32,
+              "pts": 11,
+              "reb": 9,
+              "ast": 4
+            },
+            {
+              "name": "Ausar Thompson",
+              "min": 28,
+              "pts": 11,
+              "reb": 8,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Paolo Banchero",
+              "min": 34,
+              "pts": 18,
+              "reb": 6,
+              "ast": 8
+            },
+            {
+              "name": "Desmond Bane",
+              "min": 34,
+              "pts": 12,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Franz Wagner",
+              "min": 32,
+              "pts": 12,
+              "reb": 7,
+              "ast": 1
+            },
+            {
+              "name": "Jalen Suggs",
+              "min": 32,
+              "pts": 19,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Wendell Carter Jr.",
+              "min": 24,
+              "pts": 3,
+              "reb": 5,
+              "ast": 0
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 20062,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -8.0,
+          "favorite_was_home": false,
+          "date": "2026-04-25",
+          "fav_score": 105,
+          "und_score": 113,
+          "espn_event_id": "401869414",
+          "fav_box": {
+            "fgm": 37,
+            "fga": 85,
+            "fg3m": 11,
+            "fg3a": 32,
+            "ftm": 20,
+            "fta": 24,
+            "oreb": 10,
+            "dreb": 32,
+            "reb": 42,
+            "ast": 24,
+            "stl": 6,
+            "blk": 12,
+            "tov": 16,
+            "pf": 25
+          },
+          "und_box": {
+            "fgm": 36,
+            "fga": 89,
+            "fg3m": 15,
+            "fg3a": 33,
+            "ftm": 26,
+            "fta": 33,
+            "oreb": 14,
+            "dreb": 34,
+            "reb": 48,
+            "ast": 22,
+            "stl": 8,
+            "blk": 8,
+            "tov": 14,
+            "pf": 24
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Cade Cunningham",
+              "min": 41,
+              "pts": 27,
+              "reb": 5,
+              "ast": 9
+            },
+            {
+              "name": "Tobias Harris",
+              "min": 38,
+              "pts": 23,
+              "reb": 7,
+              "ast": 2
+            },
+            {
+              "name": "Ausar Thompson",
+              "min": 37,
+              "pts": 17,
+              "reb": 8,
+              "ast": 3
+            },
+            {
+              "name": "Duncan Robinson",
+              "min": 28,
+              "pts": 10,
+              "reb": 0,
+              "ast": 3
+            },
+            {
+              "name": "Jalen Duren",
+              "min": 27,
+              "pts": 8,
+              "reb": 9,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Paolo Banchero",
+              "min": 38,
+              "pts": 25,
+              "reb": 12,
+              "ast": 9
+            },
+            {
+              "name": "Desmond Bane",
+              "min": 38,
+              "pts": 25,
+              "reb": 7,
+              "ast": 0
+            },
+            {
+              "name": "Wendell Carter Jr.",
+              "min": 37,
+              "pts": 14,
+              "reb": 17,
+              "ast": 3
+            },
+            {
+              "name": "Franz Wagner",
+              "min": 34,
+              "pts": 17,
+              "reb": 5,
+              "ast": 6
+            },
+            {
+              "name": "Jalen Suggs",
+              "min": 33,
+              "pts": 15,
+              "reb": 3,
+              "ast": 3
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18846,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "CLE_TOR": {
+      "favorite": "CLE",
+      "underdog": "TOR",
+      "favorite_wins": 2,
+      "underdog_wins": 2,
+      "completed_games": [
+        {
+          "margin": 13.0,
+          "favorite_was_home": true,
+          "date": "2026-04-18",
+          "fav_score": 126,
+          "und_score": 113,
+          "espn_event_id": "401869187",
+          "fav_box": {
+            "fgm": 44,
+            "fga": 81,
+            "fg3m": 16,
+            "fg3a": 32,
+            "ftm": 22,
+            "fta": 28,
+            "oreb": 7,
+            "dreb": 26,
+            "reb": 33,
+            "ast": 24,
+            "stl": 9,
+            "blk": 0,
+            "tov": 15,
+            "pf": 28
+          },
+          "und_box": {
+            "fgm": 37,
+            "fga": 71,
+            "fg3m": 13,
+            "fg3a": 27,
+            "ftm": 26,
+            "fta": 35,
+            "oreb": 4,
+            "dreb": 23,
+            "reb": 27,
+            "ast": 29,
+            "stl": 3,
+            "blk": 4,
+            "tov": 17,
+            "pf": 23
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Evan Mobley",
+              "min": 33,
+              "pts": 17,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "James Harden",
+              "min": 33,
+              "pts": 22,
+              "reb": 2,
+              "ast": 10
+            },
+            {
+              "name": "Donovan Mitchell",
+              "min": 31,
+              "pts": 32,
+              "reb": 3,
+              "ast": 4
+            },
+            {
+              "name": "Jarrett Allen",
+              "min": 28,
+              "pts": 10,
+              "reb": 7,
+              "ast": 0
+            },
+            {
+              "name": "Max Strus",
+              "min": 24,
+              "pts": 24,
+              "reb": 3,
+              "ast": 0
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Brandon Ingram",
+              "min": 36,
+              "pts": 17,
+              "reb": 2,
+              "ast": 4
+            },
+            {
+              "name": "Scottie Barnes",
+              "min": 32,
+              "pts": 21,
+              "reb": 1,
+              "ast": 7
+            },
+            {
+              "name": "RJ Barrett",
+              "min": 31,
+              "pts": 24,
+              "reb": 2,
+              "ast": 3
+            },
+            {
+              "name": "Jamal Shead",
+              "min": 28,
+              "pts": 17,
+              "reb": 1,
+              "ast": 2
+            },
+            {
+              "name": "Ja'Kobe Walter",
+              "min": 28,
+              "pts": 7,
+              "reb": 2,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19432,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 10.0,
+          "favorite_was_home": true,
+          "date": "2026-04-20",
+          "fav_score": 115,
+          "und_score": 105,
+          "espn_event_id": "401869369",
+          "fav_box": {
+            "fgm": 44,
+            "fga": 83,
+            "fg3m": 13,
+            "fg3a": 40,
+            "ftm": 14,
+            "fta": 22,
+            "oreb": 8,
+            "dreb": 27,
+            "reb": 35,
+            "ast": 22,
+            "stl": 13,
+            "blk": 5,
+            "tov": 12,
+            "pf": 20
+          },
+          "und_box": {
+            "fgm": 42,
+            "fga": 83,
+            "fg3m": 7,
+            "fg3a": 26,
+            "ftm": 14,
+            "fta": 17,
+            "oreb": 12,
+            "dreb": 30,
+            "reb": 42,
+            "ast": 23,
+            "stl": 8,
+            "blk": 3,
+            "tov": 22,
+            "pf": 24
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Donovan Mitchell",
+              "min": 37,
+              "pts": 30,
+              "reb": 7,
+              "ast": 5
+            },
+            {
+              "name": "James Harden",
+              "min": 35,
+              "pts": 28,
+              "reb": 5,
+              "ast": 4
+            },
+            {
+              "name": "Evan Mobley",
+              "min": 33,
+              "pts": 25,
+              "reb": 8,
+              "ast": 2
+            },
+            {
+              "name": "Dean Wade",
+              "min": 28,
+              "pts": 3,
+              "reb": 5,
+              "ast": 1
+            },
+            {
+              "name": "Max Strus",
+              "min": 27,
+              "pts": 6,
+              "reb": 3,
+              "ast": 3
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Scottie Barnes",
+              "min": 40,
+              "pts": 26,
+              "reb": 4,
+              "ast": 5
+            },
+            {
+              "name": "RJ Barrett",
+              "min": 38,
+              "pts": 22,
+              "reb": 9,
+              "ast": 5
+            },
+            {
+              "name": "Jamal Shead",
+              "min": 38,
+              "pts": 3,
+              "reb": 3,
+              "ast": 4
+            },
+            {
+              "name": "Brandon Ingram",
+              "min": 36,
+              "pts": 7,
+              "reb": 4,
+              "ast": 3
+            },
+            {
+              "name": "Ja'Kobe Walter",
+              "min": 28,
+              "pts": 14,
+              "reb": 1,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19432,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -22.0,
+          "favorite_was_home": false,
+          "date": "2026-04-24",
+          "fav_score": 104,
+          "und_score": 126,
+          "espn_event_id": "401869375",
+          "fav_box": {
+            "fgm": 36,
+            "fga": 81,
+            "fg3m": 14,
+            "fg3a": 45,
+            "ftm": 18,
+            "fta": 23,
+            "oreb": 16,
+            "dreb": 26,
+            "reb": 42,
+            "ast": 23,
+            "stl": 7,
+            "blk": 6,
+            "tov": 20,
+            "pf": 15
+          },
+          "und_box": {
+            "fgm": 50,
+            "fga": 87,
+            "fg3m": 14,
+            "fg3a": 23,
+            "ftm": 12,
+            "fta": 21,
+            "oreb": 11,
+            "dreb": 24,
+            "reb": 35,
+            "ast": 29,
+            "stl": 11,
+            "blk": 4,
+            "tov": 11,
+            "pf": 21
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Evan Mobley",
+              "min": 33,
+              "pts": 15,
+              "reb": 6,
+              "ast": 7
+            },
+            {
+              "name": "James Harden",
+              "min": 33,
+              "pts": 18,
+              "reb": 4,
+              "ast": 4
+            },
+            {
+              "name": "Donovan Mitchell",
+              "min": 33,
+              "pts": 15,
+              "reb": 5,
+              "ast": 3
+            },
+            {
+              "name": "Jarrett Allen",
+              "min": 26,
+              "pts": 12,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Max Strus",
+              "min": 26,
+              "pts": 15,
+              "reb": 6,
+              "ast": 3
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "RJ Barrett",
+              "min": 39,
+              "pts": 33,
+              "reb": 5,
+              "ast": 5
+            },
+            {
+              "name": "Scottie Barnes",
+              "min": 35,
+              "pts": 33,
+              "reb": 5,
+              "ast": 11
+            },
+            {
+              "name": "Jamal Shead",
+              "min": 30,
+              "pts": 2,
+              "reb": 1,
+              "ast": 5
+            },
+            {
+              "name": "Brandon Ingram",
+              "min": 29,
+              "pts": 12,
+              "reb": 3,
+              "ast": 2
+            },
+            {
+              "name": "Collin Murray-Boyles",
+              "min": 28,
+              "pts": 22,
+              "reb": 8,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19800,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -4.0,
+          "favorite_was_home": false,
+          "date": "2026-04-26",
+          "fav_score": 89,
+          "und_score": 93,
+          "espn_event_id": "401869377",
+          "fav_box": {
+            "fgm": 32,
+            "fga": 87,
+            "fg3m": 10,
+            "fg3a": 40,
+            "ftm": 15,
+            "fta": 23,
+            "oreb": 16,
+            "dreb": 40,
+            "reb": 56,
+            "ast": 15,
+            "stl": 5,
+            "blk": 5,
+            "tov": 17,
+            "pf": 27
+          },
+          "und_box": {
+            "fgm": 31,
+            "fga": 97,
+            "fg3m": 4,
+            "fg3a": 30,
+            "ftm": 27,
+            "fta": 36,
+            "oreb": 21,
+            "dreb": 38,
+            "reb": 59,
+            "ast": 19,
+            "stl": 11,
+            "blk": 8,
+            "tov": 11,
+            "pf": 19
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "James Harden",
+              "min": 37,
+              "pts": 19,
+              "reb": 2,
+              "ast": 8
+            },
+            {
+              "name": "Donovan Mitchell",
+              "min": 37,
+              "pts": 20,
+              "reb": 6,
+              "ast": 3
+            },
+            {
+              "name": "Evan Mobley",
+              "min": 32,
+              "pts": 8,
+              "reb": 9,
+              "ast": 3
+            },
+            {
+              "name": "Dean Wade",
+              "min": 28,
+              "pts": 7,
+              "reb": 5,
+              "ast": 0
+            },
+            {
+              "name": "Jarrett Allen",
+              "min": 27,
+              "pts": 3,
+              "reb": 15,
+              "ast": 0
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Scottie Barnes",
+              "min": 42,
+              "pts": 23,
+              "reb": 9,
+              "ast": 6
+            },
+            {
+              "name": "RJ Barrett",
+              "min": 39,
+              "pts": 18,
+              "reb": 8,
+              "ast": 1
+            },
+            {
+              "name": "Brandon Ingram",
+              "min": 36,
+              "pts": 23,
+              "reb": 6,
+              "ast": 0
+            },
+            {
+              "name": "Ja'Kobe Walter",
+              "min": 27,
+              "pts": 0,
+              "reb": 7,
+              "ast": 3
+            },
+            {
+              "name": "Collin Murray-Boyles",
+              "min": 27,
+              "pts": 15,
+              "reb": 10,
+              "ast": 3
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19800,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    },
+    "NYK_ATL": {
+      "favorite": "NYK",
+      "underdog": "ATL",
+      "favorite_wins": 2,
+      "underdog_wins": 2,
+      "completed_games": [
+        {
+          "margin": 11.0,
+          "favorite_was_home": true,
+          "date": "2026-04-18",
+          "fav_score": 113,
+          "und_score": 102,
+          "espn_event_id": "401869189",
+          "fav_box": {
+            "fgm": 38,
+            "fga": 80,
+            "fg3m": 12,
+            "fg3a": 25,
+            "ftm": 25,
+            "fta": 30,
+            "oreb": 6,
+            "dreb": 39,
+            "reb": 45,
+            "ast": 22,
+            "stl": 7,
+            "blk": 5,
+            "tov": 11,
+            "pf": 24
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 87,
+            "fg3m": 14,
+            "fg3a": 37,
+            "ftm": 12,
+            "fta": 19,
+            "oreb": 8,
+            "dreb": 32,
+            "reb": 40,
+            "ast": 25,
+            "stl": 5,
+            "blk": 3,
+            "tov": 12,
+            "pf": 21
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Jalen Johnson",
+              "min": 39,
+              "pts": 23,
+              "reb": 7,
+              "ast": 3
+            },
+            {
+              "name": "Nickeil Alexander-Walker",
+              "min": 39,
+              "pts": 17,
+              "reb": 1,
+              "ast": 4
+            },
+            {
+              "name": "Onyeka Okongwu",
+              "min": 37,
+              "pts": 19,
+              "reb": 8,
+              "ast": 2
+            },
+            {
+              "name": "Dyson Daniels",
+              "min": 36,
+              "pts": 4,
+              "reb": 9,
+              "ast": 11
+            },
+            {
+              "name": "CJ McCollum",
+              "min": 34,
+              "pts": 26,
+              "reb": 3,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19812,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -1.0,
+          "favorite_was_home": true,
+          "date": "2026-04-21",
+          "fav_score": 106,
+          "und_score": 107,
+          "espn_event_id": "401869387",
+          "fav_box": {
+            "fgm": 39,
+            "fga": 87,
+            "fg3m": 11,
+            "fg3a": 34,
+            "ftm": 17,
+            "fta": 27,
+            "oreb": 14,
+            "dreb": 33,
+            "reb": 47,
+            "ast": 22,
+            "stl": 5,
+            "blk": 4,
+            "tov": 14,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 40,
+            "fga": 81,
+            "fg3m": 9,
+            "fg3a": 30,
+            "ftm": 18,
+            "fta": 23,
+            "oreb": 6,
+            "dreb": 30,
+            "reb": 36,
+            "ast": 22,
+            "stl": 9,
+            "blk": 7,
+            "tov": 11,
+            "pf": 26
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Nickeil Alexander-Walker",
+              "min": 38,
+              "pts": 9,
+              "reb": 5,
+              "ast": 6
+            },
+            {
+              "name": "Jalen Johnson",
+              "min": 36,
+              "pts": 17,
+              "reb": 8,
+              "ast": 3
+            },
+            {
+              "name": "CJ McCollum",
+              "min": 35,
+              "pts": 32,
+              "reb": 3,
+              "ast": 6
+            },
+            {
+              "name": "Jonathan Kuminga",
+              "min": 35,
+              "pts": 19,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Onyeka Okongwu",
+              "min": 30,
+              "pts": 15,
+              "reb": 8,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19812,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -1.0,
+          "favorite_was_home": false,
+          "date": "2026-04-23",
+          "fav_score": 108,
+          "und_score": 109,
+          "espn_event_id": "401869389",
+          "fav_box": {
+            "fgm": 40,
+            "fga": 93,
+            "fg3m": 10,
+            "fg3a": 35,
+            "ftm": 18,
+            "fta": 20,
+            "oreb": 14,
+            "dreb": 32,
+            "reb": 46,
+            "ast": 19,
+            "stl": 10,
+            "blk": 5,
+            "tov": 15,
+            "pf": 17
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 86,
+            "fg3m": 13,
+            "fg3a": 33,
+            "ftm": 18,
+            "fta": 26,
+            "oreb": 13,
+            "dreb": 32,
+            "reb": 45,
+            "ast": 19,
+            "stl": 10,
+            "blk": 8,
+            "tov": 16,
+            "pf": 17
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Jalen Johnson",
+              "min": 38,
+              "pts": 24,
+              "reb": 10,
+              "ast": 8
+            },
+            {
+              "name": "Nickeil Alexander-Walker",
+              "min": 38,
+              "pts": 14,
+              "reb": 3,
+              "ast": 0
+            },
+            {
+              "name": "Onyeka Okongwu",
+              "min": 37,
+              "pts": 9,
+              "reb": 7,
+              "ast": 1
+            },
+            {
+              "name": "CJ McCollum",
+              "min": 35,
+              "pts": 23,
+              "reb": 5,
+              "ast": 1
+            },
+            {
+              "name": "Dyson Daniels",
+              "min": 33,
+              "pts": 8,
+              "reb": 13,
+              "ast": 6
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18452,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 16.0,
+          "favorite_was_home": false,
+          "date": "2026-04-25",
+          "fav_score": 114,
+          "und_score": 98,
+          "espn_event_id": "401869391",
+          "fav_box": {
+            "fgm": 41,
+            "fga": 83,
+            "fg3m": 14,
+            "fg3a": 31,
+            "ftm": 18,
+            "fta": 23,
+            "oreb": 12,
+            "dreb": 31,
+            "reb": 43,
+            "ast": 23,
+            "stl": 9,
+            "blk": 3,
+            "tov": 14,
+            "pf": 23
+          },
+          "und_box": {
+            "fgm": 34,
+            "fga": 83,
+            "fg3m": 10,
+            "fg3a": 41,
+            "ftm": 20,
+            "fta": 25,
+            "oreb": 12,
+            "dreb": 26,
+            "reb": 38,
+            "ast": 20,
+            "stl": 8,
+            "blk": 5,
+            "tov": 18,
+            "pf": 21
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Jalen Johnson",
+              "min": 35,
+              "pts": 14,
+              "reb": 3,
+              "ast": 5
+            },
+            {
+              "name": "Nickeil Alexander-Walker",
+              "min": 35,
+              "pts": 15,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "CJ McCollum",
+              "min": 32,
+              "pts": 17,
+              "reb": 1,
+              "ast": 3
+            },
+            {
+              "name": "Dyson Daniels",
+              "min": 30,
+              "pts": 6,
+              "reb": 9,
+              "ast": 6
+            },
+            {
+              "name": "Onyeka Okongwu",
+              "min": 28,
+              "pts": 12,
+              "reb": 6,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18763,
+          "espn_pregame_home_win_prob": null
+        }
+      ]
+    }
+  }
+}

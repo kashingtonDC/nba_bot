@@ -121,6 +121,15 @@ h1 em {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
+/* When the latest run is older than expected, color the indicator red and
+   stop the pulse animation. Set via JS adding the .stale class to .run-meta. */
+.run-meta.stale .pulse {
+  background: var(--neg);
+  animation: none;
+}
+.run-meta.stale .big {
+  color: var(--neg);
+}
 
 button {
   font-family: var(--mono);
@@ -301,7 +310,7 @@ footer .disclaimer {
   thead th { padding: 8px 10px; font-size: 9px; }
   tbody td { padding: 10px; }
   /* Hide less-essential columns on narrow viewports */
-  .col-volume, .col-uncertainty { display: none; }
+  .col-volume, .col-uncertainty, .col-spread { display: none; }
   h1 { font-size: 28px; }
 }
 </style>
@@ -338,6 +347,8 @@ footer .disclaimer {
           <th class="num">Tail-adj</th>
           <th class="num">Market %</th>
           <th class="num">Edge</th>
+          <th class="num col-spread">Spread</th>
+          <th class="num col-spread">Depth</th>
           <th class="num col-volume">Vol</th>
         </tr>
       </thead>
@@ -350,6 +361,7 @@ footer .disclaimer {
       <span><strong>NRtg Δ</strong> posterior mean of net-rating differential</span>
       <span><strong>Edge</strong> model − market; sell tails, buy near-certainties</span>
       <span><strong>Tail-adj</strong> +2pp at &gt;85¢ / −2pp at &lt;15¢</span>
+      <span><strong>Spread / Depth</strong> orderbook tightness + size at top of book</span>
     </div>
     <div class="disclaimer">simulation only · no orders are placed</div>
   </footer>
@@ -432,9 +444,21 @@ async function loadLatestRun() {
   }
 
   const run = runs[0];
-  document.getElementById('last-run').textContent =
-    `${relativeTime(run.finished_at || run.started_at)}`;
+  const runTime = run.finished_at || run.started_at;
+  document.getElementById('last-run').textContent = relativeTime(runTime);
   document.getElementById('run-id').textContent = `#${run.id}`;
+
+  // Mark the run-meta block as stale if the latest run is more than 30 minutes
+  // old. The cron is configured to run every 15 minutes, so 30+ minutes means
+  // at least one run was skipped or failed.
+  const STALE_THRESHOLD_MS = 30 * 60 * 1000;
+  const ageMs = Date.now() - new Date(runTime).getTime();
+  const runMetaEl = document.getElementById('run-meta');
+  if (ageMs > STALE_THRESHOLD_MS) {
+    runMetaEl.classList.add('stale');
+  } else {
+    runMetaEl.classList.remove('stale');
+  }
 
   // Pull observations for that run, one row per series
   const { data: obs, error: obsErr } = await supabase
@@ -459,6 +483,10 @@ async function loadLatestRun() {
   tbody.innerHTML = obs.map(o => {
     const stateLabel = `${o.favorite_wins}–${o.underdog_wins}`;
     const edgeCls = edgeClass(o.edge_raw);
+    const spreadCents = o.ob_spread !== null && o.ob_spread !== undefined
+      ? `${(o.ob_spread * 100).toFixed(0)}¢` : '—';
+    const depthStr = o.ob_depth_top !== null && o.ob_depth_top !== undefined
+      ? String(o.ob_depth_top) : '—';
     return `
       <tr>
         <td class="matchup">
@@ -475,6 +503,8 @@ async function loadLatestRun() {
         <td class="num edge ${edgeCls}">
           ${fmtSignedPct(o.edge_raw)}${edgeBar(o.edge_raw)}
         </td>
+        <td class="num dim col-spread">${spreadCents}</td>
+        <td class="num dim col-spread">${depthStr}</td>
         <td class="num dim col-volume">${fmtVolume(o.market_volume)}</td>
       </tr>
     `;

@@ -21,6 +21,7 @@ from typing import Any, Dict, List, Optional
 from dotenv import load_dotenv
 
 import config
+import factors
 import kalshi
 import model as M
 import db
@@ -53,11 +54,46 @@ def evaluate_one_series(
 
     games_for_model = [(g.margin, g.favorite_was_home) for g in series.completed_games]
 
+    # Compute Four Factors-implied expected margin per game (None where
+    # box-score data isn't available). When KAPPA = 0 these have no effect
+    # on the model — but we compute and log them anyway so we can see the
+    # divergence between actual and expected margins.
+    expected_margins: List[Optional[float]] = []
+    for g in series.completed_games:
+        em = None
+        if g.fav_box and g.und_box:
+            fav_ff = factors.four_factors_from_box(g.fav_box, g.und_box)
+            und_ff = factors.four_factors_from_box(g.und_box, g.fav_box)
+            if fav_ff and und_ff:
+                em = factors.expected_margin(fav_ff, und_ff)
+                # Sign convention check: expected_margin is from the favorite's
+                # perspective. If the favorite was on the road, HCA shaved
+                # points off — but we already model HCA separately in the
+                # update, so we don't double-count it here.
+        expected_margins.append(em)
+
     prices = kalshi.extract_prices(market) if market else {
         "yes_bid": None, "yes_ask": None, "yes_last": None,
         "yes_mid": None, "volume": None, "volume_24h": None,
     }
-    market_price = prices["yes_mid"] or prices["yes_last"]
+
+    # Orderbook depth: one extra request per matched market. Uses the
+    # throttled _get under the hood so we stay polite even at peak.
+    ob_summary = {
+        "ob_best_bid": None, "ob_best_bid_size": None,
+        "ob_best_ask": None, "ob_best_ask_size": None,
+        "ob_spread": None, "ob_mid": None, "ob_depth_top": None,
+    }
+    if market and market.get("ticker"):
+        raw_ob = kalshi.get_orderbook(market["ticker"])
+        if raw_ob:
+            book = kalshi.reconstruct_yes_orderbook(raw_ob)
+            ob_summary = kalshi.summarize_orderbook(book)
+
+    # Prefer the orderbook mid over the legacy bid/ask mid: it's strictly
+    # fresher (orderbook is a real-time snapshot, while market endpoint
+    # fields can lag) and uses the same definition.
+    market_price = ob_summary["ob_mid"] or prices["yes_mid"] or prices["yes_last"]
 
     obs = M.evaluate_series(
         fav_net_rating=fav_nrtg,
@@ -71,6 +107,9 @@ def evaluate_one_series(
         sigma_theta=config.SIGMA_THETA,
         hca=config.HCA,
         tail_magnitude_pp=config.TAIL_CORRECTION_PP,
+        expected_margins=expected_margins,
+        kappa=config.KAPPA,
+        prior_regression=config.PRIOR_REGRESSION,
     )
 
     # Determine next-game home team for logging
@@ -90,6 +129,22 @@ def evaluate_one_series(
         edge_raw = obs.p_fav_series_raw - market_price
         if obs.p_fav_series_tail_adj is not None:
             edge_tail = obs.p_fav_series_tail_adj - market_price
+
+    # Four Factors summary stats over the games we have data for. We log
+    # these even when KAPPA = 0, so we can see how predictive they would
+    # have been if/when we turn the weighting on.
+    n_games_with_factors = sum(1 for em in expected_margins if em is not None)
+    avg_observed_margin = (
+        sum(g.margin for g in series.completed_games) / len(series.completed_games)
+        if series.completed_games else None
+    )
+    avg_expected_margin = (
+        sum(em for em in expected_margins if em is not None) / n_games_with_factors
+        if n_games_with_factors > 0 else None
+    )
+    avg_margin_divergence = None
+    if avg_observed_margin is not None and avg_expected_margin is not None:
+        avg_margin_divergence = avg_observed_margin - avg_expected_margin
 
     row = {
         "series_key": series.series_key,
@@ -116,6 +171,19 @@ def evaluate_one_series(
         "market_volume_24h": prices["volume_24h"],
         "edge_raw": edge_raw,
         "edge_tail_adj": edge_tail,
+        "ob_best_bid": ob_summary["ob_best_bid"],
+        "ob_best_bid_size": ob_summary["ob_best_bid_size"],
+        "ob_best_ask": ob_summary["ob_best_ask"],
+        "ob_best_ask_size": ob_summary["ob_best_ask_size"],
+        "ob_spread": ob_summary["ob_spread"],
+        "ob_mid": ob_summary["ob_mid"],
+        "ob_depth_top": ob_summary["ob_depth_top"],
+        "kappa": config.KAPPA,
+        "prior_regression": config.PRIOR_REGRESSION,
+        "n_games_with_factors": n_games_with_factors,
+        "avg_observed_margin": avg_observed_margin,
+        "avg_expected_margin": avg_expected_margin,
+        "avg_margin_divergence": avg_margin_divergence,
         "raw_market_payload": market,
     }
     return row
@@ -130,12 +198,18 @@ def log_summary(row: Dict[str, Any]) -> None:
     raw = row["p_fav_series_raw"]
     mid = row["market_yes_mid"]
     edge = row["edge_raw"]
+    spread = row.get("ob_spread")
+    depth = row.get("ob_depth_top")
 
     line = f"  {fav} vs {und}  ({fw}-{uw})  model={raw:.1%}"
     if mid is not None:
         line += f"  market={mid:.1%}  edge={edge:+.1%}"
     else:
         line += "  market=—  (no Kalshi match)"
+
+    if spread is not None and depth is not None:
+        line += f"  spread={spread*100:.0f}c  depth={depth}"
+
     log.info(line)
 
 

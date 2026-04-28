@@ -34,6 +34,10 @@ from typing import Iterable, List, Optional, Tuple
 DEFAULT_HCA = 2.5            # home court advantage in points
 DEFAULT_SIGMA_GAME = 11.5    # std dev of single-game margin
 DEFAULT_SIGMA_THETA = 2.0    # prior std dev on each team's true net rating
+DEFAULT_KAPPA = 0.0          # Four Factors variance-weighting strength
+                             # (0.0 = current behavior, ignore Four Factors)
+DEFAULT_PRIOR_REGRESSION = 1.0  # multiplier on the rating differential
+                                # (1.0 = use NRtg as-is; 0.6 shrinks the gap by 40%)
 
 
 # --- Standard normal CDF (no scipy dependency) ------------------------------
@@ -100,23 +104,34 @@ def bayes_update(
     favorite_was_home: bool,
     sigma_game: float = DEFAULT_SIGMA_GAME,
     hca: float = DEFAULT_HCA,
+    sigma_game_squared: Optional[float] = None,
 ) -> BeliefDiff:
     """
     Single Bayesian update on the differential after one observed game.
 
     Each game gives an observation:
-        observed_margin = diff + HCA_signed + epsilon,  epsilon ~ N(0, sigma_game^2)
+        observed_margin = diff + HCA_signed + epsilon,  epsilon ~ N(0, sigma^2)
     so we update toward (observed_margin - HCA_signed).
 
     Standard normal-normal conjugate result:
-        posterior_var  = 1 / (1/prior_var + 1/sigma_game^2)
-        posterior_mean = posterior_var * (prior_mean/prior_var + (m - h)/sigma_game^2)
+        posterior_var  = 1 / (1/prior_var + 1/sigma^2)
+        posterior_mean = posterior_var * (prior_mean/prior_var + (m - h)/sigma^2)
+
+    The likelihood variance can be specified two ways:
+      - `sigma_game` (scalar, default DEFAULT_SIGMA_GAME). Backward-
+        compatible mode: one constant for all games.
+      - `sigma_game_squared` (per-game). When provided, overrides
+        sigma_game. Used by `bayes_update_many` when Four Factors
+        variance weighting is active.
     """
     hca_signed = hca if favorite_was_home else -hca
     likelihood_mean = observed_margin - hca_signed
 
+    if sigma_game_squared is None:
+        sigma_game_squared = sigma_game * sigma_game
+
     inv_prior = 1.0 / belief.var
-    inv_lik = 1.0 / (sigma_game * sigma_game)
+    inv_lik = 1.0 / sigma_game_squared
 
     posterior_var = 1.0 / (inv_prior + inv_lik)
     posterior_mean = posterior_var * (belief.mean * inv_prior + likelihood_mean * inv_lik)
@@ -124,21 +139,81 @@ def bayes_update(
     return BeliefDiff(mean=posterior_mean, var=posterior_var)
 
 
+def per_game_sigma_squared(
+    observed_margin: float,
+    expected_margin_from_factors: Optional[float],
+    sigma_game: float = DEFAULT_SIGMA_GAME,
+    kappa: float = DEFAULT_KAPPA,
+) -> float:
+    """
+    Compute the likelihood variance for one game, optionally inflated based
+    on how far the actual margin diverged from what Four Factors predicted.
+
+    Idea: a game where the favorite won by 17 with sustainable Four Factors
+    is strong evidence of team strength. A game where they won by 17 on
+    65% eFG (unrepeatable shooting) is weak evidence. The Bayesian update
+    should weight the latter less.
+
+    Formula:
+        sigma_squared = sigma_game^2 + kappa * (observed - expected)^2
+
+    With kappa = 0 (default) this reduces to the original constant variance.
+    With kappa > 0, fluky games get larger variance and contribute less to
+    the posterior.
+
+    If `expected_margin_from_factors` is None (Four Factors data missing),
+    we fall back to the constant sigma_game^2 — preserving backward
+    compatibility for games we have no box score for.
+    """
+    base = sigma_game * sigma_game
+    if expected_margin_from_factors is None or kappa <= 0.0:
+        return base
+    diff = observed_margin - expected_margin_from_factors
+    return base + kappa * diff * diff
+
+
 def bayes_update_many(
     initial: BeliefDiff,
     games: Iterable[Tuple[float, bool]],
     sigma_game: float = DEFAULT_SIGMA_GAME,
     hca: float = DEFAULT_HCA,
+    expected_margins: Optional[Iterable[Optional[float]]] = None,
+    kappa: float = DEFAULT_KAPPA,
 ) -> BeliefDiff:
     """
     Apply Bayesian updates over a sequence of completed games.
 
-    `games` is an iterable of (observed_margin, favorite_was_home) tuples,
-    where observed_margin is positive if the favorite won that game.
+    `games` is an iterable of (observed_margin, favorite_was_home) tuples.
+
+    `expected_margins`, if provided, is an iterable of the same length
+    giving the Four Factors-implied margin for each game (or None for
+    games where the box score is unavailable). When provided alongside
+    kappa > 0, the per-game likelihood variance is inflated based on the
+    divergence between observed and expected margin — fluky games are
+    downweighted.
+
+    With kappa = 0 (the default) or expected_margins = None, this reduces
+    to the original constant-variance update.
     """
+    games_list = list(games)
+    if expected_margins is None:
+        em_list: list = [None] * len(games_list)
+    else:
+        em_list = list(expected_margins)
+        if len(em_list) != len(games_list):
+            raise ValueError(
+                f"expected_margins length ({len(em_list)}) must match "
+                f"games length ({len(games_list)})"
+            )
+
     belief = initial
-    for margin, fav_home in games:
-        belief = bayes_update(belief, margin, fav_home, sigma_game=sigma_game, hca=hca)
+    for (margin, fav_home), em in zip(games_list, em_list):
+        sigma2 = per_game_sigma_squared(margin, em, sigma_game=sigma_game, kappa=kappa)
+        belief = bayes_update(
+            belief, margin, fav_home,
+            hca=hca,
+            sigma_game_squared=sigma2,
+        )
     return belief
 
 
@@ -294,6 +369,9 @@ def evaluate_series(
     sigma_theta: float = DEFAULT_SIGMA_THETA,
     hca: float = DEFAULT_HCA,
     tail_magnitude_pp: float = 0.02,
+    expected_margins: Optional[List[Optional[float]]] = None,
+    kappa: float = DEFAULT_KAPPA,
+    prior_regression: float = DEFAULT_PRIOR_REGRESSION,
 ) -> SeriesObservation:
     """
     Run the full model for a single series.
@@ -305,11 +383,38 @@ def evaluate_series(
         Used for Bayesian updating of the differential.
     market_price : float or None
         If provided, also computes the tail-adjusted series probability.
+    expected_margins : list of float-or-None, optional
+        Same length as completed_games. Four Factors-implied margin per
+        game, used to weight the per-game variance in the Bayesian update.
+        Pass None for any game where Four Factors data isn't available.
+        Has no effect when `kappa = 0`.
+    kappa : float
+        Variance inflation coefficient for Four Factors weighting. 0 (the
+        default) preserves the original constant-variance behavior.
+    prior_regression : float
+        Multiplier on the rating differential before forming the prior.
+        c=1.0 uses regular-season NRtg as-is. c<1.0 shrinks the gap toward
+        zero, encoding that regular-season NRtg overstates playoff team-
+        strength gaps. Empirically calibrated to ~0.6; see the README's
+        "Calibration" section for the methodology.
     """
     completed_games = completed_games or []
 
+    # Apply prior regression: shrink the differential toward zero while
+    # preserving the midpoint. With c=0.6 and ratings (+7, +1), the midpoint
+    # is +4 and the new ratings are (+5.8, +2.2) — same midpoint, gap shrunk
+    # from 6 to 3.6 points.
+    if prior_regression != 1.0:
+        midpoint = (fav_net_rating + und_net_rating) / 2.0
+        fav_net_rating = midpoint + prior_regression * (fav_net_rating - midpoint)
+        und_net_rating = midpoint + prior_regression * (und_net_rating - midpoint)
+
     prior = initial_belief(fav_net_rating, und_net_rating, sigma_theta=sigma_theta)
-    posterior = bayes_update_many(prior, completed_games, sigma_game=sigma_game, hca=hca)
+    posterior = bayes_update_many(
+        prior, completed_games,
+        sigma_game=sigma_game, hca=hca,
+        expected_margins=expected_margins, kappa=kappa,
+    )
 
     p_home = per_game_win_prob_from_belief(posterior, True, sigma_game=sigma_game, hca=hca)
     p_road = per_game_win_prob_from_belief(posterior, False, sigma_game=sigma_game, hca=hca)

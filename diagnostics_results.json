@@ -1,0 +1,1321 @@
+{
+  "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25"
+  ],
+  "kappa": 0.0,
+  "experiments": {
+    "state_bias": {
+      "experiment": "state_bias",
+      "groups": [
+        {
+          "label": "pre_series (state=0)",
+          "n": 75,
+          "log_loss": 0.6082936642045521,
+          "brier_score": 0.21147866152239012,
+          "ece": 0.09029552938213185,
+          "signed_bias": -0.060946390613540125,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 0,
+              "avg_predicted": 0.0,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 0,
+              "avg_predicted": 0.0,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 1,
+              "avg_predicted": 0.2603814769543317,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 3,
+              "avg_predicted": 0.35512482711774607,
+              "fraction_actual": 0.6666666666666666
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 6,
+              "avg_predicted": 0.472338802470762,
+              "fraction_actual": 0.5
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 8,
+              "avg_predicted": 0.5537196549397126,
+              "fraction_actual": 0.5
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 13,
+              "avg_predicted": 0.6550635773598352,
+              "fraction_actual": 0.5384615384615384
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 22,
+              "avg_predicted": 0.7454026258304705,
+              "fraction_actual": 0.7272727272727273
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 7,
+              "avg_predicted": 0.8477431534145822,
+              "fraction_actual": 0.5714285714285714
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 15,
+              "avg_predicted": 0.9421697957010255,
+              "fraction_actual": 0.8666666666666667
+            }
+          ]
+        },
+        {
+          "label": "post_G1 (state=1)",
+          "n": 75,
+          "log_loss": 0.5407677816496846,
+          "brier_score": 0.18675228532978735,
+          "ece": 0.1261588952154056,
+          "signed_bias": -0.04208553076140708,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 0,
+              "avg_predicted": 0.0,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 2,
+              "avg_predicted": 0.14466522710954258,
+              "fraction_actual": 0.5
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 2,
+              "avg_predicted": 0.22321720843274445,
+              "fraction_actual": 0.5
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 4,
+              "avg_predicted": 0.3475973936137015,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 8,
+              "avg_predicted": 0.4463727430902572,
+              "fraction_actual": 0.625
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 9,
+              "avg_predicted": 0.5355778502496856,
+              "fraction_actual": 0.4444444444444444
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 6,
+              "avg_predicted": 0.662640418137601,
+              "fraction_actual": 0.3333333333333333
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 14,
+              "avg_predicted": 0.7581182821833393,
+              "fraction_actual": 0.6428571428571429
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 17,
+              "avg_predicted": 0.8553236480687307,
+              "fraction_actual": 0.8823529411764706
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 13,
+              "avg_predicted": 0.9622367144643188,
+              "fraction_actual": 0.9230769230769231
+            }
+          ]
+        },
+        {
+          "label": "post_G2 (state=2)",
+          "n": 75,
+          "log_loss": 0.5116349203905899,
+          "brier_score": 0.1733744435451945,
+          "ece": 0.10545344752086774,
+          "signed_bias": -0.07037796676652987,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 1,
+              "avg_predicted": 0.07102668170969366,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 0,
+              "avg_predicted": 0.0,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 4,
+              "avg_predicted": 0.2337391553388832,
+              "fraction_actual": 0.25
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 5,
+              "avg_predicted": 0.35471422555815607,
+              "fraction_actual": 0.6
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 5,
+              "avg_predicted": 0.4435998326830286,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 6,
+              "avg_predicted": 0.5707644564795007,
+              "fraction_actual": 0.5
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 11,
+              "avg_predicted": 0.6454648266727454,
+              "fraction_actual": 0.5454545454545454
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 4,
+              "avg_predicted": 0.7440354306415041,
+              "fraction_actual": 0.75
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 14,
+              "avg_predicted": 0.8616763592835143,
+              "fraction_actual": 0.7142857142857143
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 25,
+              "avg_predicted": 0.9486593331362468,
+              "fraction_actual": 0.92
+            }
+          ]
+        },
+        {
+          "label": "post_G3+ (state>=3)",
+          "n": 197,
+          "log_loss": 0.4183295469141361,
+          "brier_score": 0.13821420605409418,
+          "ece": 0.09539148851045876,
+          "signed_bias": -0.06595603360256111,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 2,
+              "avg_predicted": 0.07587006101577234,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 14,
+              "avg_predicted": 0.1529349221898487,
+              "fraction_actual": 0.07142857142857142
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 17,
+              "avg_predicted": 0.25793991058197674,
+              "fraction_actual": 0.058823529411764705
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 15,
+              "avg_predicted": 0.35549229024707657,
+              "fraction_actual": 0.2
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 11,
+              "avg_predicted": 0.43902542956245044,
+              "fraction_actual": 0.5454545454545454
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 16,
+              "avg_predicted": 0.555428535132353,
+              "fraction_actual": 0.25
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 17,
+              "avg_predicted": 0.6603128958573903,
+              "fraction_actual": 0.5294117647058824
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 30,
+              "avg_predicted": 0.748881804555514,
+              "fraction_actual": 0.7
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 24,
+              "avg_predicted": 0.8459962138951905,
+              "fraction_actual": 0.8333333333333334
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 51,
+              "avg_predicted": 0.9661044699291201,
+              "fraction_actual": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    "hca_sweep": {
+      "experiment": "hca_sweep",
+      "kappa": 0.0,
+      "results": [
+        {
+          "label": "HCA=0.0",
+          "n": 422,
+          "log_loss": 0.49118740256795507,
+          "brier_score": 0.1660767547160485,
+          "ece": 0.06709661590373787,
+          "signed_bias": -0.05945591364301679,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 4,
+              "avg_predicted": 0.08024200131599143,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 15,
+              "avg_predicted": 0.1479983970765347,
+              "fraction_actual": 0.13333333333333333
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 22,
+              "avg_predicted": 0.2560641770451183,
+              "fraction_actual": 0.09090909090909091
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 26,
+              "avg_predicted": 0.35281586531156894,
+              "fraction_actual": 0.3076923076923077
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 36,
+              "avg_predicted": 0.4454054025675888,
+              "fraction_actual": 0.4722222222222222
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 38,
+              "avg_predicted": 0.5455029082253378,
+              "fraction_actual": 0.3157894736842105
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 49,
+              "avg_predicted": 0.653899655439643,
+              "fraction_actual": 0.5918367346938775
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 66,
+              "avg_predicted": 0.7455225135921317,
+              "fraction_actual": 0.6666666666666666
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 59,
+              "avg_predicted": 0.8539039975198952,
+              "fraction_actual": 0.7796610169491526
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 107,
+              "avg_predicted": 0.9565721245846229,
+              "fraction_actual": 0.9626168224299065
+            }
+          ],
+          "hca": 0.0
+        },
+        {
+          "label": "HCA=1.0",
+          "n": 422,
+          "log_loss": 0.490678712297983,
+          "brier_score": 0.16602434164895816,
+          "ece": 0.06655674532891881,
+          "signed_bias": -0.06054298467850991,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 3,
+              "avg_predicted": 0.07432415531623349,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 16,
+              "avg_predicted": 0.14876721438074533,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 24,
+              "avg_predicted": 0.25787530958475036,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 25,
+              "avg_predicted": 0.35786598338482767,
+              "fraction_actual": 0.28
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 36,
+              "avg_predicted": 0.449905402905673,
+              "fraction_actual": 0.4722222222222222
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 38,
+              "avg_predicted": 0.554972053565902,
+              "fraction_actual": 0.34210526315789475
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 53,
+              "avg_predicted": 0.6622521223637561,
+              "fraction_actual": 0.5849056603773585
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 63,
+              "avg_predicted": 0.7529377779995762,
+              "fraction_actual": 0.6825396825396826
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 59,
+              "avg_predicted": 0.8551823319680592,
+              "fraction_actual": 0.7796610169491526
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 105,
+              "avg_predicted": 0.957471447601519,
+              "fraction_actual": 0.9619047619047619
+            }
+          ],
+          "hca": 1.0
+        },
+        {
+          "label": "HCA=1.5",
+          "n": 422,
+          "log_loss": 0.4905244231876309,
+          "brier_score": 0.16602978600595653,
+          "ece": 0.06221926979379152,
+          "signed_bias": -0.060970450753466965,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 3,
+              "avg_predicted": 0.07443880726254641,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 16,
+              "avg_predicted": 0.15016484974499664,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 23,
+              "avg_predicted": 0.2541281582285334,
+              "fraction_actual": 0.13043478260869565
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 26,
+              "avg_predicted": 0.35406789215142126,
+              "fraction_actual": 0.2692307692307692
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 37,
+              "avg_predicted": 0.45233781574301407,
+              "fraction_actual": 0.4594594594594595
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 32,
+              "avg_predicted": 0.5529100896730962,
+              "fraction_actual": 0.34375
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 55,
+              "avg_predicted": 0.6557198968622173,
+              "fraction_actual": 0.5636363636363636
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 65,
+              "avg_predicted": 0.7511487625788615,
+              "fraction_actual": 0.6923076923076923
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 59,
+              "avg_predicted": 0.8526509028770125,
+              "fraction_actual": 0.7796610169491526
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 106,
+              "avg_predicted": 0.9568639070588676,
+              "fraction_actual": 0.9528301886792453
+            }
+          ],
+          "hca": 1.5
+        },
+        {
+          "label": "HCA=2.0",
+          "n": 422,
+          "log_loss": 0.4904409485689743,
+          "brier_score": 0.16605782683279952,
+          "ece": 0.06132473079808678,
+          "signed_bias": -0.06132473079808678,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 3,
+              "avg_predicted": 0.0744188829325549,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 16,
+              "avg_predicted": 0.15121335989818604,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 23,
+              "avg_predicted": 0.251855755422795,
+              "fraction_actual": 0.13043478260869565
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 28,
+              "avg_predicted": 0.35500288196565605,
+              "fraction_actual": 0.2857142857142857
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 32,
+              "avg_predicted": 0.451797091038851,
+              "fraction_actual": 0.4375
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 36,
+              "avg_predicted": 0.552225049572078,
+              "fraction_actual": 0.3888888888888889
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 50,
+              "avg_predicted": 0.6547488606911231,
+              "fraction_actual": 0.54
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 68,
+              "avg_predicted": 0.7490464001297272,
+              "fraction_actual": 0.6911764705882353
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 62,
+              "avg_predicted": 0.8526888433073215,
+              "fraction_actual": 0.7903225806451613
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 104,
+              "avg_predicted": 0.9579489201306898,
+              "fraction_actual": 0.9519230769230769
+            }
+          ],
+          "hca": 2.0
+        },
+        {
+          "label": "HCA=2.5",
+          "n": 422,
+          "log_loss": 0.49043400049868896,
+          "brier_score": 0.1661104333470603,
+          "ece": 0.06420495955928407,
+          "signed_bias": -0.06160919485856714,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 3,
+              "avg_predicted": 0.07425560124707946,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 16,
+              "avg_predicted": 0.15190121030481044,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 24,
+              "avg_predicted": 0.2511146247945399,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 27,
+              "avg_predicted": 0.3541377606409249,
+              "fraction_actual": 0.2962962962962963
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 30,
+              "avg_predicted": 0.4484097882716242,
+              "fraction_actual": 0.4666666666666667
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 39,
+              "avg_predicted": 0.5528564408399879,
+              "fraction_actual": 0.38461538461538464
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 47,
+              "avg_predicted": 0.6556830071804106,
+              "fraction_actual": 0.5106382978723404
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 70,
+              "avg_predicted": 0.749358708258122,
+              "fraction_actual": 0.7
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 62,
+              "avg_predicted": 0.8522916492665205,
+              "fraction_actual": 0.7903225806451613
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 104,
+              "avg_predicted": 0.9579753415225272,
+              "fraction_actual": 0.9519230769230769
+            }
+          ],
+          "hca": 2.5
+        },
+        {
+          "label": "HCA=3.5",
+          "n": 422,
+          "log_loss": 0.4906832043430674,
+          "brier_score": 0.16630075753538356,
+          "ece": 0.06686085129518382,
+          "signed_bias": -0.06198325821575064,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 3,
+              "avg_predicted": 0.07228707007234135,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 17,
+              "avg_predicted": 0.15402219099967418,
+              "fraction_actual": 0.17647058823529413
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 23,
+              "avg_predicted": 0.24695150478749156,
+              "fraction_actual": 0.08695652173913043
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 30,
+              "avg_predicted": 0.3519842332304361,
+              "fraction_actual": 0.3
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 24,
+              "avg_predicted": 0.44586775027716213,
+              "fraction_actual": 0.4583333333333333
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 39,
+              "avg_predicted": 0.5479016847830632,
+              "fraction_actual": 0.41025641025641024
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 45,
+              "avg_predicted": 0.6502129004286196,
+              "fraction_actual": 0.5333333333333333
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 73,
+              "avg_predicted": 0.7492655063243525,
+              "fraction_actual": 0.6575342465753424
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 64,
+              "avg_predicted": 0.8500891578446824,
+              "fraction_actual": 0.78125
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 104,
+              "avg_predicted": 0.9581886981403197,
+              "fraction_actual": 0.9615384615384616
+            }
+          ],
+          "hca": 3.5
+        }
+      ]
+    },
+    "prior_sweep": {
+      "experiment": "prior_sweep",
+      "kappa": 0.0,
+      "results": [
+        {
+          "label": "c=0.5",
+          "n": 422,
+          "log_loss": 0.4887454829917039,
+          "brier_score": 0.1632495951574855,
+          "ece": 0.03325949260334588,
+          "signed_bias": -0.013424292199450918,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 4,
+              "avg_predicted": 0.07725178254241527,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 17,
+              "avg_predicted": 0.1514467759514073,
+              "fraction_actual": 0.058823529411764705
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 26,
+              "avg_predicted": 0.2469904181802854,
+              "fraction_actual": 0.15384615384615385
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 34,
+              "avg_predicted": 0.3430735166426292,
+              "fraction_actual": 0.3235294117647059
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 26,
+              "avg_predicted": 0.4469220646548695,
+              "fraction_actual": 0.4230769230769231
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 60,
+              "avg_predicted": 0.5541324343270888,
+              "fraction_actual": 0.48333333333333334
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 62,
+              "avg_predicted": 0.6453630014977063,
+              "fraction_actual": 0.6451612903225806
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 72,
+              "avg_predicted": 0.752282959975976,
+              "fraction_actual": 0.7638888888888888
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 63,
+              "avg_predicted": 0.8480219815768761,
+              "fraction_actual": 0.8571428571428571
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 58,
+              "avg_predicted": 0.952155426847667,
+              "fraction_actual": 1.0
+            }
+          ],
+          "prior_regression": 0.5
+        },
+        {
+          "label": "c=0.6",
+          "n": 422,
+          "log_loss": 0.48613404944769173,
+          "brier_score": 0.1627203715719763,
+          "ece": 0.04349146790989367,
+          "signed_bias": -0.024302098046232713,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 4,
+              "avg_predicted": 0.08000033156949704,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 17,
+              "avg_predicted": 0.15392290665943284,
+              "fraction_actual": 0.11764705882352941
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 26,
+              "avg_predicted": 0.2521943255645732,
+              "fraction_actual": 0.11538461538461539
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 33,
+              "avg_predicted": 0.3493242169958408,
+              "fraction_actual": 0.3333333333333333
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 25,
+              "avg_predicted": 0.446397844567514,
+              "fraction_actual": 0.44
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 51,
+              "avg_predicted": 0.5518932118755001,
+              "fraction_actual": 0.39215686274509803
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 68,
+              "avg_predicted": 0.6496898895074366,
+              "fraction_actual": 0.6617647058823529
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 60,
+              "avg_predicted": 0.7496083355312385,
+              "fraction_actual": 0.7333333333333333
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 70,
+              "avg_predicted": 0.8442126570737614,
+              "fraction_actual": 0.8571428571428571
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 68,
+              "avg_predicted": 0.9511359481926258,
+              "fraction_actual": 0.9852941176470589
+            }
+          ],
+          "prior_regression": 0.6
+        },
+        {
+          "label": "c=0.7",
+          "n": 422,
+          "log_loss": 0.4850909788838252,
+          "brier_score": 0.16284210232401405,
+          "ece": 0.06431186448625664,
+          "signed_bias": -0.034550653917542105,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 4,
+              "avg_predicted": 0.08326724440212531,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 15,
+              "avg_predicted": 0.14895444572210542,
+              "fraction_actual": 0.06666666666666667
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 28,
+              "avg_predicted": 0.2524577147577692,
+              "fraction_actual": 0.14285714285714285
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 28,
+              "avg_predicted": 0.3491435117616071,
+              "fraction_actual": 0.25
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 30,
+              "avg_predicted": 0.4439123631280197,
+              "fraction_actual": 0.5666666666666667
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 42,
+              "avg_predicted": 0.5508653319137059,
+              "fraction_actual": 0.3333333333333333
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 72,
+              "avg_predicted": 0.6542595634633215,
+              "fraction_actual": 0.6388888888888888
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 57,
+              "avg_predicted": 0.7505031103504144,
+              "fraction_actual": 0.7192982456140351
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 70,
+              "avg_predicted": 0.8489437368215786,
+              "fraction_actual": 0.8285714285714286
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 76,
+              "avg_predicted": 0.952671232581061,
+              "fraction_actual": 0.9868421052631579
+            }
+          ],
+          "prior_regression": 0.7
+        },
+        {
+          "label": "c=0.8",
+          "n": 422,
+          "log_loss": 0.4855210807814311,
+          "brier_score": 0.1635096435520453,
+          "ece": 0.07148742528795216,
+          "signed_bias": -0.044171610602462594,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 2,
+              "avg_predicted": 0.06819375756850413,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 17,
+              "avg_predicted": 0.14466192472115882,
+              "fraction_actual": 0.058823529411764705
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 27,
+              "avg_predicted": 0.2540198791544947,
+              "fraction_actual": 0.14814814814814814
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 29,
+              "avg_predicted": 0.3541943706074138,
+              "fraction_actual": 0.27586206896551724
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 29,
+              "avg_predicted": 0.44933396317258395,
+              "fraction_actual": 0.5517241379310345
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 41,
+              "avg_predicted": 0.5539166407648529,
+              "fraction_actual": 0.2926829268292683
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 56,
+              "avg_predicted": 0.6533695576128818,
+              "fraction_actual": 0.6071428571428571
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 67,
+              "avg_predicted": 0.7424482905926082,
+              "fraction_actual": 0.7164179104477612
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 70,
+              "avg_predicted": 0.8519275697901334,
+              "fraction_actual": 0.8142857142857143
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 84,
+              "avg_predicted": 0.954829502016152,
+              "fraction_actual": 0.9880952380952381
+            }
+          ],
+          "prior_regression": 0.8
+        },
+        {
+          "label": "c=0.9",
+          "n": 422,
+          "log_loss": 0.4873316509230507,
+          "brier_score": 0.16462709111014406,
+          "ece": 0.06391647689168715,
+          "signed_bias": -0.05318175614079936,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 2,
+              "avg_predicted": 0.06475798626408505,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 18,
+              "avg_predicted": 0.1498885067385816,
+              "fraction_actual": 0.1111111111111111
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 24,
+              "avg_predicted": 0.2543963574026782,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 31,
+              "avg_predicted": 0.3577244695529434,
+              "fraction_actual": 0.2903225806451613
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 26,
+              "avg_predicted": 0.4516586987321935,
+              "fraction_actual": 0.46153846153846156
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 38,
+              "avg_predicted": 0.5478808650674,
+              "fraction_actual": 0.39473684210526316
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 55,
+              "avg_predicted": 0.6527841237902744,
+              "fraction_actual": 0.5636363636363636
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 68,
+              "avg_predicted": 0.746530840423158,
+              "fraction_actual": 0.7058823529411765
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 67,
+              "avg_predicted": 0.8537097031705293,
+              "fraction_actual": 0.7761194029850746
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 93,
+              "avg_predicted": 0.9569015887583403,
+              "fraction_actual": 0.978494623655914
+            }
+          ],
+          "prior_regression": 0.9
+        },
+        {
+          "label": "c=1.0",
+          "n": 422,
+          "log_loss": 0.49043400049868896,
+          "brier_score": 0.1661104333470603,
+          "ece": 0.06420495955928407,
+          "signed_bias": -0.06160919485856714,
+          "buckets": [
+            {
+              "bucket_low": 0.0,
+              "bucket_high": 0.1,
+              "n": 3,
+              "avg_predicted": 0.07425560124707946,
+              "fraction_actual": 0.0
+            },
+            {
+              "bucket_low": 0.1,
+              "bucket_high": 0.2,
+              "n": 16,
+              "avg_predicted": 0.15190121030481044,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.2,
+              "bucket_high": 0.3,
+              "n": 24,
+              "avg_predicted": 0.2511146247945399,
+              "fraction_actual": 0.125
+            },
+            {
+              "bucket_low": 0.3,
+              "bucket_high": 0.4,
+              "n": 27,
+              "avg_predicted": 0.3541377606409249,
+              "fraction_actual": 0.2962962962962963
+            },
+            {
+              "bucket_low": 0.4,
+              "bucket_high": 0.5,
+              "n": 30,
+              "avg_predicted": 0.4484097882716242,
+              "fraction_actual": 0.4666666666666667
+            },
+            {
+              "bucket_low": 0.5,
+              "bucket_high": 0.6,
+              "n": 39,
+              "avg_predicted": 0.5528564408399879,
+              "fraction_actual": 0.38461538461538464
+            },
+            {
+              "bucket_low": 0.6,
+              "bucket_high": 0.7,
+              "n": 47,
+              "avg_predicted": 0.6556830071804106,
+              "fraction_actual": 0.5106382978723404
+            },
+            {
+              "bucket_low": 0.7,
+              "bucket_high": 0.8,
+              "n": 70,
+              "avg_predicted": 0.749358708258122,
+              "fraction_actual": 0.7
+            },
+            {
+              "bucket_low": 0.8,
+              "bucket_high": 0.9,
+              "n": 62,
+              "avg_predicted": 0.8522916492665205,
+              "fraction_actual": 0.7903225806451613
+            },
+            {
+              "bucket_low": 0.9,
+              "bucket_high": 1.0,
+              "n": 104,
+              "avg_predicted": 0.9579753415225272,
+              "fraction_actual": 0.9519230769230769
+            }
+          ],
+          "prior_regression": 1.0
+        }
+      ]
+    }
+  }
+}
