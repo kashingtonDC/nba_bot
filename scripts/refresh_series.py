@@ -69,6 +69,7 @@ ESPN_SUMMARY = (
 # STATUS_FINAL_OT etc. for overtime games, but the prefix STATUS_FINAL is
 # what matters.
 FINAL_STATUSES = {"STATUS_FINAL", "STATUS_FINAL_OT"}
+SCHEDULED_STATUSES = {"STATUS_SCHEDULED", "STATUS_DELAYED", "STATUS_POSTPONED"}
 
 # Browser-like UA to be polite. ESPN's API is permissive but identifying
 # yourself avoids being lumped in with anonymous traffic.
@@ -447,6 +448,63 @@ def extract_completed_game(event: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         "espn_event_id": event.get("id"),
         "is_postseason": is_postseason,
         "round_label": notes_headline,
+        "is_scheduled": False,
+    }
+
+
+def extract_scheduled_game(event: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """
+    Pull a future-playoff record from one ESPN event, IF it's scheduled.
+
+    Used by auto-discovery to surface upcoming round-2+ matchups *before*
+    G1 is played, so the bot can log pre-series predictions immediately
+    when the round begins. Returns the same record shape as
+    extract_completed_game with `is_scheduled=True` and no scores.
+
+    Returns None for completed or live games, or non-playoff events.
+    """
+    competition = (event.get("competitions") or [{}])[0]
+
+    status = competition.get("status", {}).get("type", {}).get("name")
+    if status not in SCHEDULED_STATUSES:
+        return None
+
+    season = event.get("season") or {}
+    if season.get("type") != 3:
+        return None   # only care about scheduled *playoff* games
+
+    competitors = competition.get("competitors") or []
+    if len(competitors) != 2:
+        return None
+
+    home = next((c for c in competitors if c.get("homeAway") == "home"), None)
+    away = next((c for c in competitors if c.get("homeAway") == "away"), None)
+    if home is None or away is None:
+        return None
+
+    try:
+        home_abbrev = normalize_abbrev(home["team"]["abbreviation"])
+        away_abbrev = normalize_abbrev(away["team"]["abbreviation"])
+    except (KeyError, TypeError):
+        return None
+
+    iso_date = (event.get("date") or "")[:10]
+    notes_list = competition.get("notes") or []
+    notes_headline = next(
+        (n.get("headline") for n in notes_list if n.get("headline")),
+        None,
+    )
+
+    return {
+        "home": home_abbrev,
+        "away": away_abbrev,
+        "home_score": None,
+        "away_score": None,
+        "date": iso_date,
+        "espn_event_id": event.get("id"),
+        "is_postseason": True,
+        "round_label": notes_headline,
+        "is_scheduled": True,
     }
 
 
@@ -553,8 +611,16 @@ def game_to_completed_game_record(
 def collect_games(
     since: date, until: date,
 ) -> List[Dict[str, Any]]:
-    """Fetch all ESPN events in [since, until], filtered to completed games."""
-    all_completed = []
+    """
+    Fetch all ESPN events in [since, until], returning both completed and
+    scheduled playoff games. Scheduled games are flagged with `is_scheduled=True`
+    so downstream code can use them for auto-discovery (round 2+ matchup
+    creation) without treating them as observed game records.
+
+    Live (in-progress) games are excluded — we don't want to use partial
+    state.
+    """
+    all_games: List[Dict[str, Any]] = []
     days = daterange(since, until)
     log.info(f"Fetching {len(days)} days of scoreboard data ({since} to {until})")
     for d in days:
@@ -568,12 +634,14 @@ def collect_games(
             continue
 
         completed = [g for g in (extract_completed_game(e) for e in events) if g is not None]
-        if completed:
-            log.info(f"  {d}: {len(completed)} completed game(s)")
+        scheduled = [g for g in (extract_scheduled_game(e) for e in events) if g is not None]
+        if completed or scheduled:
+            log.info(f"  {d}: {len(completed)} completed, {len(scheduled)} scheduled playoff game(s)")
         time.sleep(INTER_REQUEST_DELAY)
-        all_completed.extend(completed)
+        all_games.extend(completed)
+        all_games.extend(scheduled)
 
-    return all_completed
+    return all_games
 
 
 def discover_new_series(
@@ -734,6 +802,11 @@ def build_series_state(
     unmatched_pairs = set()
     matched: List[Tuple[Dict[str, Any], config.SeriesState]] = []
     for g in games:
+        # Skip scheduled games for record-building. They're already used by
+        # discover_new_series (above) to create the SeriesState entry; we
+        # just don't create a fake completed-game record for them.
+        if g.get("is_scheduled"):
+            continue
         series = assign_to_series(g, lookup)
         if series is None:
             unmatched_count += 1
@@ -742,7 +815,7 @@ def build_series_state(
         matched.append((g, series))
 
     if unmatched_pairs:
-        log.info(f"  Skipped {unmatched_count} non-playoff games across {len(unmatched_pairs)} matchups")
+        log.info(f"  Skipped {unmatched_count} non-playoff completed games across {len(unmatched_pairs)} matchups")
 
     # Second pass: enrich with summary data and build records
     if fetch_advanced and matched:
@@ -830,8 +903,11 @@ def main() -> int:
     )
     parser.add_argument(
         "--until", type=lambda s: datetime.strptime(s, "%Y-%m-%d").date(),
-        default=date.today(),
-        help="End date inclusive (YYYY-MM-DD). Default: today.",
+        default=date.today() + timedelta(days=3),
+        help="End date (YYYY-MM-DD), inclusive. Default: today + 3 days. "
+             "The future days catch scheduled playoff games for series we "
+             "haven't seen yet, so auto-discovery can create their records "
+             "before G1 is played.",
     )
     parser.add_argument(
         "--output", type=Path,
