@@ -5,6 +5,8 @@ Logging-only prediction bot for NBA playoff series markets on Kalshi.
 Compares a Bayesian-updated, net-rating-based model probability against live
 Kalshi prices, logs the comparison to Supabase, and renders a dashboard.
 
+**Live dashboard:** https://kashingtondc.github.io/nba_bot/
+
 **This bot does not place trades.** It logs what it would do.
 
 ## Architecture
@@ -34,7 +36,7 @@ nba-bot/
 │   ├── metrics.py               # log-loss, Brier, calibration curve, ECE
 │   └── data/<season>/           # Cached fetch results (gitignored)
 ├── tests/test_model.py
-└── dashboard/
+└── docs/
     ├── index.html               # Static dashboard, reads from Supabase
     └── diagnostics/             # Calibration plots from run_backtest/run_diagnostics
 ```
@@ -107,7 +109,7 @@ A common shortcut for repeated runs:
 python scripts/refresh_series.py && python bot.py
 ```
 
-After running, open `dashboard/index.html` in a browser to see the latest
+After running, open `docs/index.html` in a browser to see the latest
 results. It pulls from Supabase on page load; click the refresh button after
 new bot runs.
 
@@ -422,21 +424,69 @@ at c=0.5. We chose **c = 0.6** as the midpoint — captures most of the
 calibration improvement (ECE drops from 0.064 → 0.044) at minimal
 log-loss cost.
 
+### Calibration after the fix: where we landed
+
+After applying c = 0.6, the calibration buckets look much better in
+most of the prediction range — but with one stubborn exception. Here's
+the table after re-running the backtest with the calibrated prior:
+
+| Bucket | n | Predicted | Actual | Diff |
+|---|---|---|---|---|
+| 0.10-0.20 | 14 | 0.148 | 0.000 | -0.148 |
+| 0.20-0.30 | 29 | 0.250 | 0.172 | -0.077 |
+| 0.30-0.40 | 30 | 0.349 | 0.233 | -0.116 |
+| 0.40-0.50 | 29 | 0.445 | 0.517 | +0.072 |
+| **0.50-0.60** | **49** | **0.549** | **0.388** | **-0.161** |
+| 0.60-0.70 | 73 | 0.650 | 0.658 | +0.007 |
+| 0.70-0.80 | 60 | 0.753 | 0.767 | +0.014 |
+| 0.80-0.90 | 70 | 0.846 | 0.843 | -0.003 |
+| 0.90-1.00 | 64 | 0.952 | 1.000 | +0.048 |
+
+**The 0.60-0.90 range is excellent.** 203 of 422 predictions (48%) land
+here, and the model's confidence essentially matches reality — when
+it says 75%, the higher seed wins 77% of the time.
+
+**The 0.50-0.60 bucket is uniquely broken.** When the model says
+"the higher seed is *probably* going to win, but barely" (~55% confidence),
+the higher seed actually wins **39%** of the time — well below 50%.
+This is 49 predictions, large enough to take seriously. Prior regression
+fixed the *average* bias but couldn't fix this specific slice.
+
+We don't have a clean explanation. Some hypotheses worth investigating:
+
+- "Coin flip" series may be unusually upset-prone for reasons our
+  features don't capture (matchup specifics, injury status, momentum)
+- Specific seed matchups (e.g. 5-vs-4, where seeding gap is small)
+  might cluster in this confidence range
+- This bucket is dominated by post-game predictions in tight series
+  where the higher seed is leading 2-1 or 3-2; those situations may
+  not behave like "55% probability events" in practice
+
+For now, **noted and left alone**. We'd need either more data or a
+targeted investigation to fix it. A trader using this model should
+view 50-60% predictions on the higher seed as suspect and demand a
+larger market mispricing before acting on them.
+
 ### Honest limitations of this calibration
 
 - **Sample size is small.** 75 series across 5 seasons. The c=0.6
   optimum could realistically shift to anywhere in [0.5, 0.8] with
   more data. We picked the midpoint partly to hedge against this.
+- **The 0.50-0.60 bucket has unexplained miscalibration** (-0.161
+  signed bias on n=49). See above. This is the single largest
+  remaining model defect.
 - **The 2020-21 bubble season is in the data** with weird
   home-court dynamics. Excluding it didn't materially change the
   conclusion, but it's a real distortion.
 - **Tail correction was not calibrated** — we don't have historical
   market prices for past playoffs, so we can't backtest it. Will
   revisit once enough live Kalshi data is logged.
-- **KAPPA was not meaningfully tunable** on this dataset. Sweeping
-  KAPPA at c=0.6 produced log-loss differences within 0.005 across
-  the full [0, 2] range — within statistical noise. We left it at 0;
-  the framework is in place to retune later.
+- **KAPPA was not meaningfully tunable** on this dataset. Re-running
+  the sweep at c=0.6 produced log-loss differences within 0.003
+  across the full [0, 2] KAPPA range — about 1/8 of a standard error.
+  The "best KAPPA = 2.0" output is misleading: the differences are
+  pure noise. We left KAPPA = 0 for now; the plumbing is in place
+  to retune later if more data accumulates.
 - **Per-team adjustments are tempting but unjustified.** Some teams
   may have unusual home-court effects (Denver's altitude, e.g.) but
   with 5 seasons of data we can't reliably distinguish that from
@@ -457,7 +507,7 @@ python scripts/run_backtest.py
 ```
 
 Outputs land in `backtest_results.json`, `diagnostics_results.json`, and
-`dashboard/diagnostics/*.png`.
+`docs/diagnostics/*.png`.
 
 ## Model in 30 seconds (TL;DR)
 
@@ -475,26 +525,211 @@ Outputs land in `backtest_results.json`, `diagnostics_results.json`, and
 
 See `model.py` for full detail. Pure, no I/O, unit-tested.
 
+## Deployment
+
+The bot can run locally on demand (just `python bot.py`) or as a GitHub
+Actions cron that logs market state every 15 minutes. The cron + Supabase
++ GitHub Pages dashboard combo gives you a hands-off, always-on view of
+the model and market without renting a server.
+
+### Security model (Approach A+)
+
+We use Row-Level Security (RLS) policies in Supabase to separate read and
+write access:
+
+- **Bot writes** using the service-role key. This key bypasses RLS and has
+  full access. It lives in your local `.env` and as a GitHub Actions
+  repository secret. Never embedded in client-side code, never committed
+  to git.
+- **Dashboard reads** using the anon key, which is safe to embed in HTML
+  because RLS policies (in `migrations/004_enable_rls.sql`) restrict it
+  to SELECT-only on `runs` and `observations`.
+
+This means the dashboard URL can be public without worrying about anyone
+tampering with the data. The worst they can do is read what's already
+there — same data that's derived from public sources (Kalshi prices,
+basketball-reference NRtg, ESPN scores) anyway.
+
+### Setting up the cron
+
+One-time setup:
+
+1. **Create GitHub repository secrets** at Settings → Secrets and variables
+   → Actions:
+   - `SUPABASE_URL` (e.g. `https://wgdoqojxeaurrivctqwr.supabase.co`)
+   - `SUPABASE_SERVICE_KEY` (from Supabase → Project Settings → API →
+     service_role key)
+2. **Apply RLS migration** by pasting `migrations/004_enable_rls.sql` into
+   the Supabase SQL editor (one-time).
+3. **Verify locally** that the bot reads `SUPABASE_SERVICE_KEY` from your
+   `.env` and that `python bot.py` still writes successfully.
+4. **Push to main**. The workflow at `.github/workflows/bot.yml` activates
+   automatically and starts running every 15 minutes.
+5. **Manually trigger a test run** from the Actions tab → "nba-bot cron"
+   → Run workflow. Confirms the secrets and environment are configured
+   correctly.
+
+### Deploying the dashboard via GitHub Pages
+
+1. Go to Settings → Pages in your repository
+2. Under "Source", select "Deploy from a branch"
+3. Choose your branch (likely `main`) and folder `/docs`
+4. Save. After a few minutes the dashboard will be live at
+   `https://<your-username>.github.io/<repo-name>/`
+
+The dashboard auto-refreshes its data on page load and via the manual
+"refresh" button. The "last run" indicator at the top shows how recently
+the cron last logged data.
+
+### Monitoring the cron
+
+Three signals you can use to tell if the cron is healthy:
+
+1. **Dashboard staleness indicator.** The "last run" timestamp at the top
+   of the dashboard turns red and stops pulsing if the most recent run
+   is more than 30 minutes old (i.e., at least one cron tick was missed).
+2. **GitHub Actions tab.** Shows green checks for successful runs and red
+   X's for failures. Click any run for full logs.
+3. **Email notifications.** GitHub sends email alerts on workflow failures
+   by default; you can configure these at github.com/settings/notifications.
+
+### Off-season
+
+The workflow has a hard cutoff at July 1, 2026 (configurable in
+`.github/workflows/bot.yml`). After this date the workflow runs but exits
+cleanly without doing anything, costing zero Actions minutes per run. To
+extend the playoff window for next season, edit the `CUTOFF` value in the
+workflow file.
+
+If you want to disable the workflow entirely (e.g. to stop accumulating
+Supabase rows during the off-season), go to the Actions tab → "nba-bot
+cron" → "..." menu → "Disable workflow".
+
+## Round 1 retrospective
+
+The bot ran live for the entire 2025-26 NBA Round 1 (April 18 - May 5).
+With the cron logging every 15 minutes (mostly — see "Cron cadence"
+below), we accumulated 119 runs and 930 observations across 8 series.
+
+This section documents what we learned from that data. Findings come
+from `scripts/analyze_predictions_vs_market.py`, which produces per-
+series time-series plots and summary statistics from the Supabase log.
+The dashboard's "Completed series" tab shows the visualizations.
+
+### Headline findings
+
+**DEN-MIN: model right, market wrong.** Through the entire series, the
+model said DEN had a 16-25% chance of winning while the Kalshi market
+priced them at 50-65%. MIN won the series 4-2. Mean edge of -33
+percentage points sustained over five days. This is the cleanest
+example of the model capturing something the market missed: regular-
+season NRtg + Bayesian updating from observed games gave a confident
+read that DEN was overrated, while market participants were anchored
+on DEN's seeding and historical strength.
+
+**BOS-PHI: market right, model lagged.** BOS led the series 3-1 before
+PHI's three-game comeback. The interesting moment was during G7: the
+Kalshi market price plummeted from ~70% to ~7% in real time as the
+game played out, while the model stayed at 72% until the final whistle.
+This is a structural model limitation — our model treats games as
+discrete events that update the posterior at completion, but the
+market prices continuously based on in-game information (lineups,
+injuries, momentum). Mid-game, the market's edge over the model is not
+mispricing; it's information asymmetry.
+
+**LAL-HOU: agreement is the most common case.** Both signals tracked
+each other closely (Pearson correlation 0.97, mean edge +0.06).
+LAL won 4-2. When the model and the market agree, that's neither a
+trading opportunity nor a model failure — it's the expected case. Most
+of our 8 series looked roughly like this.
+
+**CLE-TOR: model overreacts to single games in close matchups.** Model
+swung from 81% to 28% to 63% to 28% over the course of the series —
+much more variance than the market (Pearson 0.30, σ 0.19). This pattern
+is consistent with what we found in the 0.50-0.60 bucket calibration
+investigation: when the underlying NRtg differential is small, single-
+game updates are large relative to the posterior mean, and the model
+becomes whippy. The Bayesian update is doing what it's supposed to do
+mathematically, but it overweights individual game results in close
+matchups.
+
+### Lessons for using the model
+
+These findings, taken together, suggest a practical reading guide:
+
+1. **Strong agreement (|edge| < 5pp, both confident)** — trust both,
+   no betting opportunity.
+2. **Strong disagreement (|edge| > 20pp, model confident in one
+   direction)** — possible model edge if the matchup has a wide NRtg
+   gap (DEN-MIN style). Suspect if the matchup is close (CLE-TOR style).
+3. **Mid-game divergence** — market is incorporating information the
+   model can't see. Treat this as data lag, not mispricing.
+4. **Pre-series predictions in close matchups (model 0.45-0.60)** — see
+   the calibration limitations section. The model has a ~5pp bias against
+   higher seeds in this range, smaller than the per-series bias in the
+   0.50-0.60 bucket but still material.
+
+### Cron cadence
+
+GitHub's free-tier scheduled events are reliably triggered but
+sometimes delayed during peak load. Our actual cadence over Round 1
+averaged 1-2 hours between runs rather than the configured 15 minutes.
+This is a known GitHub limitation and not specific to our project.
+The data density is still plenty for time-series analysis. We added a
+job-level timeout (5 minutes) to prevent any single hung run from
+delaying subsequent runs.
+
+### What's not yet captured
+
+- We don't have round 1 box scores for series that resolved before our
+  Four Factors integration was wired in (a few games early in round 1).
+  This means κ-weighted variance updates are based on slightly
+  incomplete data for the earliest series.
+- Market-vs-model alignment doesn't tell us about *opportunities* —
+  we'd need a "would-have-traded" backtest with Kelly sizing to score
+  hypothetical PnL.
+- The model's mid-game lag is a real limitation; closing it would
+  require either ingesting in-progress game state (hard) or accepting
+  that pre-game predictions are the model's primary product.
+
 ## Dashboard
 
-`dashboard/index.html` is a single-file static page. Open it directly in a
-browser, or deploy to GitHub Pages by enabling Pages on the `dashboard/`
-subdirectory in your repo settings.
+`docs/index.html` is a single-file static page that reads from
+Supabase using the anon key. Two tabs:
 
-It reads from Supabase using the anon key (embedded directly in the HTML —
-this is safe since RLS would normally control access; for v0 we have RLS
-disabled so anon reads work).
+**Live**: the current snapshot.
+- Latest run's timestamp (with a staleness indicator if >30 min old)
+- One row per active series with model probability, market price, and edge
+- Order-book depth and spread for each market
+- Posterior uncertainty and Four Factors data when available
+
+**Completed series**: the archive.
+- All series the bot has logged, organized by round
+- Final score and series outcome
+- Summary stats: mean edge, edge volatility, model-market correlation
+- Time-series plots showing how model probability and market price
+  evolved over each series (added in a follow-up; see "What's not yet
+  built")
+
+Tabs are persisted in the URL hash (`#live` and `#completed`) so users
+can link directly to either view.
+
+Open `docs/index.html` directly in a browser locally, or deploy via
+GitHub Pages (see "Deployment" above).
 
 ## What's not yet built
 
-- **GitHub Actions cron** — currently you run the bot manually. Next step.
 - **Time-series visualization** — dashboard shows the latest snapshot but
-  not how predictions and prices have moved over time.
+  not how predictions and prices have moved over time. With the cron now
+  populating Supabase every 15 minutes, this becomes possible.
+- **0.50-0.60 bucket investigation** — the one stubborn miscalibration
+  pocket; worth digging into once we have more accumulated runs.
 - **ELO as a parallel rating source** — would blend with NRtg in the prior
   and be re-evaluated against the same backtest framework.
-- **Tail correction backtest** — needs accumulated live Kalshi data.
-- **Kelly sizing logic** — would compute position sizes if we were
-  actually trading. Still simulation-only when added.
+- **Tail correction backtest** — needs accumulated live Kalshi data, which
+  the cron now starts gathering.
+- **Kelly sizing logic** — would compute position sizes if we were actually
+  trading. Still simulation-only when added.
 - **"Would-have-traded" backtest** — replay against logged prices to
   measure hypothetical PnL.
 

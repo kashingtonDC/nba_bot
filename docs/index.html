@@ -149,6 +149,120 @@ button:hover {
   color: var(--bg);
 }
 
+/* --- Tabs --- */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  gap: 4px;
+}
+.tab {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--fg-faint);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 18px;
+  cursor: pointer;
+  margin: 0;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab:hover {
+  color: var(--fg-dim);
+}
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+
+/* --- Completed-series cards grid --- */
+.round-section {
+  margin-bottom: 36px;
+}
+.round-section h2 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+.series-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.series-card .matchup {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.series-card .outcome {
+  font-size: 11px;
+  color: var(--fg-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.series-card .outcome.fav-won { color: var(--pos); }
+.series-card .outcome.und-won { color: var(--neg); }
+.series-card .outcome.in-progress { color: var(--warn); }
+.series-card .stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+  margin-top: auto;
+}
+.series-card .stat {
+  display: flex;
+  flex-direction: column;
+}
+.series-card .stat .label {
+  font-size: 9px;
+  color: var(--fg-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.series-card .stat .value {
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.series-card .stat .value.pos { color: var(--pos); }
+.series-card .stat .value.neg { color: var(--neg); }
+
+/* Chart canvas placeholder area for Part 2 */
+.series-card .chart-area {
+  height: 180px;
+  margin: 8px 0 14px;
+  background: var(--bg-row);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--fg-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 /* --- Status / loading / error --- */
 .status {
   padding: 24px;
@@ -332,28 +446,42 @@ footer .disclaimer {
     </div>
   </header>
 
-  <div id="status" class="status">Loading observations from Supabase…</div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="live" role="tab" aria-selected="true">Live</button>
+    <button class="tab" data-tab="completed" role="tab" aria-selected="false">Completed series</button>
+  </nav>
 
-  <div id="table-wrap" class="table-wrap" style="display: none;">
-    <table>
-      <thead>
-        <tr>
-          <th>Matchup</th>
-          <th class="num">NRtg Δ</th>
-          <th class="num col-uncertainty">Uncert.</th>
-          <th class="num">P(home)</th>
-          <th class="num">P(road)</th>
-          <th class="num">Model %</th>
-          <th class="num">Tail-adj</th>
-          <th class="num">Market %</th>
-          <th class="num">Edge</th>
-          <th class="num col-spread">Spread</th>
-          <th class="num col-spread">Depth</th>
-          <th class="num col-volume">Vol</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+  <!-- Live tab: current snapshot of active series -->
+  <div id="tab-live" class="tab-panel active" role="tabpanel">
+    <div id="status" class="status">Loading observations from Supabase…</div>
+
+    <div id="table-wrap" class="table-wrap" style="display: none;">
+      <table>
+        <thead>
+          <tr>
+            <th>Matchup</th>
+            <th class="num">NRtg Δ</th>
+            <th class="num col-uncertainty">Uncert.</th>
+            <th class="num">P(home)</th>
+            <th class="num">P(road)</th>
+            <th class="num">Model %</th>
+            <th class="num">Tail-adj</th>
+            <th class="num">Market %</th>
+            <th class="num">Edge</th>
+            <th class="num col-spread">Spread</th>
+            <th class="num col-spread">Depth</th>
+            <th class="num col-volume">Vol</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Completed series tab: archive view organized by round -->
+  <div id="tab-completed" class="tab-panel" role="tabpanel">
+    <div id="completed-status" class="status">Loading completed series…</div>
+    <div id="completed-content" style="display: none;"></div>
   </div>
 
   <footer>
@@ -522,12 +650,278 @@ loadLatestRun().catch(err => {
 });
 
 document.getElementById('refresh-btn').addEventListener('click', () => {
-  document.getElementById('status').style.display = 'block';
-  document.getElementById('status').textContent = 'Refreshing…';
-  document.getElementById('status').classList.remove('error');
-  document.getElementById('table-wrap').style.display = 'none';
-  loadLatestRun();
+  // Refresh refers to whichever tab is active
+  if (currentTab === 'live') {
+    document.getElementById('status').style.display = 'block';
+    document.getElementById('status').textContent = 'Refreshing…';
+    document.getElementById('status').classList.remove('error');
+    document.getElementById('table-wrap').style.display = 'none';
+    loadLatestRun();
+  } else if (currentTab === 'completed') {
+    document.getElementById('completed-status').style.display = 'block';
+    document.getElementById('completed-status').textContent = 'Refreshing…';
+    document.getElementById('completed-status').classList.remove('error');
+    document.getElementById('completed-content').style.display = 'none';
+    completedLoaded = false;   // force reload
+    loadCompletedSeries();
+  }
 });
+
+// ---------------------------------------------------------------------------
+// Tab management
+// ---------------------------------------------------------------------------
+
+let currentTab = 'live';
+let completedLoaded = false;   // lazy-load completed view first time it's opened
+
+function switchTab(tabName) {
+  // Update tab buttons
+  document.querySelectorAll('.tab').forEach(btn => {
+    const isActive = btn.dataset.tab === tabName;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-selected', String(isActive));
+  });
+  // Update panels
+  document.querySelectorAll('.tab-panel').forEach(panel => {
+    panel.classList.toggle('active', panel.id === `tab-${tabName}`);
+  });
+  currentTab = tabName;
+
+  // Persist in URL hash so users can link directly
+  if (window.location.hash !== `#${tabName}`) {
+    history.replaceState(null, '', `#${tabName}`);
+  }
+
+  // Lazy-load completed view first time it's opened
+  if (tabName === 'completed' && !completedLoaded) {
+    loadCompletedSeries();
+  }
+}
+
+// Wire tab clicks
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+// Honor URL hash on initial load
+const initialHash = window.location.hash.replace('#', '');
+if (initialHash === 'completed') {
+  switchTab('completed');
+}
+
+// ---------------------------------------------------------------------------
+// Completed-series view
+// ---------------------------------------------------------------------------
+
+// Round inference from series_key. We don't have round info directly in
+// observations (yet), so we use a simple heuristic: round 1 series are the
+// 8 well-known matchups (configured in config.py); anything else is round
+// 2+. This works for now since we don't have data past the conference
+// finals yet. Update as needed.
+const ROUND1_SERIES = new Set([
+  'OKC_PHX', 'LAL_HOU', 'DEN_MIN', 'SAS_POR',
+  'BOS_PHI', 'DET_ORL', 'CLE_TOR', 'NYK_ATL',
+]);
+
+function inferRound(seriesKey) {
+  if (ROUND1_SERIES.has(seriesKey)) return 1;
+  return 2;   // anything else; refine when we have round 3+ data
+}
+
+async function loadCompletedSeries() {
+  const status = document.getElementById('completed-status');
+  const content = document.getElementById('completed-content');
+
+  try {
+    // Fetch all observations and runs. Pages are 1000 at a time; we
+    // expect a few thousand rows total over the course of the playoffs,
+    // well within the limit.
+    //
+    // We use the same supabase client as the live tab, so RLS read-only
+    // permissions apply automatically.
+    const { data: runs, error: runsErr } = await supabase
+      .from('runs')
+      .select('id, started_at')
+      .order('id', { ascending: true })
+      .limit(2000);
+    if (runsErr) throw runsErr;
+
+    const runTime = new Map(runs.map(r => [r.id, new Date(r.started_at)]));
+
+    const { data: obs, error: obsErr } = await supabase
+      .from('observations')
+      .select('run_id, series_key, favorite, underdog, favorite_wins, ' +
+              'underdog_wins, p_fav_series_raw, market_yes_mid, edge_raw')
+      .order('run_id', { ascending: true })
+      .limit(10000);
+    if (obsErr) throw obsErr;
+
+    // Group by series_key
+    const bySeries = new Map();
+    for (const row of obs) {
+      if (!runTime.has(row.run_id)) continue;
+      const key = row.series_key;
+      if (!bySeries.has(key)) bySeries.set(key, []);
+      bySeries.get(key).push({
+        ...row,
+        timestamp: runTime.get(row.run_id),
+      });
+    }
+
+    // Compute per-series summary
+    const summaries = [];
+    for (const [key, observations] of bySeries.entries()) {
+      observations.sort((a, b) => a.timestamp - b.timestamp);
+
+      // Final score: take the maximum wins seen for each side. Robust
+      // against stale observations that briefly write outdated state.
+      const maxFav = Math.max(...observations.map(o => o.favorite_wins || 0));
+      const maxUnd = Math.max(...observations.map(o => o.underdog_wins || 0));
+      const resolved = maxFav >= 4 || maxUnd >= 4;
+      const favWon = maxFav >= 4;
+
+      // Stats over observations with both model and market
+      const withMarket = observations.filter(
+        o => o.p_fav_series_raw != null && o.market_yes_mid != null
+      );
+      let meanEdge = null;
+      let stdEdge = null;
+      let maxAbsEdge = null;
+      let corr = null;
+      if (withMarket.length > 1) {
+        const edges = withMarket.map(o => o.edge_raw).filter(e => e != null);
+        if (edges.length > 0) {
+          meanEdge = edges.reduce((a, b) => a + b, 0) / edges.length;
+          const variance = edges.reduce(
+            (acc, e) => acc + (e - meanEdge) ** 2, 0
+          ) / edges.length;
+          stdEdge = Math.sqrt(variance);
+          maxAbsEdge = Math.max(...edges.map(Math.abs));
+        }
+        // Pearson correlation between model_p and market_p
+        const ms = withMarket.map(o => o.p_fav_series_raw);
+        const ks = withMarket.map(o => o.market_yes_mid);
+        const mMean = ms.reduce((a, b) => a + b, 0) / ms.length;
+        const kMean = ks.reduce((a, b) => a + b, 0) / ks.length;
+        let num = 0, dm = 0, dk = 0;
+        for (let i = 0; i < ms.length; i++) {
+          num += (ms[i] - mMean) * (ks[i] - kMean);
+          dm += (ms[i] - mMean) ** 2;
+          dk += (ks[i] - kMean) ** 2;
+        }
+        const denom = Math.sqrt(dm * dk);
+        corr = denom > 1e-9 ? num / denom : null;
+      }
+
+      summaries.push({
+        seriesKey: key,
+        favorite: observations[0].favorite,
+        underdog: observations[0].underdog,
+        round: inferRound(key),
+        finalScore: `${maxFav}-${maxUnd}`,
+        resolved,
+        favWon,
+        nObservations: observations.length,
+        nWithMarket: withMarket.length,
+        meanEdge, stdEdge, maxAbsEdge, corr,
+      });
+    }
+
+    // Sort: by round ascending, then by series key alphabetically
+    summaries.sort((a, b) => {
+      if (a.round !== b.round) return a.round - b.round;
+      return a.seriesKey.localeCompare(b.seriesKey);
+    });
+
+    if (summaries.length === 0) {
+      status.textContent = 'No completed series yet.';
+      return;
+    }
+
+    // Group by round
+    const byRound = new Map();
+    for (const s of summaries) {
+      if (!byRound.has(s.round)) byRound.set(s.round, []);
+      byRound.get(s.round).push(s);
+    }
+
+    // Render
+    const roundNames = {1: 'First Round', 2: 'Conference Semifinals',
+                        3: 'Conference Finals', 4: 'NBA Finals'};
+    const sections = [];
+    for (const [round, items] of [...byRound.entries()].sort((a, b) => a[0] - b[0])) {
+      const cards = items.map(renderSeriesCard).join('');
+      sections.push(`
+        <div class="round-section">
+          <h2>Round ${round} — ${roundNames[round] || ''}</h2>
+          <div class="cards-grid">${cards}</div>
+        </div>
+      `);
+    }
+    content.innerHTML = sections.join('');
+
+    status.style.display = 'none';
+    content.style.display = 'block';
+    completedLoaded = true;
+  } catch (err) {
+    status.textContent = `Error loading completed series: ${err.message}`;
+    status.classList.add('error');
+  }
+}
+
+function renderSeriesCard(s) {
+  let outcomeText, outcomeClass;
+  if (!s.resolved) {
+    outcomeText = `In progress · ${s.finalScore}`;
+    outcomeClass = 'in-progress';
+  } else if (s.favWon) {
+    outcomeText = `${s.favorite} won ${s.finalScore}`;
+    outcomeClass = 'fav-won';
+  } else {
+    outcomeText = `${s.underdog} won ${s.finalScore}`;
+    outcomeClass = 'und-won';
+  }
+
+  // Stats display
+  const fmtNum = (v, digits = 3, signed = false) =>
+    v == null ? '—' : (signed && v >= 0 ? '+' : '') + v.toFixed(digits);
+  const edgeClass = s.meanEdge == null ? '' :
+    (s.meanEdge > 0 ? 'pos' : (s.meanEdge < 0 ? 'neg' : ''));
+
+  return `
+    <div class="series-card">
+      <div class="matchup">${s.favorite} vs ${s.underdog}</div>
+      <div class="outcome ${outcomeClass}">${outcomeText}</div>
+      <div class="chart-area">time-series plot — coming soon</div>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="label">mean edge</span>
+          <span class="value ${edgeClass}">${fmtNum(s.meanEdge, 3, true)}</span>
+        </div>
+        <div class="stat">
+          <span class="label">edge σ</span>
+          <span class="value">${fmtNum(s.stdEdge, 3)}</span>
+        </div>
+        <div class="stat">
+          <span class="label">max |edge|</span>
+          <span class="value">${fmtNum(s.maxAbsEdge, 3)}</span>
+        </div>
+        <div class="stat">
+          <span class="label">model · market corr</span>
+          <span class="value">${fmtNum(s.corr, 2, true)}</span>
+        </div>
+        <div class="stat">
+          <span class="label">observations</span>
+          <span class="value">${s.nObservations}</span>
+        </div>
+        <div class="stat">
+          <span class="label">w/ market</span>
+          <span class="value">${s.nWithMarket}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
 </script>
 
 </body>
