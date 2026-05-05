@@ -426,6 +426,18 @@ def extract_completed_game(event: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     # Date in ISO YYYY-MM-DD form
     iso_date = (event.get("date") or "")[:10]
 
+    # Playoff detection. ESPN tags postseason games with season.type == 3
+    # AND a `notes` array describing the round (e.g., "Eastern Conference
+    # Semifinals"). We use both signals: season.type to gate on postseason,
+    # notes for the round name (used by auto-discovery to label the series).
+    season = event.get("season") or {}
+    is_postseason = season.get("type") == 3
+    notes_list = competition.get("notes") or []
+    notes_headline = next(
+        (n.get("headline") for n in notes_list if n.get("headline")),
+        None,
+    )
+
     return {
         "home": home_abbrev,
         "away": away_abbrev,
@@ -433,6 +445,8 @@ def extract_completed_game(event: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         "away_score": away_score,
         "date": iso_date,
         "espn_event_id": event.get("id"),
+        "is_postseason": is_postseason,
+        "round_label": notes_headline,
     }
 
 
@@ -562,6 +576,126 @@ def collect_games(
     return all_completed
 
 
+def discover_new_series(
+    games: List[Dict[str, Any]],
+    existing_lookup: Dict[Tuple[str, str], config.SeriesState],
+    ratings: Dict[str, float],
+) -> Dict[Tuple[str, str], config.SeriesState]:
+    """
+    Find postseason matchups in `games` that aren't already in `existing_lookup`,
+    and synthesize SeriesState records for them.
+
+    Favorite assignment: higher NRtg wins. If neither team has NRtg data,
+    we skip the matchup (can't model without ratings).
+
+    Home court assignment: whoever was home in the EARLIEST observed game
+    of this matchup is treated as having homecourt advantage. In the NBA
+    playoffs the higher seed always hosts G1, so this is reliable as long
+    as we've seen at least one game.
+
+    Kalshi ticker pattern: in our experience, Kalshi tickers follow the
+    pattern KXNBASERIES-YY{LOSER_FIRST}{WINNER_FIRST}R{N}-{TEAM}, where
+    R{N} matches the round. We extract the round from the ESPN notes
+    (e.g., "Eastern Conference Semifinals" -> R2). We construct a best-
+    effort substring match; if Kalshi varies the format, the bot's "no
+    match" warning will surface that.
+
+    Returns a dict keyed by sorted-team-pair, mapping to new SeriesState
+    objects. Series_key is "{FAV}_{UND}" for consistency with manual config.
+    """
+    discovered: Dict[Tuple[str, str], config.SeriesState] = {}
+
+    # Group games by matchup, capturing earliest-game info
+    by_matchup: Dict[Tuple[str, str], List[Dict[str, Any]]] = {}
+    for g in games:
+        if not g.get("is_postseason"):
+            continue
+        key = tuple(sorted([g["home"], g["away"]]))
+        by_matchup.setdefault(key, []).append(g)
+
+    for matchup_key, matchup_games in by_matchup.items():
+        if matchup_key in existing_lookup:
+            continue   # Already configured; skip auto-discovery
+
+        team_a, team_b = matchup_key
+        rating_a = ratings.get(team_a)
+        rating_b = ratings.get(team_b)
+        if rating_a is None or rating_b is None:
+            log.warning(
+                f"Auto-discovery: matchup {team_a}-{team_b} has missing NRtg "
+                f"(a={rating_a}, b={rating_b}); skipping"
+            )
+            continue
+
+        # Higher NRtg = favorite
+        if rating_a >= rating_b:
+            favorite, underdog = team_a, team_b
+        else:
+            favorite, underdog = team_b, team_a
+
+        # Determine homecourt: who was home in the earliest game?
+        earliest = min(matchup_games, key=lambda g: g["date"])
+        favorite_has_home_court = earliest["home"] == favorite
+
+        # Round detection from ESPN notes (best-effort)
+        round_label = next(
+            (g.get("round_label") for g in matchup_games if g.get("round_label")),
+            None,
+        )
+        round_num = _round_num_from_label(round_label)
+        round_str = f"R{round_num}" if round_num else "R1"
+
+        # Kalshi ticker substring. The exact format matches KXNBASERIES-26{X}{Y}{R}-{TEAM}.
+        # We don't know which side is X vs Y in the actual ticker; we just match
+        # on "{R}-{FAVORITE}" which is reliable across both orderings.
+        kalshi_match = f"{round_str}-{favorite}"
+
+        series_key = f"{favorite}_{underdog}"
+        discovered[matchup_key] = config.SeriesState(
+            series_key=series_key,
+            favorite=favorite,
+            underdog=underdog,
+            favorite_wins=0,         # filled in by build_series_state
+            underdog_wins=0,
+            completed_games=[],
+            favorite_has_home_court=favorite_has_home_court,
+            kalshi_ticker_match=kalshi_match,
+        )
+        log.info(
+            f"Auto-discovered series: {series_key} "
+            f"(round={round_str}, fav-home={favorite_has_home_court}, "
+            f"kalshi-match='{kalshi_match}')"
+        )
+
+    return discovered
+
+
+_ROUND_LABEL_PATTERNS = [
+    # First Round / Quarterfinals: round 1
+    ("first round", 1),
+    ("quarterfinal", 1),
+    # Semifinals: round 2
+    ("semifinal", 2),
+    ("conference semifinal", 2),
+    # Conference Finals: round 3
+    ("conference final", 3),
+    # NBA Finals: round 4
+    ("nba final", 4),
+    ("the finals", 4),
+]
+
+
+def _round_num_from_label(label: Optional[str]) -> Optional[int]:
+    """Map ESPN round-label strings to round numbers 1-4."""
+    if not label:
+        return None
+    lower = label.lower()
+    for pattern, num in _ROUND_LABEL_PATTERNS:
+        if pattern in lower:
+            return num
+    return None
+
+
 def build_series_state(
     games: List[Dict[str, Any]],
     fetch_advanced: bool = True,
@@ -569,19 +703,35 @@ def build_series_state(
     """
     Group completed games by series and produce the output structure.
 
-    If `fetch_advanced` is True, fetch ESPN's summary endpoint for each
-    matched playoff game to enrich records with box scores, per-quarter
-    scoring, top-minutes players, etc. One extra request per playoff game,
-    throttled by INTER_REQUEST_DELAY.
+    Process:
+    1. Build lookup from config.SERIES (manually configured matchups).
+    2. Auto-discover any postseason matchups in `games` not in the lookup,
+       creating new SeriesState records for them with NRtg-based favorite
+       assignment. This is what enables round 2+ tracking without manual
+       config edits.
+    3. Match each game to its (configured or discovered) series.
+    4. Optionally fetch ESPN summary endpoint for each matched game to
+       enrich with box scores etc.
+    5. Build the output with win counts and a `complete` flag (true when
+       either team has 4 wins).
 
     Games are sorted by date within each series.
     """
+    ratings = config.TEAM_NET_RATINGS
     lookup = build_series_lookup()
+
+    # Auto-discovery pass: extend the lookup with any postseason matchups
+    # we observe in the games list that aren't already configured.
+    discovered = discover_new_series(games, lookup, ratings)
+    lookup.update(discovered)
+
     by_series: Dict[str, List[Dict[str, Any]]] = {}
+    series_by_key: Dict[str, config.SeriesState] = {
+        s.series_key: s for s in lookup.values()
+    }
+
     unmatched_count = 0
     unmatched_pairs = set()
-
-    # First pass: identify which games are playoff-relevant
     matched: List[Tuple[Dict[str, Any], config.SeriesState]] = []
     for g in games:
         series = assign_to_series(g, lookup)
@@ -607,16 +757,21 @@ def build_series_state(
         by_series.setdefault(series.series_key, []).append(record)
 
     out: Dict[str, Dict[str, Any]] = {}
-    for s in config.SERIES:
-        recs = sorted(by_series.get(s.series_key, []), key=lambda r: r["date"])
+    # Iterate over the union of configured + discovered, not just config.SERIES.
+    for series_key, s in series_by_key.items():
+        recs = sorted(by_series.get(series_key, []), key=lambda r: r["date"])
         fav_wins = sum(1 for r in recs if r["margin"] > 0)
         und_wins = sum(1 for r in recs if r["margin"] < 0)
-        out[s.series_key] = {
+        complete = fav_wins >= 4 or und_wins >= 4
+        out[series_key] = {
             "favorite": s.favorite,
             "underdog": s.underdog,
             "favorite_wins": fav_wins,
             "underdog_wins": und_wins,
             "completed_games": recs,
+            "favorite_has_home_court": s.favorite_has_home_court,
+            "kalshi_ticker_match": s.kalshi_ticker_match,
+            "complete": complete,
         }
     return out
 
@@ -669,8 +824,9 @@ def main() -> int:
     )
     parser.add_argument(
         "--since", type=lambda s: datetime.strptime(s, "%Y-%m-%d").date(),
-        default=date.today() - timedelta(days=14),
-        help="Start date (YYYY-MM-DD). Default: today - 14 days.",
+        default=date.today() - timedelta(days=30),
+        help="Start date (YYYY-MM-DD). Default: today - 30 days. Wide enough "
+             "to capture a full series even at the back end of a round.",
     )
     parser.add_argument(
         "--until", type=lambda s: datetime.strptime(s, "%Y-%m-%d").date(),

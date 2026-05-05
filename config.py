@@ -273,10 +273,20 @@ def _load_series() -> List[SeriesState]:
     hardcoded fallback.
 
     The JSON is written by `scripts/refresh_series.py`. It contains a
-    `series` dict keyed by series_key with current win counts and the
-    full `completed_games` list. The fallback list (above) provides
-    `kalshi_ticker_match` and `favorite`/`underdog` identity, which the
-    JSON merges into.
+    `series` dict keyed by series_key with current win counts, the full
+    `completed_games` list, and (for auto-discovered round 2+ series)
+    favorite/underdog assignments and kalshi_ticker_match.
+
+    Loading rules:
+    - Any series in the JSON gets loaded, even if not in _FALLBACK_SERIES.
+      This enables auto-discovery of round 2+ matchups by refresh_series.py.
+    - For series in _FALLBACK_SERIES, the JSON's win counts and games take
+      precedence; favorite/underdog/kalshi_ticker_match come from fallback
+      (the JSON for round-1 entries doesn't override these to preserve
+      manual overrides).
+    - Series marked complete=true in the JSON are excluded from the live
+      bot's tracking — Kalshi markets close after series end and we don't
+      want stale "no Kalshi match" warnings cluttering the logs.
     """
     json_path = Path(__file__).resolve().parent / "series_state.json"
     if not json_path.exists():
@@ -289,12 +299,17 @@ def _load_series() -> List[SeriesState]:
         if not isinstance(loaded, dict):
             raise ValueError("'series' is not a dict")
 
+        fallback_by_key = {s.series_key: s for s in _FALLBACK_SERIES}
         out: List[SeriesState] = []
-        for fallback in _FALLBACK_SERIES:
-            data = loaded.get(fallback.series_key)
-            if data is None:
-                # No live data for this series; keep fallback
-                out.append(fallback)
+        n_loaded = 0
+        n_skipped_complete = 0
+
+        for series_key, data in loaded.items():
+            if data.get("complete"):
+                # Series resolved; don't keep it in the active tracking list.
+                # Logged predictions stay in Supabase; we just don't try to
+                # match against Kalshi (which has closed the market).
+                n_skipped_complete += 1
                 continue
 
             completed = [
@@ -306,20 +321,47 @@ def _load_series() -> List[SeriesState]:
                 )
                 for g in data.get("completed_games", [])
             ]
-            out.append(SeriesState(
-                series_key=fallback.series_key,
-                favorite=fallback.favorite,
-                underdog=fallback.underdog,
-                favorite_wins=int(data.get("favorite_wins", 0)),
-                underdog_wins=int(data.get("underdog_wins", 0)),
-                completed_games=completed,
-                favorite_has_home_court=fallback.favorite_has_home_court,
-                kalshi_ticker_match=fallback.kalshi_ticker_match,
-            ))
+
+            fallback = fallback_by_key.get(series_key)
+            if fallback is not None:
+                # Known series: use fallback identity but JSON win counts/games
+                out.append(SeriesState(
+                    series_key=series_key,
+                    favorite=fallback.favorite,
+                    underdog=fallback.underdog,
+                    favorite_wins=int(data.get("favorite_wins", 0)),
+                    underdog_wins=int(data.get("underdog_wins", 0)),
+                    completed_games=completed,
+                    favorite_has_home_court=fallback.favorite_has_home_court,
+                    kalshi_ticker_match=fallback.kalshi_ticker_match,
+                ))
+            else:
+                # Auto-discovered series (round 2+): all fields come from JSON.
+                # refresh_series.py is responsible for assigning favorite by
+                # NRtg and computing the Kalshi ticker pattern.
+                fav = data.get("favorite")
+                und = data.get("underdog")
+                if not fav or not und:
+                    log.warning(
+                        f"series_state.json entry {series_key} missing favorite/underdog; skipping"
+                    )
+                    continue
+                out.append(SeriesState(
+                    series_key=series_key,
+                    favorite=fav,
+                    underdog=und,
+                    favorite_wins=int(data.get("favorite_wins", 0)),
+                    underdog_wins=int(data.get("underdog_wins", 0)),
+                    completed_games=completed,
+                    favorite_has_home_court=bool(data.get("favorite_has_home_court", True)),
+                    kalshi_ticker_match=data.get("kalshi_ticker_match"),
+                ))
+            n_loaded += 1
 
         log.info(
-            f"Loaded series state for {sum(1 for k in loaded.keys() if k in {s.series_key for s in _FALLBACK_SERIES})} "
-            f"series from series_state.json (fetched_at={payload.get('fetched_at', '?')})"
+            f"Loaded {n_loaded} active series from series_state.json "
+            f"(fetched_at={payload.get('fetched_at', '?')}, "
+            f"skipped {n_skipped_complete} complete)"
         )
         return out
     except (ValueError, OSError, KeyError) as e:
