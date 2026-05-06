@@ -9,6 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
+<!-- Chart.js for time-series plots in the completed-series tab.
+     date-fns adapter handles time-axis formatting. -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
 <style>
 :root {
   --bg: #0d0e10;
@@ -248,10 +253,13 @@ button:hover {
 .series-card .stat .value.pos { color: var(--pos); }
 .series-card .stat .value.neg { color: var(--neg); }
 
-/* Chart canvas placeholder area for Part 2 */
+/* Chart canvas area — Chart.js renders the time-series plot here */
 .series-card .chart-area {
   height: 180px;
   margin: 8px 0 14px;
+  position: relative;   /* Chart.js needs this for responsive sizing */
+}
+.series-card .chart-area.placeholder {
   background: var(--bg-row);
   border: 1px dashed var(--border);
   display: flex;
@@ -733,28 +741,39 @@ async function loadCompletedSeries() {
   const content = document.getElementById('completed-content');
 
   try {
-    // Fetch all observations and runs. Pages are 1000 at a time; we
-    // expect a few thousand rows total over the course of the playoffs,
-    // well within the limit.
+    // Fetch outcomes.json (committed by cron) and Supabase data in parallel.
+    // outcomes.json is the source of truth for *final* outcomes — it picks
+    // up final scores even when our Supabase logging stopped before the
+    // deciding game. We use Supabase for the time-series itself.
     //
-    // We use the same supabase client as the live tab, so RLS read-only
-    // permissions apply automatically.
-    const { data: runs, error: runsErr } = await supabase
+    // We tolerate outcomes.json being missing (404) — falls back to
+    // Supabase-only behavior, just with potentially-stale outcomes.
+    const outcomesPromise = fetch('outcomes.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null);
+
+    const runsPromise = supabase
       .from('runs')
       .select('id, started_at')
       .order('id', { ascending: true })
       .limit(2000);
-    if (runsErr) throw runsErr;
 
-    const runTime = new Map(runs.map(r => [r.id, new Date(r.started_at)]));
-
-    const { data: obs, error: obsErr } = await supabase
+    const obsPromise = supabase
       .from('observations')
       .select('run_id, series_key, favorite, underdog, favorite_wins, ' +
               'underdog_wins, p_fav_series_raw, market_yes_mid, edge_raw')
       .order('run_id', { ascending: true })
       .limit(10000);
+
+    const [outcomesData, { data: runs, error: runsErr },
+           { data: obs, error: obsErr }] =
+      await Promise.all([outcomesPromise, runsPromise, obsPromise]);
+    if (runsErr) throw runsErr;
     if (obsErr) throw obsErr;
+
+    const outcomes = outcomesData?.series || {};
+
+    const runTime = new Map(runs.map(r => [r.id, new Date(r.started_at)]));
 
     // Group by series_key
     const bySeries = new Map();
@@ -774,11 +793,27 @@ async function loadCompletedSeries() {
       observations.sort((a, b) => a.timestamp - b.timestamp);
 
       // Final score: take the maximum wins seen for each side. Robust
-      // against stale observations that briefly write outdated state.
-      const maxFav = Math.max(...observations.map(o => o.favorite_wins || 0));
-      const maxUnd = Math.max(...observations.map(o => o.underdog_wins || 0));
-      const resolved = maxFav >= 4 || maxUnd >= 4;
-      const favWon = maxFav >= 4;
+      // Final score: prefer outcomes.json (source of truth from refresh_series.py)
+      // over the max wins seen in observations. outcomes.json captures the
+      // *real* final state even when our cron stopped logging mid-series.
+      // Falls back to the max-wins-from-observations heuristic if the
+      // outcome isn't in outcomes.json.
+      const outcome = outcomes[key];
+      let maxFav, maxUnd, resolved, favWon, roundNum;
+      if (outcome) {
+        maxFav = outcome.favorite_wins;
+        maxUnd = outcome.underdog_wins;
+        resolved = outcome.complete === true;
+        favWon = resolved && maxFav >= 4;
+        roundNum = outcome.round || inferRound(key);
+      } else {
+        // Fall back to in-observations heuristic
+        maxFav = Math.max(...observations.map(o => o.favorite_wins || 0));
+        maxUnd = Math.max(...observations.map(o => o.underdog_wins || 0));
+        resolved = maxFav >= 4 || maxUnd >= 4;
+        favWon = resolved && maxFav >= 4;
+        roundNum = inferRound(key);
+      }
 
       // Stats over observations with both model and market
       const withMarket = observations.filter(
@@ -817,13 +852,16 @@ async function loadCompletedSeries() {
         seriesKey: key,
         favorite: observations[0].favorite,
         underdog: observations[0].underdog,
-        round: inferRound(key),
+        round: roundNum,
         finalScore: `${maxFav}-${maxUnd}`,
         resolved,
         favWon,
         nObservations: observations.length,
         nWithMarket: withMarket.length,
         meanEdge, stdEdge, maxAbsEdge, corr,
+        // Pass observations and outcome data through for chart rendering
+        observations,   // for time-series plot
+        gameDates: outcome?.games || [],   // for game-result vertical lines
       });
     }
 
@@ -860,6 +898,13 @@ async function loadCompletedSeries() {
     }
     content.innerHTML = sections.join('');
 
+    // After cards are in DOM, populate Chart.js plots. This must happen
+    // after innerHTML assignment because Chart.js needs canvas elements
+    // to exist in the document.
+    for (const s of summaries) {
+      renderSeriesChart(s);
+    }
+
     status.style.display = 'none';
     content.style.display = 'block';
     completedLoaded = true;
@@ -888,11 +933,16 @@ function renderSeriesCard(s) {
   const edgeClass = s.meanEdge == null ? '' :
     (s.meanEdge > 0 ? 'pos' : (s.meanEdge < 0 ? 'neg' : ''));
 
+  // Use the series_key as the canvas id — unique and stable.
+  const canvasId = `chart-${s.seriesKey}`;
+
   return `
     <div class="series-card">
       <div class="matchup">${s.favorite} vs ${s.underdog}</div>
       <div class="outcome ${outcomeClass}">${outcomeText}</div>
-      <div class="chart-area">time-series plot — coming soon</div>
+      <div class="chart-area">
+        <canvas id="${canvasId}"></canvas>
+      </div>
       <div class="stats-row">
         <div class="stat">
           <span class="label">mean edge</span>
@@ -921,6 +971,208 @@ function renderSeriesCard(s) {
       </div>
     </div>
   `;
+}
+
+// Active-window helpers — same logic as the matplotlib analysis script,
+// ported to JS.
+function findActiveWindow(observations) {
+  // From the first observation through either (a) the moment a team hit
+  // 4 wins, or (b) the last observation. Trims off stale post-resolution
+  // observations.
+  if (observations.length === 0) return [null, null];
+  const sorted = [...observations].sort((a, b) => a.timestamp - b.timestamp);
+  const start = sorted[0].timestamp;
+  let end = sorted[sorted.length - 1].timestamp;
+  for (const o of sorted) {
+    if (o.favorite_wins >= 4 || o.underdog_wins >= 4) {
+      end = o.timestamp;
+      break;
+    }
+  }
+  return [start, end];
+}
+
+function detectGameMoments(observations) {
+  // Returns [{timestamp, label, favWin}], one per actual game completion.
+  // Only flags monotonically-increasing win counts — backward-step "ghost
+  // games" from stale data are silently ignored.
+  if (observations.length < 2) return [];
+  const sorted = [...observations].sort((a, b) => a.timestamp - b.timestamp);
+  const moments = [];
+  let maxFav = sorted[0].favorite_wins;
+  let maxUnd = sorted[0].underdog_wins;
+  for (let i = 1; i < sorted.length; i++) {
+    const o = sorted[i];
+    if (o.favorite_wins >= maxFav && o.underdog_wins >= maxUnd
+        && (o.favorite_wins > maxFav || o.underdog_wins > maxUnd)) {
+      const gameNum = o.favorite_wins + o.underdog_wins;
+      const favWin = o.favorite_wins > maxFav;
+      moments.push({
+        timestamp: o.timestamp,
+        label: `${favWin ? 'fav' : 'und'} G${gameNum}`,
+        favWin,
+      });
+      maxFav = o.favorite_wins;
+      maxUnd = o.underdog_wins;
+    }
+  }
+  return moments;
+}
+
+// Color tokens used by Chart.js (resolved from CSS vars at runtime so they
+// match the dashboard theme).
+function readCssVars() {
+  const root = getComputedStyle(document.documentElement);
+  return {
+    accent: root.getPropertyValue('--accent').trim() || '#d4a574',
+    pos: root.getPropertyValue('--pos').trim() || '#6abf7a',
+    neg: root.getPropertyValue('--neg').trim() || '#d97070',
+    fgFaint: root.getPropertyValue('--fg-faint').trim() || '#5c6168',
+    border: root.getPropertyValue('--border').trim() || '#25282d',
+  };
+}
+
+function renderSeriesChart(s) {
+  const canvas = document.getElementById(`chart-${s.seriesKey}`);
+  if (!canvas) return;
+  if (!s.observations || s.observations.length === 0) return;
+
+  const colors = readCssVars();
+  const [start, end] = findActiveWindow(s.observations);
+
+  // Trim observations to the active window so the chart doesn't show
+  // a long stale tail after the series ended.
+  const inWindow = s.observations
+    .filter(o => o.timestamp >= start && o.timestamp <= end)
+    .sort((a, b) => a.timestamp - b.timestamp);
+
+  const modelData = inWindow
+    .filter(o => o.p_fav_series_raw != null)
+    .map(o => ({x: o.timestamp, y: o.p_fav_series_raw}));
+  const marketData = inWindow
+    .filter(o => o.market_yes_mid != null)
+    .map(o => ({x: o.timestamp, y: o.market_yes_mid}));
+
+  const moments = detectGameMoments(inWindow);
+
+  // Chart.js annotation plugin would do vertical lines elegantly, but
+  // adds another dependency. We use a custom plugin object instead —
+  // draws vertical lines after axes are rendered.
+  const verticalLinesPlugin = {
+    id: 'verticalLines',
+    afterDatasetsDraw(chart) {
+      const xAxis = chart.scales.x;
+      const yAxis = chart.scales.y;
+      const ctx = chart.ctx;
+      ctx.save();
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      for (const m of moments) {
+        const x = xAxis.getPixelForValue(m.timestamp);
+        if (x < xAxis.left || x > xAxis.right) continue;
+        ctx.strokeStyle = m.favWin ? colors.accent : colors.neg;
+        ctx.globalAlpha = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(x, yAxis.top);
+        ctx.lineTo(x, yAxis.bottom);
+        ctx.stroke();
+      }
+      ctx.restore();
+    },
+  };
+
+  // eslint-disable-next-line no-undef
+  new Chart(canvas, {
+    type: 'line',
+    data: {
+      datasets: [
+        {
+          label: 'Model',
+          data: modelData,
+          borderColor: colors.accent,
+          backgroundColor: colors.accent,
+          borderWidth: 1.8,
+          pointRadius: 0,
+          stepped: 'after',     // model only changes at game boundaries
+          tension: 0,
+        },
+        {
+          label: 'Market',
+          data: marketData,
+          borderColor: colors.neg,
+          backgroundColor: colors.neg,
+          borderWidth: 1.4,
+          pointRadius: 0,
+          tension: 0.1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      interaction: {mode: 'nearest', axis: 'x', intersect: false},
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'start',
+          labels: {
+            color: colors.fgFaint,
+            font: {size: 9, family: 'JetBrains Mono'},
+            boxWidth: 8,
+            boxHeight: 8,
+            padding: 6,
+          },
+        },
+        tooltip: {
+          enabled: true,
+          mode: 'nearest',
+          intersect: false,
+          backgroundColor: '#0d0e10',
+          titleColor: '#e8eaed',
+          bodyColor: '#e8eaed',
+          borderColor: colors.border,
+          borderWidth: 1,
+          titleFont: {size: 10, family: 'JetBrains Mono'},
+          bodyFont: {size: 10, family: 'JetBrains Mono'},
+          callbacks: {
+            label: (ctx) => `${ctx.dataset.label}: ${(ctx.parsed.y * 100).toFixed(1)}%`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {day: 'MMM d', hour: 'MMM d HH:mm'},
+            tooltipFormat: 'MMM d, HH:mm',
+          },
+          ticks: {
+            color: colors.fgFaint,
+            font: {size: 9, family: 'JetBrains Mono'},
+            maxRotation: 0,
+            autoSkipPadding: 20,
+          },
+          grid: {color: colors.border, drawTicks: false},
+          border: {color: colors.border},
+        },
+        y: {
+          min: 0, max: 1,
+          ticks: {
+            color: colors.fgFaint,
+            font: {size: 9, family: 'JetBrains Mono'},
+            callback: (v) => `${(v * 100).toFixed(0)}%`,
+            stepSize: 0.25,
+          },
+          grid: {color: colors.border, drawTicks: false},
+          border: {color: colors.border},
+        },
+      },
+    },
+    plugins: [verticalLinesPlugin],
+  });
 }
 </script>
 

@@ -19,9 +19,15 @@ concurrency:
   group: nba-bot-cron
   cancel-in-progress: false
 
+# We need write access to commit docs/outcomes.json back to main.
+# Default GITHUB_TOKEN has read-only contents on scheduled runs.
+permissions:
+  contents: write
+
 jobs:
   log-market-state:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Off-season guard
@@ -66,3 +72,25 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python bot.py
+
+      - name: Generate outcomes.json for dashboard
+        # Derives docs/outcomes.json from series_state.json. The dashboard
+        # reads this file to show correct final scores for series that
+        # ended after we stopped logging them in Supabase.
+        run: python scripts/generate_outcomes.py
+        continue-on-error: true
+
+      - name: Commit outcomes.json if changed
+        # Only commit if the file actually changed. This prevents empty
+        # commits cluttering the git log when the cron runs but no series
+        # state changed (which is most of the time).
+        run: |
+          git config user.name "nba-bot"
+          git config user.email "actions@github.com"
+          git add docs/outcomes.json
+          if git diff --staged --quiet; then
+            echo "No changes to outcomes.json; skipping commit."
+          else
+            git commit -m "data: refresh outcomes.json [skip ci]"
+            git push
+          fi
