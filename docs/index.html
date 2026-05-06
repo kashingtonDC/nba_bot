@@ -14,6 +14,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
+<!-- KaTeX for math typesetting in the methodology tab. CSS first, then the
+     library. We don't auto-render — methodology code calls katex.render()
+     explicitly on tab activation. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+
 <style>
 :root {
   --bg: #0d0e10;
@@ -271,6 +277,102 @@ button:hover {
   letter-spacing: 0.08em;
 }
 
+/* --- Methodology tab --- */
+.methodology-content {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg);
+}
+.method-section {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.method-section:last-child {
+  border-bottom: none;
+}
+.method-section h2 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.method-section p {
+  margin-bottom: 12px;
+}
+.method-section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-dim);
+  text-underline-offset: 2px;
+}
+.method-section .ml {
+  /* "Math literal" — for inline math symbols within prose. KaTeX is for
+     full equations; this is just a slightly different font for inline use. */
+  font-family: 'Cambria Math', 'Latin Modern Math', Cambria, serif;
+  font-style: italic;
+}
+.method-steps {
+  list-style: decimal;
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+.method-steps li {
+  margin-bottom: 6px;
+}
+.method-limitations {
+  list-style: disc;
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+.method-limitations li {
+  margin-bottom: 4px;
+}
+.equation {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  padding: 18px 24px;
+  margin: 14px 0;
+  overflow-x: auto;
+  text-align: center;
+  font-size: 18px;
+}
+.eq-note {
+  font-size: 13px;
+  color: var(--fg-dim);
+  font-style: italic;
+}
+.constants-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 13px;
+  margin-top: 12px;
+}
+.constants-table th,
+.constants-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.constants-table th {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  font-weight: 500;
+}
+.constants-table td.num {
+  text-align: right;
+  width: 80px;
+}
+
 /* --- Status / loading / error --- */
 .status {
   padding: 24px;
@@ -457,6 +559,7 @@ footer .disclaimer {
   <nav class="tabs" role="tablist">
     <button class="tab active" data-tab="live" role="tab" aria-selected="true">Live</button>
     <button class="tab" data-tab="completed" role="tab" aria-selected="false">Completed series</button>
+    <button class="tab" data-tab="methodology" role="tab" aria-selected="false">Methodology</button>
   </nav>
 
   <!-- Live tab: current snapshot of active series -->
@@ -490,6 +593,89 @@ footer .disclaimer {
   <div id="tab-completed" class="tab-panel" role="tabpanel">
     <div id="completed-status" class="status">Loading completed series…</div>
     <div id="completed-content" style="display: none;"></div>
+  </div>
+
+  <!-- Methodology tab: math + constants reference -->
+  <div id="tab-methodology" class="tab-panel" role="tabpanel">
+    <div class="methodology-content">
+
+      <section class="method-section">
+        <h2>Pipeline</h2>
+        <p>The model produces P(favorite wins series) in three steps:</p>
+        <ol class="method-steps">
+          <li><strong>Prior</strong> — net-rating differential and homecourt give a per-game probability.</li>
+          <li><strong>Bayesian update</strong> — each completed game's margin updates the posterior.</li>
+          <li><strong>Series enumeration</strong> — sum probability over all paths from current state to 4 wins.</li>
+        </ol>
+      </section>
+
+      <section class="method-section">
+        <h2>Per-game probability</h2>
+        <p>Given current posterior mean differential <span class="ml">δ</span> (favorite NRtg − underdog NRtg) and homecourt advantage <span class="ml">h</span>, the probability the favorite wins one game:</p>
+        <div class="equation" id="eq-pergame"></div>
+        <p class="eq-note">where <span class="ml">Φ</span> is the standard normal CDF, <span class="ml">σ_n</span> is per-game noise, and <span class="ml">σ_g</span> reflects posterior uncertainty about the true differential.</p>
+      </section>
+
+      <section class="method-section">
+        <h2>Bayesian update on observed margin</h2>
+        <p>After observing margin <span class="ml">y</span> in a game with homecourt term <span class="ml">μ_0 = δ + h·HCA</span>, the posterior mean and variance update via the standard normal-normal conjugate:</p>
+        <div class="equation" id="eq-update"></div>
+        <p class="eq-note">Each game tightens the posterior — variance shrinks toward zero as more evidence accumulates.</p>
+      </section>
+
+      <section class="method-section">
+        <h2>Series probability</h2>
+        <p>From current state <span class="ml">(W_f, W_u)</span> with fixed game-location schedule, sum probability across all paths to <span class="ml">W_f = 4</span>:</p>
+        <div class="equation" id="eq-series"></div>
+        <p class="eq-note">Path enumeration is exhaustive — at most 35 paths from any starting state. The favorite home/road probability is recomputed at each game using the current posterior.</p>
+      </section>
+
+      <section class="method-section">
+        <h2>Tail correction</h2>
+        <p>Backtesting showed the raw model overconfident at the extremes. We apply a small symmetric adjustment:</p>
+        <div class="equation" id="eq-tail"></div>
+        <p class="eq-note">Pulls confident predictions slightly toward the center. Calibrated empirically, not a free parameter.</p>
+      </section>
+
+      <section class="method-section">
+        <h2>Constants</h2>
+        <table class="constants-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="ml">HCA</span></td><td class="num">2.5</td><td>Homecourt advantage in points</td></tr>
+            <tr><td><span class="ml">σ_n</span></td><td class="num">11.5</td><td>Per-game noise standard deviation</td></tr>
+            <tr><td><span class="ml">σ_θ</span></td><td class="num">2.0</td><td>Initial posterior std on NRtg differential</td></tr>
+            <tr><td><span class="ml">c</span></td><td class="num">0.6</td><td>Prior regression toward zero (calibrated)</td></tr>
+            <tr><td><span class="ml">κ</span></td><td class="num">0.0</td><td>Four Factors weight (currently disabled)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="method-section">
+        <h2>Calibration approach</h2>
+        <p>Constants were derived from a backtest over 2015-2024 NBA playoffs. Prior regression <span class="ml">c</span> was selected by sweeping values from 0.3 to 1.0 and choosing the midpoint of best log-loss (0.7) and best ECE (0.5). Single point estimate, no per-round or per-bucket variation.</p>
+        <p>Known calibration limitation: the model is systematically over-confident in matchups with model-assigned probability between 0.50 and 0.60 (close NRtg matchups). For full details on the calibration analysis and known biases, see the <a href="https://github.com/kashingtonDC/nba_bot/blob/main/README.md#calibration" target="_blank">README</a>.</p>
+      </section>
+
+      <section class="method-section">
+        <h2>What this model doesn't know</h2>
+        <p>The model uses regular-season net rating only. It does not see:</p>
+        <ul class="method-limitations">
+          <li>Player injuries, trade-deadline acquisitions, or roster changes</li>
+          <li>In-game live state — model only updates when games complete</li>
+          <li>Coaching adjustments, momentum, or matchup-specific dynamics</li>
+          <li>Schedule density, rest days, or back-to-back effects</li>
+        </ul>
+        <p>These are real signals the Kalshi market does see (via news, lineup announcements, in-game reactions). The model's edge over the market — when it has one — comes from regression-to-mean discipline, not from richer information.</p>
+      </section>
+
+    </div>
   </div>
 
   <footer>
@@ -681,6 +867,7 @@ document.getElementById('refresh-btn').addEventListener('click', () => {
 
 let currentTab = 'live';
 let completedLoaded = false;   // lazy-load completed view first time it's opened
+let methodologyRendered = false;   // lazy-render methodology equations
 
 function switchTab(tabName) {
   // Update tab buttons
@@ -704,6 +891,12 @@ function switchTab(tabName) {
   if (tabName === 'completed' && !completedLoaded) {
     loadCompletedSeries();
   }
+  // Render methodology equations first time the tab is opened. KaTeX is
+  // loaded with `defer`, so it might not be ready immediately; renderMethodology
+  // handles that internally.
+  if (tabName === 'methodology' && !methodologyRendered) {
+    renderMethodology();
+  }
 }
 
 // Wire tab clicks
@@ -713,8 +906,8 @@ document.querySelectorAll('.tab').forEach(btn => {
 
 // Honor URL hash on initial load
 const initialHash = window.location.hash.replace('#', '');
-if (initialHash === 'completed') {
-  switchTab('completed');
+if (initialHash === 'completed' || initialHash === 'methodology') {
+  switchTab(initialHash);
 }
 
 // ---------------------------------------------------------------------------
@@ -1186,6 +1379,75 @@ function renderSeriesChart(s) {
     },
     plugins: [verticalLinesPlugin],
   });
+}
+
+// ---------------------------------------------------------------------------
+// Methodology tab
+// ---------------------------------------------------------------------------
+
+// LaTeX strings for the equations rendered into placeholder divs by
+// renderMethodology(). Sourced from the model derivation in README.md.
+// Conventions:
+//   delta — favorite NRtg − underdog NRtg (posterior mean differential)
+//   h     — homecourt (+1 favorite home, −1 favorite road)
+//   sigma_n — per-game noise SD
+//   sigma_g — per-game total SD including posterior uncertainty
+//   sigma_theta — initial posterior SD on differential
+const EQUATIONS = {
+  'eq-pergame': String.raw`
+    P(\text{fav wins one game}) = \Phi\!\left(\frac{\delta + h \cdot \mathrm{HCA}}{\sqrt{\sigma_n^2 + \sigma_g^2}}\right)
+  `,
+  'eq-update': String.raw`
+    \begin{aligned}
+      \mu_{\text{post}} &= \frac{\sigma_n^2 \cdot \mu_0 + \sigma_g^2 \cdot y}{\sigma_n^2 + \sigma_g^2} \\[4pt]
+      \sigma_{\text{post}}^2 &= \frac{\sigma_n^2 \cdot \sigma_g^2}{\sigma_n^2 + \sigma_g^2}
+    \end{aligned}
+  `,
+  'eq-series': String.raw`
+    P(\text{fav wins series} \mid W_f, W_u) = \sum_{\pi} \prod_{g \in \pi} P_g
+  `,
+  'eq-tail': String.raw`
+    P_{\text{adj}} = \begin{cases}
+      P_{\text{raw}} - 0.02 & \text{if } P_{\text{raw}} > 0.85 \\
+      P_{\text{raw}} + 0.02 & \text{if } P_{\text{raw}} < 0.15 \\
+      P_{\text{raw}} & \text{otherwise}
+    \end{cases}
+  `,
+};
+
+function renderMethodology() {
+  // KaTeX is loaded with defer so it might not be ready when the tab is
+  // first opened. Poll briefly, then render. After 5 seconds give up and
+  // show fallback text.
+  const tryRender = (attemptsLeft) => {
+    if (typeof window.katex === 'undefined') {
+      if (attemptsLeft > 0) {
+        setTimeout(() => tryRender(attemptsLeft - 1), 100);
+      } else {
+        // KaTeX failed to load — show fallback message in equation containers
+        for (const id of Object.keys(EQUATIONS)) {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '(equation rendering unavailable — see README)';
+        }
+      }
+      return;
+    }
+    for (const [id, latex] of Object.entries(EQUATIONS)) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      try {
+        // throwOnError: false so a typo in one equation doesn't break others
+        window.katex.render(latex.trim(), el, {
+          throwOnError: false,
+          displayMode: true,
+        });
+      } catch (e) {
+        el.textContent = '(equation rendering failed)';
+      }
+    }
+    methodologyRendered = true;
+  };
+  tryRender(50);   // 50 attempts × 100ms = 5s timeout
 }
 </script>
 

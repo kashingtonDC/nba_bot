@@ -528,7 +528,22 @@ def assign_to_series(
     game: Dict[str, Any],
     lookup: Dict[Tuple[str, str], config.SeriesState],
 ) -> Optional[config.SeriesState]:
-    """Find the series this game belongs to, or None if not playoff-relevant."""
+    """
+    Find the series this game belongs to, or None if not playoff-relevant.
+
+    Returns None if:
+    - The team pair isn't in any configured or auto-discovered series
+    - The game is from the regular season (is_postseason=False)
+
+    The postseason filter is critical: ESPN's scoreboard returns *all* games
+    in the date range, including regular-season matchups between the same
+    teams. Without this filter, a regular-season DET-ORL game from April
+    would be counted as a playoff game in the DET_ORL series record. The
+    is_postseason flag is set by extract_completed_game from ESPN's
+    season.type field (3 = postseason).
+    """
+    if not game.get("is_postseason"):
+        return None
     key = tuple(sorted([game["home"], game["away"]]))
     return lookup.get(key)
 
