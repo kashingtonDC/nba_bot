@@ -832,7 +832,27 @@ def build_series_state(
     out: Dict[str, Dict[str, Any]] = {}
     # Iterate over the union of configured + discovered, not just config.SERIES.
     for series_key, s in series_by_key.items():
-        recs = sorted(by_series.get(series_key, []), key=lambda r: r["date"])
+        # Dedupe by espn_event_id before counting. ESPN occasionally returns
+        # the same game on multiple days (e.g. postponed games whose original
+        # date and actual play date both appear in the scoreboard, or live
+        # games that show up across consecutive days). Without dedup, a series
+        # can show 5+ wins for one team — impossible in a best-of-7.
+        # We keep the first record we see for each event_id; sort by date
+        # ensures that's the chronologically-earliest occurrence.
+        all_recs = sorted(by_series.get(series_key, []), key=lambda r: r["date"])
+        seen_event_ids = set()
+        recs = []
+        for r in all_recs:
+            ev_id = r.get("espn_event_id")
+            if ev_id is not None and ev_id in seen_event_ids:
+                log.warning(
+                    f"  {series_key}: dropping duplicate game with espn_event_id={ev_id}"
+                )
+                continue
+            if ev_id is not None:
+                seen_event_ids.add(ev_id)
+            recs.append(r)
+
         fav_wins = sum(1 for r in recs if r["margin"] > 0)
         und_wins = sum(1 for r in recs if r["margin"] < 0)
         complete = fav_wins >= 4 or und_wins >= 4

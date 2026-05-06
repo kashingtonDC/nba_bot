@@ -915,15 +915,28 @@ async function loadCompletedSeries() {
 }
 
 function renderSeriesCard(s) {
+  // Compute display strings.
+  //
+  // Score formatting: always show winner's wins first. The internal
+  // `finalScore` is built as "favWins-undWins" (favorite first), which is
+  // wrong-looking when the underdog won the series — e.g. "PHI WON 3-4"
+  // really means "BOS won 3 games, PHI won 4." Confusing. We swap the
+  // numbers when the underdog won so the displayed pattern is always
+  // "{winner} won {winner_wins}-{loser_wins}".
+  const [favWins, undWins] = s.finalScore.split('-').map(n => parseInt(n, 10));
+
   let outcomeText, outcomeClass;
   if (!s.resolved) {
+    // In-progress display keeps favorite-first ordering since there's no
+    // "winner" yet.
     outcomeText = `In progress · ${s.finalScore}`;
     outcomeClass = 'in-progress';
   } else if (s.favWon) {
-    outcomeText = `${s.favorite} won ${s.finalScore}`;
+    outcomeText = `${s.favorite} won ${favWins}-${undWins}`;
     outcomeClass = 'fav-won';
   } else {
-    outcomeText = `${s.underdog} won ${s.finalScore}`;
+    // Underdog won: swap score order so winner's count is first.
+    outcomeText = `${s.underdog} won ${undWins}-${favWins}`;
     outcomeClass = 'und-won';
   }
 
