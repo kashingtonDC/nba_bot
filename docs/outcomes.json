@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-07T04:05:57.635108+00:00",
+  "fetched_at": "2026-05-07T07:18:56.105822+00:00",
   "series": {
     "NYK_PHI": {
       "favorite": "NYK",
@@ -24,7 +24,7 @@
     "SAS_MIN": {
       "favorite": "SAS",
       "underdog": "MIN",
-      "favorite_wins": 0,
+      "favorite_wins": 1,
       "underdog_wins": 1,
       "complete": false,
       "round": 2,
@@ -33,6 +33,11 @@
           "date": "2026-05-05",
           "favorite_was_home": true,
           "margin": -2.0
+        },
+        {
+          "date": "2026-05-07",
+          "favorite_was_home": true,
+          "margin": 38.0
         }
       ]
     },
