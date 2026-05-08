@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-08T01:18:26.519768+00:00",
+  "fetched_at": "2026-05-08T04:36:24.603936+00:00",
   "series": {
     "NYK_PHI": {
       "favorite": "NYK",
@@ -44,7 +44,7 @@
     "DET_CLE": {
       "favorite": "DET",
       "underdog": "CLE",
-      "favorite_wins": 1,
+      "favorite_wins": 2,
       "underdog_wins": 0,
       "complete": false,
       "round": 2,
@@ -53,19 +53,29 @@
           "date": "2026-05-05",
           "favorite_was_home": true,
           "margin": 10.0
+        },
+        {
+          "date": "2026-05-07",
+          "favorite_was_home": true,
+          "margin": 10.0
         }
       ]
     },
     "OKC_LAL": {
       "favorite": "OKC",
       "underdog": "LAL",
-      "favorite_wins": 1,
+      "favorite_wins": 2,
       "underdog_wins": 0,
       "complete": false,
       "round": 2,
       "games": [
         {
           "date": "2026-05-06",
+          "favorite_was_home": true,
+          "margin": 18.0
+        },
+        {
+          "date": "2026-05-08",
           "favorite_was_home": true,
           "margin": 18.0
         }
