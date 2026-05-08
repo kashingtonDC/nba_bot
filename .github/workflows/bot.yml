@@ -81,16 +81,31 @@ jobs:
         continue-on-error: true
 
       - name: Commit outcomes.json if changed
-        # Only commit if the file actually changed. This prevents empty
-        # commits cluttering the git log when the cron runs but no series
-        # state changed (which is most of the time).
+        # Only commit if the file actually changed. generate_outcomes.py
+        # writes a deterministic file (no timestamps), so an unchanged
+        # series state produces a byte-identical file — no commit needed.
+        #
+        # Push is wrapped in pull-rebase + retry to handle races: multiple
+        # cron ticks can land close enough that a naive push gets rejected
+        # for non-fast-forward. We rebase on top of origin/main and retry
+        # once. If the second push still fails, we exit non-zero so the
+        # failure is visible in the Actions tab rather than silently
+        # losing the commit.
         run: |
+          set -e
           git config user.name "nba-bot"
           git config user.email "actions@github.com"
           git add docs/outcomes.json
           if git diff --staged --quiet; then
             echo "No changes to outcomes.json; skipping commit."
-          else
-            git commit -m "data: refresh outcomes.json [skip ci]"
-            git push
+            exit 0
+          fi
+          git commit -m "data: refresh outcomes.json [skip ci]"
+
+          # Try to push, retrying once after a rebase if the first push
+          # is rejected (typical cause: a concurrent cron tick pushed first).
+          if ! git push origin HEAD:main; then
+            echo "Initial push rejected; rebasing on origin/main and retrying"
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi

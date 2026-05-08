@@ -143,7 +143,10 @@ def build_outcomes(state: Dict[str, Any]) -> Dict[str, Any]:
         }
 
     return {
-        "fetched_at": state.get("fetched_at"),
+        # Note: deliberately no fetched_at field. The cron commits this file
+        # back to main only when content actually changed; including a
+        # timestamp would mean every cron tick produces a "different" file
+        # and commits get spammed. The series data itself is the truth.
         "series": out_series,
     }
 
