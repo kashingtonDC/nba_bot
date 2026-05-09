@@ -3,7 +3,7 @@
     "NYK_PHI": {
       "favorite": "NYK",
       "underdog": "PHI",
-      "favorite_wins": 2,
+      "favorite_wins": 3,
       "underdog_wins": 0,
       "complete": false,
       "round": 2,
@@ -17,13 +17,18 @@
           "date": "2026-05-06",
           "favorite_was_home": true,
           "margin": 6.0
+        },
+        {
+          "date": "2026-05-08",
+          "favorite_was_home": false,
+          "margin": 14.0
         }
       ]
     },
     "SAS_MIN": {
       "favorite": "SAS",
       "underdog": "MIN",
-      "favorite_wins": 1,
+      "favorite_wins": 2,
       "underdog_wins": 1,
       "complete": false,
       "round": 2,
@@ -37,6 +42,11 @@
           "date": "2026-05-07",
           "favorite_was_home": true,
           "margin": 38.0
+        },
+        {
+          "date": "2026-05-09",
+          "favorite_was_home": false,
+          "margin": 7.0
         }
       ]
     },
