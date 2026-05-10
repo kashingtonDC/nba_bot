@@ -945,18 +945,30 @@ async function loadCompletedSeries() {
       .then(r => r.ok ? r.json() : null)
       .catch(() => null);
 
+    // Supabase enforces a server-side row cap (default 1000) on every REST
+    // response, regardless of the client-requested limit. To get the most
+    // *recent* data — what time-series plots actually need — we order by
+    // id descending. The dashboard then sees the latest ~80-100 observations
+    // per series, which gives full plot coverage for all active and recent
+    // series with plenty of density.
+    //
+    // If we ever need >1000 rows for analysis, paginate via .range(); for
+    // visualization 1000 is fine.
+    const RECENT_RUNS_LIMIT = 500;       // ~500 runs covers ~5 days of cron at 15min cadence
+    const RECENT_OBS_LIMIT = 1000;       // server-capped anyway; explicit for clarity
+
     const runsPromise = supabase
       .from('runs')
       .select('id, started_at')
-      .order('id', { ascending: true })
-      .limit(2000);
+      .order('id', { ascending: false })
+      .limit(RECENT_RUNS_LIMIT);
 
     const obsPromise = supabase
       .from('observations')
       .select('run_id, series_key, favorite, underdog, favorite_wins, ' +
               'underdog_wins, p_fav_series_raw, market_yes_mid, edge_raw')
-      .order('run_id', { ascending: true })
-      .limit(10000);
+      .order('run_id', { ascending: false })
+      .limit(RECENT_OBS_LIMIT);
 
     const [outcomesData, { data: runs, error: runsErr },
            { data: obs, error: obsErr }] =
