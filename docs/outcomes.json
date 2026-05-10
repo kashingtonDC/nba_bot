@@ -3,9 +3,9 @@
     "NYK_PHI": {
       "favorite": "NYK",
       "underdog": "PHI",
-      "favorite_wins": 3,
+      "favorite_wins": 4,
       "underdog_wins": 0,
-      "complete": false,
+      "complete": true,
       "round": 2,
       "games": [
         {
@@ -22,6 +22,11 @@
           "date": "2026-05-08",
           "favorite_was_home": false,
           "margin": 14.0
+        },
+        {
+          "date": "2026-05-10",
+          "favorite_was_home": false,
+          "margin": 30.0
         }
       ]
     },
