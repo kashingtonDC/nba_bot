@@ -33,7 +33,7 @@
     "SAS_MIN": {
       "favorite": "SAS",
       "underdog": "MIN",
-      "favorite_wins": 2,
+      "favorite_wins": 3,
       "underdog_wins": 2,
       "complete": false,
       "round": 2,
@@ -57,6 +57,11 @@
           "date": "2026-05-10",
           "favorite_was_home": false,
           "margin": -5.0
+        },
+        {
+          "date": "2026-05-13",
+          "favorite_was_home": true,
+          "margin": 29.0
         }
       ]
     },
