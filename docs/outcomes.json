@@ -69,7 +69,7 @@
       "favorite": "DET",
       "underdog": "CLE",
       "favorite_wins": 2,
-      "underdog_wins": 2,
+      "underdog_wins": 3,
       "complete": false,
       "round": 2,
       "games": [
@@ -92,6 +92,11 @@
           "date": "2026-05-12",
           "favorite_was_home": false,
           "margin": -9.0
+        },
+        {
+          "date": "2026-05-14",
+          "favorite_was_home": true,
+          "margin": -4.0
         }
       ]
     },
