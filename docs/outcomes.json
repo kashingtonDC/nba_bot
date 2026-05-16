@@ -33,9 +33,9 @@
     "SAS_MIN": {
       "favorite": "SAS",
       "underdog": "MIN",
-      "favorite_wins": 3,
+      "favorite_wins": 4,
       "underdog_wins": 2,
-      "complete": false,
+      "complete": true,
       "round": 2,
       "games": [
         {
@@ -62,6 +62,11 @@
           "date": "2026-05-13",
           "favorite_was_home": true,
           "margin": 29.0
+        },
+        {
+          "date": "2026-05-16",
+          "favorite_was_home": false,
+          "margin": 30.0
         }
       ]
     },
@@ -454,6 +459,15 @@
           "margin": 19.0
         }
       ]
+    },
+    "OKC_SAS": {
+      "favorite": "OKC",
+      "underdog": "SAS",
+      "favorite_wins": 0,
+      "underdog_wins": 0,
+      "complete": false,
+      "round": 2,
+      "games": []
     }
   }
 }
