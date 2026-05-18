@@ -74,8 +74,8 @@
       "favorite": "DET",
       "underdog": "CLE",
       "favorite_wins": 3,
-      "underdog_wins": 3,
-      "complete": false,
+      "underdog_wins": 4,
+      "complete": true,
       "round": 2,
       "games": [
         {
@@ -107,6 +107,11 @@
           "date": "2026-05-15",
           "favorite_was_home": false,
           "margin": 21.0
+        },
+        {
+          "date": "2026-05-18",
+          "favorite_was_home": true,
+          "margin": -31.0
         }
       ]
     },
@@ -463,6 +468,15 @@
     "OKC_SAS": {
       "favorite": "OKC",
       "underdog": "SAS",
+      "favorite_wins": 0,
+      "underdog_wins": 0,
+      "complete": false,
+      "round": 2,
+      "games": []
+    },
+    "CLE_NYK": {
+      "favorite": "CLE",
+      "underdog": "NYK",
       "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
