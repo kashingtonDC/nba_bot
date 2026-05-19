@@ -445,18 +445,24 @@
         }
       ]
     },
-    "CLE_NYK": {
-      "favorite": "CLE",
-      "underdog": "NYK",
-      "favorite_wins": 0,
-      "underdog_wins": 0,
-      "complete": false,
-      "round": 2,
-      "games": []
-    },
     "OKC_SAS": {
       "favorite": "OKC",
       "underdog": "SAS",
+      "favorite_wins": 0,
+      "underdog_wins": 1,
+      "complete": false,
+      "round": 2,
+      "games": [
+        {
+          "date": "2026-05-19",
+          "favorite_was_home": true,
+          "margin": -7.0
+        }
+      ]
+    },
+    "CLE_NYK": {
+      "favorite": "CLE",
+      "underdog": "NYK",
       "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
