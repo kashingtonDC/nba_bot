@@ -145,161 +145,6 @@
         }
       ]
     },
-    "BOS_PHI": {
-      "favorite": "BOS",
-      "underdog": "PHI",
-      "favorite_wins": 3,
-      "underdog_wins": 4,
-      "complete": true,
-      "round": 1,
-      "games": [
-        {
-          "date": "2026-04-19",
-          "favorite_was_home": true,
-          "margin": 32.0
-        },
-        {
-          "date": "2026-04-21",
-          "favorite_was_home": true,
-          "margin": -14.0
-        },
-        {
-          "date": "2026-04-24",
-          "favorite_was_home": false,
-          "margin": 8.0
-        },
-        {
-          "date": "2026-04-26",
-          "favorite_was_home": false,
-          "margin": 32.0
-        },
-        {
-          "date": "2026-04-28",
-          "favorite_was_home": true,
-          "margin": -16.0
-        },
-        {
-          "date": "2026-05-01",
-          "favorite_was_home": false,
-          "margin": -13.0
-        },
-        {
-          "date": "2026-05-02",
-          "favorite_was_home": true,
-          "margin": -9.0
-        }
-      ]
-    },
-    "OKC_PHX": {
-      "favorite": "OKC",
-      "underdog": "PHX",
-      "favorite_wins": 4,
-      "underdog_wins": 0,
-      "complete": true,
-      "round": 1,
-      "games": [
-        {
-          "date": "2026-04-19",
-          "favorite_was_home": true,
-          "margin": 35.0
-        },
-        {
-          "date": "2026-04-23",
-          "favorite_was_home": true,
-          "margin": 13.0
-        },
-        {
-          "date": "2026-04-25",
-          "favorite_was_home": false,
-          "margin": 12.0
-        },
-        {
-          "date": "2026-04-28",
-          "favorite_was_home": false,
-          "margin": 9.0
-        }
-      ]
-    },
-    "DET_ORL": {
-      "favorite": "DET",
-      "underdog": "ORL",
-      "favorite_wins": 4,
-      "underdog_wins": 3,
-      "complete": true,
-      "round": 1,
-      "games": [
-        {
-          "date": "2026-04-19",
-          "favorite_was_home": true,
-          "margin": -11.0
-        },
-        {
-          "date": "2026-04-22",
-          "favorite_was_home": true,
-          "margin": 15.0
-        },
-        {
-          "date": "2026-04-25",
-          "favorite_was_home": false,
-          "margin": -8.0
-        },
-        {
-          "date": "2026-04-28",
-          "favorite_was_home": false,
-          "margin": -6.0
-        },
-        {
-          "date": "2026-04-29",
-          "favorite_was_home": true,
-          "margin": 7.0
-        },
-        {
-          "date": "2026-05-01",
-          "favorite_was_home": false,
-          "margin": 14.0
-        },
-        {
-          "date": "2026-05-03",
-          "favorite_was_home": true,
-          "margin": 22.0
-        }
-      ]
-    },
-    "SAS_POR": {
-      "favorite": "SAS",
-      "underdog": "POR",
-      "favorite_wins": 4,
-      "underdog_wins": 1,
-      "complete": true,
-      "round": 1,
-      "games": [
-        {
-          "date": "2026-04-20",
-          "favorite_was_home": true,
-          "margin": 13.0
-        },
-        {
-          "date": "2026-04-22",
-          "favorite_was_home": true,
-          "margin": -3.0
-        },
-        {
-          "date": "2026-04-25",
-          "favorite_was_home": false,
-          "margin": 12.0
-        },
-        {
-          "date": "2026-04-26",
-          "favorite_was_home": false,
-          "margin": 21.0
-        },
-        {
-          "date": "2026-04-29",
-          "favorite_was_home": true,
-          "margin": 19.0
-        }
-      ]
-    },
     "CLE_TOR": {
       "favorite": "CLE",
       "underdog": "TOR",
@@ -410,6 +255,76 @@
         }
       ]
     },
+    "BOS_PHI": {
+      "favorite": "BOS",
+      "underdog": "PHI",
+      "favorite_wins": 2,
+      "underdog_wins": 4,
+      "complete": true,
+      "round": 1,
+      "games": [
+        {
+          "date": "2026-04-21",
+          "favorite_was_home": true,
+          "margin": -14.0
+        },
+        {
+          "date": "2026-04-24",
+          "favorite_was_home": false,
+          "margin": 8.0
+        },
+        {
+          "date": "2026-04-26",
+          "favorite_was_home": false,
+          "margin": 32.0
+        },
+        {
+          "date": "2026-04-28",
+          "favorite_was_home": true,
+          "margin": -16.0
+        },
+        {
+          "date": "2026-05-01",
+          "favorite_was_home": false,
+          "margin": -13.0
+        },
+        {
+          "date": "2026-05-02",
+          "favorite_was_home": true,
+          "margin": -9.0
+        }
+      ]
+    },
+    "SAS_POR": {
+      "favorite": "SAS",
+      "underdog": "POR",
+      "favorite_wins": 3,
+      "underdog_wins": 1,
+      "complete": false,
+      "round": 1,
+      "games": [
+        {
+          "date": "2026-04-22",
+          "favorite_was_home": true,
+          "margin": -3.0
+        },
+        {
+          "date": "2026-04-25",
+          "favorite_was_home": false,
+          "margin": 12.0
+        },
+        {
+          "date": "2026-04-26",
+          "favorite_was_home": false,
+          "margin": 21.0
+        },
+        {
+          "date": "2026-04-29",
+          "favorite_was_home": true,
+          "margin": 19.0
+        }
+      ]
+    },
     "LAL_HOU": {
       "favorite": "LAL",
       "underdog": "HOU",
@@ -442,6 +357,71 @@
           "date": "2026-05-02",
           "favorite_was_home": false,
           "margin": 20.0
+        }
+      ]
+    },
+    "DET_ORL": {
+      "favorite": "DET",
+      "underdog": "ORL",
+      "favorite_wins": 4,
+      "underdog_wins": 2,
+      "complete": true,
+      "round": 1,
+      "games": [
+        {
+          "date": "2026-04-22",
+          "favorite_was_home": true,
+          "margin": 15.0
+        },
+        {
+          "date": "2026-04-25",
+          "favorite_was_home": false,
+          "margin": -8.0
+        },
+        {
+          "date": "2026-04-28",
+          "favorite_was_home": false,
+          "margin": -6.0
+        },
+        {
+          "date": "2026-04-29",
+          "favorite_was_home": true,
+          "margin": 7.0
+        },
+        {
+          "date": "2026-05-01",
+          "favorite_was_home": false,
+          "margin": 14.0
+        },
+        {
+          "date": "2026-05-03",
+          "favorite_was_home": true,
+          "margin": 22.0
+        }
+      ]
+    },
+    "OKC_PHX": {
+      "favorite": "OKC",
+      "underdog": "PHX",
+      "favorite_wins": 3,
+      "underdog_wins": 0,
+      "complete": false,
+      "round": 1,
+      "games": [
+        {
+          "date": "2026-04-23",
+          "favorite_was_home": true,
+          "margin": 13.0
+        },
+        {
+          "date": "2026-04-25",
+          "favorite_was_home": false,
+          "margin": 12.0
+        },
+        {
+          "date": "2026-04-28",
+          "favorite_was_home": false,
+          "margin": 9.0
         }
       ]
     },
