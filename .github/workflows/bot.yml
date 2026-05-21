@@ -19,7 +19,7 @@ concurrency:
   group: nba-bot-cron
   cancel-in-progress: false
 
-# We need write access to commit docs/outcomes.json back to main.
+# We need write access to commit data files back to main.
 # Default GITHUB_TOKEN has read-only contents on scheduled runs.
 permissions:
   contents: write
@@ -60,10 +60,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Refresh series state from ESPN
-        # If ESPN hiccups, don't fail the workflow. bot.py will fall back to
-        # whatever series_state.json contains — or to hardcoded defaults if
-        # the file doesn't exist. continue-on-error means a flaky ESPN call
-        # is logged as a warning rather than killing the run.
+        # Updates series_state.json with current ESPN data. This file is
+        # consumed by bot.py (via config._load_series) to know which series
+        # are active and what their current scores are. CRITICAL that this
+        # file is committed back to main so the next cron run sees fresh
+        # state — see the commit step below.
         run: python scripts/refresh_series.py
         continue-on-error: true
 
@@ -80,27 +81,36 @@ jobs:
         run: python scripts/generate_outcomes.py
         continue-on-error: true
 
-      - name: Commit outcomes.json if changed
-        # Only commit if the file actually changed. generate_outcomes.py
-        # writes a deterministic file (no timestamps), so an unchanged
-        # series state produces a byte-identical file — no commit needed.
+      - name: Commit data files if changed
+        # Commit BOTH series_state.json AND docs/outcomes.json. Without
+        # series_state.json being committed, the next cron run's checkout
+        # gets a stale file, refresh_series.py rebuilds it from ESPN,
+        # bot.py uses the fresh version for that one run only, and then
+        # the freshness is thrown away on shutdown. Two-week stale file
+        # symptoms include the Live tab showing series from the previous
+        # round and zero conference-finals series being logged.
         #
-        # Push is wrapped in pull-rebase + retry to handle races: multiple
+        # generate_outcomes.py writes a deterministic outcomes.json (no
+        # timestamps) so byte-identical content produces no commit.
+        # series_state.json *does* have a fetched_at timestamp, so it will
+        # always show a diff and always commit. That's fine — the commit
+        # cost is low and having a fresh file on each cron is the goal.
+        #
+        # Push wrapped in pull-rebase + retry to handle races: multiple
         # cron ticks can land close enough that a naive push gets rejected
         # for non-fast-forward. We rebase on top of origin/main and retry
         # once. If the second push still fails, we exit non-zero so the
-        # failure is visible in the Actions tab rather than silently
-        # losing the commit.
+        # failure is visible in the Actions tab.
         run: |
           set -e
           git config user.name "nba-bot"
           git config user.email "actions@github.com"
-          git add docs/outcomes.json
+          git add series_state.json docs/outcomes.json
           if git diff --staged --quiet; then
-            echo "No changes to outcomes.json; skipping commit."
+            echo "No changes to data files; skipping commit."
             exit 0
           fi
-          git commit -m "data: refresh outcomes.json [skip ci]"
+          git commit -m "data: refresh series_state + outcomes [skip ci]"
 
           # Try to push, retrying once after a rebase if the first push
           # is rejected (typical cause: a concurrent cron tick pushed first).
