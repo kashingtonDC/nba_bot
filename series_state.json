@@ -1,110 +1,17 @@
 {
-  "fetched_at": "2026-05-21T23:42:53.831762+00:00",
+  "fetched_at": "2026-05-22T01:49:47.815202+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-04-21",
-    "2026-05-24"
+    "2026-04-22",
+    "2026-05-25"
   ],
   "series": {
     "SAS_POR": {
       "favorite": "SAS",
       "underdog": "POR",
       "favorite_wins": 3,
-      "underdog_wins": 1,
+      "underdog_wins": 0,
       "completed_games": [
-        {
-          "margin": -3.0,
-          "favorite_was_home": true,
-          "date": "2026-04-22",
-          "fav_score": 103,
-          "und_score": 106,
-          "espn_event_id": "401869378",
-          "fav_box": {
-            "fgm": 38,
-            "fga": 86,
-            "fg3m": 7,
-            "fg3a": 24,
-            "ftm": 20,
-            "fta": 28,
-            "oreb": 12,
-            "dreb": 33,
-            "reb": 45,
-            "ast": 19,
-            "stl": 13,
-            "blk": 5,
-            "tov": 16,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 38,
-            "fga": 89,
-            "fg3m": 13,
-            "fg3a": 38,
-            "ftm": 17,
-            "fta": 23,
-            "oreb": 15,
-            "dreb": 28,
-            "reb": 43,
-            "ast": 20,
-            "stl": 8,
-            "blk": 11,
-            "tov": 15,
-            "pf": 23
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [
-            {
-              "name": "Jrue Holiday",
-              "min": 39,
-              "pts": 16,
-              "reb": 5,
-              "ast": 9
-            },
-            {
-              "name": "Scoot Henderson",
-              "min": 38,
-              "pts": 31,
-              "reb": 1,
-              "ast": 0
-            },
-            {
-              "name": "Toumani Camara",
-              "min": 35,
-              "pts": 10,
-              "reb": 9,
-              "ast": 1
-            },
-            {
-              "name": "Deni Avdija",
-              "min": 30,
-              "pts": 14,
-              "reb": 4,
-              "ast": 3
-            },
-            {
-              "name": "Donovan Clingan",
-              "min": 24,
-              "pts": 9,
-              "reb": 10,
-              "ast": 2
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19338,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 12.0,
           "favorite_was_home": false,
@@ -392,138 +299,9 @@
     "LAL_HOU": {
       "favorite": "LAL",
       "underdog": "HOU",
-      "favorite_wins": 3,
+      "favorite_wins": 2,
       "underdog_wins": 2,
       "completed_games": [
-        {
-          "margin": 7.0,
-          "favorite_was_home": true,
-          "date": "2026-04-22",
-          "fav_score": 101,
-          "und_score": 94,
-          "espn_event_id": "401869397",
-          "fav_box": {
-            "fgm": 33,
-            "fga": 72,
-            "fg3m": 13,
-            "fg3a": 28,
-            "ftm": 22,
-            "fta": 28,
-            "oreb": 9,
-            "dreb": 28,
-            "reb": 37,
-            "ast": 21,
-            "stl": 11,
-            "blk": 5,
-            "tov": 12,
-            "pf": 20
-          },
-          "und_box": {
-            "fgm": 36,
-            "fga": 89,
-            "fg3m": 7,
-            "fg3a": 29,
-            "ftm": 15,
-            "fta": 19,
-            "oreb": 17,
-            "dreb": 25,
-            "reb": 42,
-            "ast": 23,
-            "stl": 8,
-            "blk": 6,
-            "tov": 15,
-            "pf": 22
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Rui Hachimura",
-              "min": 43,
-              "pts": 13,
-              "reb": 5,
-              "ast": 2
-            },
-            {
-              "name": "Luke Kennard",
-              "min": 42,
-              "pts": 23,
-              "reb": 6,
-              "ast": 2
-            },
-            {
-              "name": "LeBron James",
-              "min": 39,
-              "pts": 28,
-              "reb": 8,
-              "ast": 7
-            },
-            {
-              "name": "Marcus Smart",
-              "min": 35,
-              "pts": 25,
-              "reb": 2,
-              "ast": 7
-            },
-            {
-              "name": "Deandre Ayton",
-              "min": 27,
-              "pts": 6,
-              "reb": 5,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Amen Thompson",
-              "min": 42,
-              "pts": 16,
-              "reb": 5,
-              "ast": 9
-            },
-            {
-              "name": "Kevin Durant",
-              "min": 41,
-              "pts": 23,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Jabari Smith Jr.",
-              "min": 39,
-              "pts": 18,
-              "reb": 6,
-              "ast": 1
-            },
-            {
-              "name": "Alperen Sengun",
-              "min": 35,
-              "pts": 20,
-              "reb": 11,
-              "ast": 5
-            },
-            {
-              "name": "Tari Eason",
-              "min": 27,
-              "pts": 10,
-              "reb": 8,
-              "ast": 1
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19057,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 4.0,
           "favorite_was_home": false,
@@ -3320,791 +3098,6 @@
       "kalshi_ticker_match": "R1-CLE",
       "complete": false
     },
-    "BOS_PHI": {
-      "favorite": "BOS",
-      "underdog": "PHI",
-      "favorite_wins": 2,
-      "underdog_wins": 4,
-      "completed_games": [
-        {
-          "margin": -14.0,
-          "favorite_was_home": true,
-          "date": "2026-04-21",
-          "fav_score": 97,
-          "und_score": 111,
-          "espn_event_id": "401869396",
-          "fav_box": {
-            "fgm": 35,
-            "fga": 89,
-            "fg3m": 13,
-            "fg3a": 50,
-            "ftm": 14,
-            "fta": 18,
-            "oreb": 18,
-            "dreb": 32,
-            "reb": 50,
-            "ast": 24,
-            "stl": 3,
-            "blk": 4,
-            "tov": 11,
-            "pf": 17
-          },
-          "und_box": {
-            "fgm": 43,
-            "fga": 90,
-            "fg3m": 19,
-            "fg3a": 39,
-            "ftm": 6,
-            "fta": 11,
-            "oreb": 12,
-            "dreb": 30,
-            "reb": 42,
-            "ast": 18,
-            "stl": 6,
-            "blk": 4,
-            "tov": 7,
-            "pf": 17
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Jayson Tatum",
-              "min": 39,
-              "pts": 19,
-              "reb": 14,
-              "ast": 9
-            },
-            {
-              "name": "Derrick White",
-              "min": 39,
-              "pts": 8,
-              "reb": 2,
-              "ast": 3
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 38,
-              "pts": 36,
-              "reb": 7,
-              "ast": 4
-            },
-            {
-              "name": "Neemias Queta",
-              "min": 28,
-              "pts": 8,
-              "reb": 6,
-              "ast": 0
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 27,
-              "pts": 4,
-              "reb": 5,
-              "ast": 5
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 40,
-              "pts": 29,
-              "reb": 4,
-              "ast": 9
-            },
-            {
-              "name": "Paul George",
-              "min": 35,
-              "pts": 19,
-              "reb": 4,
-              "ast": 3
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 35,
-              "pts": 30,
-              "reb": 10,
-              "ast": 2
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 32,
-              "pts": 12,
-              "reb": 5,
-              "ast": 0
-            },
-            {
-              "name": "Andre Drummond",
-              "min": 26,
-              "pts": 10,
-              "reb": 8,
-              "ast": 2
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19156,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": 8.0,
-          "favorite_was_home": false,
-          "date": "2026-04-24",
-          "fav_score": 108,
-          "und_score": 100,
-          "espn_event_id": "401869404",
-          "fav_box": {
-            "fgm": 36,
-            "fga": 81,
-            "fg3m": 20,
-            "fg3a": 47,
-            "ftm": 16,
-            "fta": 17,
-            "oreb": 15,
-            "dreb": 30,
-            "reb": 45,
-            "ast": 21,
-            "stl": 6,
-            "blk": 11,
-            "tov": 17,
-            "pf": 19
-          },
-          "und_box": {
-            "fgm": 38,
-            "fga": 87,
-            "fg3m": 12,
-            "fg3a": 35,
-            "ftm": 12,
-            "fta": 16,
-            "oreb": 13,
-            "dreb": 24,
-            "reb": 37,
-            "ast": 18,
-            "stl": 6,
-            "blk": 8,
-            "tov": 11,
-            "pf": 20
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Jayson Tatum",
-              "min": 42,
-              "pts": 25,
-              "reb": 5,
-              "ast": 7
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 40,
-              "pts": 25,
-              "reb": 7,
-              "ast": 4
-            },
-            {
-              "name": "Derrick White",
-              "min": 34,
-              "pts": 11,
-              "reb": 4,
-              "ast": 2
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 33,
-              "pts": 15,
-              "reb": 4,
-              "ast": 2
-            },
-            {
-              "name": "Nikola Vucevic",
-              "min": 31,
-              "pts": 11,
-              "reb": 6,
-              "ast": 4
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 42,
-              "pts": 31,
-              "reb": 4,
-              "ast": 6
-            },
-            {
-              "name": "Paul George",
-              "min": 41,
-              "pts": 18,
-              "reb": 0,
-              "ast": 5
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 41,
-              "pts": 10,
-              "reb": 10,
-              "ast": 5
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 40,
-              "pts": 17,
-              "reb": 6,
-              "ast": 1
-            },
-            {
-              "name": "Andre Drummond",
-              "min": 26,
-              "pts": 12,
-              "reb": 6,
-              "ast": 0
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19746,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": 32.0,
-          "favorite_was_home": false,
-          "date": "2026-04-26",
-          "fav_score": 128,
-          "und_score": 96,
-          "espn_event_id": "401869406",
-          "fav_box": {
-            "fgm": 42,
-            "fga": 87,
-            "fg3m": 24,
-            "fg3a": 53,
-            "ftm": 20,
-            "fta": 28,
-            "oreb": 14,
-            "dreb": 37,
-            "reb": 51,
-            "ast": 28,
-            "stl": 5,
-            "blk": 5,
-            "tov": 12,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 33,
-            "fga": 80,
-            "fg3m": 9,
-            "fg3a": 30,
-            "ftm": 21,
-            "fta": 24,
-            "oreb": 6,
-            "dreb": 24,
-            "reb": 30,
-            "ast": 25,
-            "stl": 6,
-            "blk": 7,
-            "tov": 8,
-            "pf": 21
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Jayson Tatum",
-              "min": 35,
-              "pts": 30,
-              "reb": 7,
-              "ast": 11
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 35,
-              "pts": 32,
-              "reb": 4,
-              "ast": 5
-            },
-            {
-              "name": "Derrick White",
-              "min": 33,
-              "pts": 6,
-              "reb": 6,
-              "ast": 3
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 31,
-              "pts": 20,
-              "reb": 7,
-              "ast": 1
-            },
-            {
-              "name": "Sam Hauser",
-              "min": 22,
-              "pts": 6,
-              "reb": 4,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 40,
-              "pts": 22,
-              "reb": 2,
-              "ast": 6
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 36,
-              "pts": 6,
-              "reb": 4,
-              "ast": 1
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 34,
-              "pts": 26,
-              "reb": 10,
-              "ast": 6
-            },
-            {
-              "name": "Paul George",
-              "min": 31,
-              "pts": 16,
-              "reb": 4,
-              "ast": 1
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 31,
-              "pts": 2,
-              "reb": 4,
-              "ast": 1
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19746,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": -16.0,
-          "favorite_was_home": true,
-          "date": "2026-04-28",
-          "fav_score": 97,
-          "und_score": 113,
-          "espn_event_id": "401869408",
-          "fav_box": {
-            "fgm": 36,
-            "fga": 89,
-            "fg3m": 11,
-            "fg3a": 39,
-            "ftm": 14,
-            "fta": 23,
-            "oreb": 15,
-            "dreb": 34,
-            "reb": 49,
-            "ast": 25,
-            "stl": 6,
-            "blk": 0,
-            "tov": 12,
-            "pf": 17
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 78,
-            "fg3m": 15,
-            "fg3a": 42,
-            "ftm": 20,
-            "fta": 23,
-            "oreb": 5,
-            "dreb": 42,
-            "reb": 47,
-            "ast": 24,
-            "stl": 5,
-            "blk": 3,
-            "tov": 9,
-            "pf": 20
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Jayson Tatum",
-              "min": 41,
-              "pts": 24,
-              "reb": 16,
-              "ast": 4
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 41,
-              "pts": 22,
-              "reb": 5,
-              "ast": 5
-            },
-            {
-              "name": "Derrick White",
-              "min": 36,
-              "pts": 6,
-              "reb": 1,
-              "ast": 3
-            },
-            {
-              "name": "Neemias Queta",
-              "min": 26,
-              "pts": 8,
-              "reb": 14,
-              "ast": 1
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 26,
-              "pts": 12,
-              "reb": 2,
-              "ast": 6
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Paul George",
-              "min": 43,
-              "pts": 16,
-              "reb": 9,
-              "ast": 7
-            },
-            {
-              "name": "Tyrese Maxey",
-              "min": 43,
-              "pts": 25,
-              "reb": 10,
-              "ast": 5
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 40,
-              "pts": 10,
-              "reb": 7,
-              "ast": 3
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 39,
-              "pts": 33,
-              "reb": 4,
-              "ast": 8
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 32,
-              "pts": 4,
-              "reb": 6,
-              "ast": 1
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19156,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": -13.0,
-          "favorite_was_home": false,
-          "date": "2026-05-01",
-          "fav_score": 93,
-          "und_score": 106,
-          "espn_event_id": "401869410",
-          "fav_box": {
-            "fgm": 36,
-            "fga": 86,
-            "fg3m": 12,
-            "fg3a": 41,
-            "ftm": 9,
-            "fta": 16,
-            "oreb": 8,
-            "dreb": 38,
-            "reb": 46,
-            "ast": 18,
-            "stl": 7,
-            "blk": 3,
-            "tov": 13,
-            "pf": 18
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 89,
-            "fg3m": 11,
-            "fg3a": 33,
-            "ftm": 17,
-            "fta": 19,
-            "oreb": 8,
-            "dreb": 40,
-            "reb": 48,
-            "ast": 22,
-            "stl": 7,
-            "blk": 6,
-            "tov": 10,
-            "pf": 15
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Payton Pritchard",
-              "min": 36,
-              "pts": 14,
-              "reb": 3,
-              "ast": 5
-            },
-            {
-              "name": "Derrick White",
-              "min": 32,
-              "pts": 11,
-              "reb": 1,
-              "ast": 1
-            },
-            {
-              "name": "Jayson Tatum",
-              "min": 29,
-              "pts": 17,
-              "reb": 11,
-              "ast": 3
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 28,
-              "pts": 18,
-              "reb": 1,
-              "ast": 2
-            },
-            {
-              "name": "Sam Hauser",
-              "min": 21,
-              "pts": 5,
-              "reb": 4,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Paul George",
-              "min": 40,
-              "pts": 23,
-              "reb": 4,
-              "ast": 3
-            },
-            {
-              "name": "Tyrese Maxey",
-              "min": 40,
-              "pts": 30,
-              "reb": 2,
-              "ast": 5
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 39,
-              "pts": 14,
-              "reb": 9,
-              "ast": 1
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 38,
-              "pts": 14,
-              "reb": 8,
-              "ast": 3
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 34,
-              "pts": 19,
-              "reb": 10,
-              "ast": 8
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19746,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": -9.0,
-          "favorite_was_home": true,
-          "date": "2026-05-02",
-          "fav_score": 100,
-          "und_score": 109,
-          "espn_event_id": "401869412",
-          "fav_box": {
-            "fgm": 37,
-            "fga": 93,
-            "fg3m": 13,
-            "fg3a": 49,
-            "ftm": 13,
-            "fta": 16,
-            "oreb": 10,
-            "dreb": 34,
-            "reb": 44,
-            "ast": 19,
-            "stl": 4,
-            "blk": 7,
-            "tov": 5,
-            "pf": 23
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 82,
-            "fg3m": 11,
-            "fg3a": 28,
-            "ftm": 20,
-            "fta": 23,
-            "oreb": 3,
-            "dreb": 41,
-            "reb": 44,
-            "ast": 25,
-            "stl": 0,
-            "blk": 1,
-            "tov": 9,
-            "pf": 19
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Derrick White",
-              "min": 45,
-              "pts": 26,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 40,
-              "pts": 33,
-              "reb": 9,
-              "ast": 4
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 39,
-              "pts": 13,
-              "reb": 5,
-              "ast": 7
-            },
-            {
-              "name": "Neemias Queta",
-              "min": 33,
-              "pts": 17,
-              "reb": 12,
-              "ast": 1
-            },
-            {
-              "name": "Sam Hauser",
-              "min": 30,
-              "pts": 11,
-              "reb": 3,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 45,
-              "pts": 30,
-              "reb": 11,
-              "ast": 7
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 44,
-              "pts": 23,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Paul George",
-              "min": 42,
-              "pts": 13,
-              "reb": 3,
-              "ast": 1
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 39,
-              "pts": 34,
-              "reb": 12,
-              "ast": 6
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 31,
-              "pts": 6,
-              "reb": 5,
-              "ast": 2
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19156,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
-      "favorite_has_home_court": true,
-      "kalshi_ticker_match": "R1-BOS",
-      "complete": true
-    },
     "DET_ORL": {
       "favorite": "DET",
       "underdog": "ORL",
@@ -4889,6 +3882,662 @@
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R1-DET",
       "complete": true
+    },
+    "BOS_PHI": {
+      "favorite": "BOS",
+      "underdog": "PHI",
+      "favorite_wins": 2,
+      "underdog_wins": 3,
+      "completed_games": [
+        {
+          "margin": 8.0,
+          "favorite_was_home": false,
+          "date": "2026-04-24",
+          "fav_score": 108,
+          "und_score": 100,
+          "espn_event_id": "401869404",
+          "fav_box": {
+            "fgm": 36,
+            "fga": 81,
+            "fg3m": 20,
+            "fg3a": 47,
+            "ftm": 16,
+            "fta": 17,
+            "oreb": 15,
+            "dreb": 30,
+            "reb": 45,
+            "ast": 21,
+            "stl": 6,
+            "blk": 11,
+            "tov": 17,
+            "pf": 19
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 87,
+            "fg3m": 12,
+            "fg3a": 35,
+            "ftm": 12,
+            "fta": 16,
+            "oreb": 13,
+            "dreb": 24,
+            "reb": 37,
+            "ast": 18,
+            "stl": 6,
+            "blk": 8,
+            "tov": 11,
+            "pf": 20
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jayson Tatum",
+              "min": 42,
+              "pts": 25,
+              "reb": 5,
+              "ast": 7
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 40,
+              "pts": 25,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "Derrick White",
+              "min": 34,
+              "pts": 11,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 33,
+              "pts": 15,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "Nikola Vucevic",
+              "min": 31,
+              "pts": 11,
+              "reb": 6,
+              "ast": 4
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 42,
+              "pts": 31,
+              "reb": 4,
+              "ast": 6
+            },
+            {
+              "name": "Paul George",
+              "min": 41,
+              "pts": 18,
+              "reb": 0,
+              "ast": 5
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 41,
+              "pts": 10,
+              "reb": 10,
+              "ast": 5
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 40,
+              "pts": 17,
+              "reb": 6,
+              "ast": 1
+            },
+            {
+              "name": "Andre Drummond",
+              "min": 26,
+              "pts": 12,
+              "reb": 6,
+              "ast": 0
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 32.0,
+          "favorite_was_home": false,
+          "date": "2026-04-26",
+          "fav_score": 128,
+          "und_score": 96,
+          "espn_event_id": "401869406",
+          "fav_box": {
+            "fgm": 42,
+            "fga": 87,
+            "fg3m": 24,
+            "fg3a": 53,
+            "ftm": 20,
+            "fta": 28,
+            "oreb": 14,
+            "dreb": 37,
+            "reb": 51,
+            "ast": 28,
+            "stl": 5,
+            "blk": 5,
+            "tov": 12,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 33,
+            "fga": 80,
+            "fg3m": 9,
+            "fg3a": 30,
+            "ftm": 21,
+            "fta": 24,
+            "oreb": 6,
+            "dreb": 24,
+            "reb": 30,
+            "ast": 25,
+            "stl": 6,
+            "blk": 7,
+            "tov": 8,
+            "pf": 21
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jayson Tatum",
+              "min": 35,
+              "pts": 30,
+              "reb": 7,
+              "ast": 11
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 35,
+              "pts": 32,
+              "reb": 4,
+              "ast": 5
+            },
+            {
+              "name": "Derrick White",
+              "min": 33,
+              "pts": 6,
+              "reb": 6,
+              "ast": 3
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 31,
+              "pts": 20,
+              "reb": 7,
+              "ast": 1
+            },
+            {
+              "name": "Sam Hauser",
+              "min": 22,
+              "pts": 6,
+              "reb": 4,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 40,
+              "pts": 22,
+              "reb": 2,
+              "ast": 6
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 36,
+              "pts": 6,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 34,
+              "pts": 26,
+              "reb": 10,
+              "ast": 6
+            },
+            {
+              "name": "Paul George",
+              "min": 31,
+              "pts": 16,
+              "reb": 4,
+              "ast": 1
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 31,
+              "pts": 2,
+              "reb": 4,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -16.0,
+          "favorite_was_home": true,
+          "date": "2026-04-28",
+          "fav_score": 97,
+          "und_score": 113,
+          "espn_event_id": "401869408",
+          "fav_box": {
+            "fgm": 36,
+            "fga": 89,
+            "fg3m": 11,
+            "fg3a": 39,
+            "ftm": 14,
+            "fta": 23,
+            "oreb": 15,
+            "dreb": 34,
+            "reb": 49,
+            "ast": 25,
+            "stl": 6,
+            "blk": 0,
+            "tov": 12,
+            "pf": 17
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 78,
+            "fg3m": 15,
+            "fg3a": 42,
+            "ftm": 20,
+            "fta": 23,
+            "oreb": 5,
+            "dreb": 42,
+            "reb": 47,
+            "ast": 24,
+            "stl": 5,
+            "blk": 3,
+            "tov": 9,
+            "pf": 20
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Jayson Tatum",
+              "min": 41,
+              "pts": 24,
+              "reb": 16,
+              "ast": 4
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 41,
+              "pts": 22,
+              "reb": 5,
+              "ast": 5
+            },
+            {
+              "name": "Derrick White",
+              "min": 36,
+              "pts": 6,
+              "reb": 1,
+              "ast": 3
+            },
+            {
+              "name": "Neemias Queta",
+              "min": 26,
+              "pts": 8,
+              "reb": 14,
+              "ast": 1
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 26,
+              "pts": 12,
+              "reb": 2,
+              "ast": 6
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Paul George",
+              "min": 43,
+              "pts": 16,
+              "reb": 9,
+              "ast": 7
+            },
+            {
+              "name": "Tyrese Maxey",
+              "min": 43,
+              "pts": 25,
+              "reb": 10,
+              "ast": 5
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 40,
+              "pts": 10,
+              "reb": 7,
+              "ast": 3
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 39,
+              "pts": 33,
+              "reb": 4,
+              "ast": 8
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 32,
+              "pts": 4,
+              "reb": 6,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19156,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -13.0,
+          "favorite_was_home": false,
+          "date": "2026-05-01",
+          "fav_score": 93,
+          "und_score": 106,
+          "espn_event_id": "401869410",
+          "fav_box": {
+            "fgm": 36,
+            "fga": 86,
+            "fg3m": 12,
+            "fg3a": 41,
+            "ftm": 9,
+            "fta": 16,
+            "oreb": 8,
+            "dreb": 38,
+            "reb": 46,
+            "ast": 18,
+            "stl": 7,
+            "blk": 3,
+            "tov": 13,
+            "pf": 18
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 89,
+            "fg3m": 11,
+            "fg3a": 33,
+            "ftm": 17,
+            "fta": 19,
+            "oreb": 8,
+            "dreb": 40,
+            "reb": 48,
+            "ast": 22,
+            "stl": 7,
+            "blk": 6,
+            "tov": 10,
+            "pf": 15
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Payton Pritchard",
+              "min": 36,
+              "pts": 14,
+              "reb": 3,
+              "ast": 5
+            },
+            {
+              "name": "Derrick White",
+              "min": 32,
+              "pts": 11,
+              "reb": 1,
+              "ast": 1
+            },
+            {
+              "name": "Jayson Tatum",
+              "min": 29,
+              "pts": 17,
+              "reb": 11,
+              "ast": 3
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 28,
+              "pts": 18,
+              "reb": 1,
+              "ast": 2
+            },
+            {
+              "name": "Sam Hauser",
+              "min": 21,
+              "pts": 5,
+              "reb": 4,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Paul George",
+              "min": 40,
+              "pts": 23,
+              "reb": 4,
+              "ast": 3
+            },
+            {
+              "name": "Tyrese Maxey",
+              "min": 40,
+              "pts": 30,
+              "reb": 2,
+              "ast": 5
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 39,
+              "pts": 14,
+              "reb": 9,
+              "ast": 1
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 38,
+              "pts": 14,
+              "reb": 8,
+              "ast": 3
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 34,
+              "pts": 19,
+              "reb": 10,
+              "ast": 8
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -9.0,
+          "favorite_was_home": true,
+          "date": "2026-05-02",
+          "fav_score": 100,
+          "und_score": 109,
+          "espn_event_id": "401869412",
+          "fav_box": {
+            "fgm": 37,
+            "fga": 93,
+            "fg3m": 13,
+            "fg3a": 49,
+            "ftm": 13,
+            "fta": 16,
+            "oreb": 10,
+            "dreb": 34,
+            "reb": 44,
+            "ast": 19,
+            "stl": 4,
+            "blk": 7,
+            "tov": 5,
+            "pf": 23
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 82,
+            "fg3m": 11,
+            "fg3a": 28,
+            "ftm": 20,
+            "fta": 23,
+            "oreb": 3,
+            "dreb": 41,
+            "reb": 44,
+            "ast": 25,
+            "stl": 0,
+            "blk": 1,
+            "tov": 9,
+            "pf": 19
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Derrick White",
+              "min": 45,
+              "pts": 26,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Jaylen Brown",
+              "min": 40,
+              "pts": 33,
+              "reb": 9,
+              "ast": 4
+            },
+            {
+              "name": "Payton Pritchard",
+              "min": 39,
+              "pts": 13,
+              "reb": 5,
+              "ast": 7
+            },
+            {
+              "name": "Neemias Queta",
+              "min": 33,
+              "pts": 17,
+              "reb": 12,
+              "ast": 1
+            },
+            {
+              "name": "Sam Hauser",
+              "min": 30,
+              "pts": 11,
+              "reb": 3,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 45,
+              "pts": 30,
+              "reb": 11,
+              "ast": 7
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 44,
+              "pts": 23,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Paul George",
+              "min": 42,
+              "pts": 13,
+              "reb": 3,
+              "ast": 1
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 39,
+              "pts": 34,
+              "reb": 12,
+              "ast": 6
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 31,
+              "pts": 6,
+              "reb": 5,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19156,
+          "espn_pregame_home_win_prob": null
+        }
+      ],
+      "favorite_has_home_court": false,
+      "kalshi_ticker_match": "R1-BOS",
+      "complete": false
     },
     "NYK_PHI": {
       "favorite": "NYK",
