@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-05-22T23:19:52.941187+00:00",
+  "fetched_at": "2026-05-23T01:23:09.203223+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-04-22",
-    "2026-05-25"
+    "2026-04-23",
+    "2026-05-26"
   ],
   "series": {
     "SAS_POR": {
@@ -828,138 +828,9 @@
     "OKC_PHX": {
       "favorite": "OKC",
       "underdog": "PHX",
-      "favorite_wins": 3,
+      "favorite_wins": 2,
       "underdog_wins": 0,
       "completed_games": [
-        {
-          "margin": 13.0,
-          "favorite_was_home": true,
-          "date": "2026-04-23",
-          "fav_score": 120,
-          "und_score": 107,
-          "espn_event_id": "401869368",
-          "fav_box": {
-            "fgm": 43,
-            "fga": 91,
-            "fg3m": 14,
-            "fg3a": 40,
-            "ftm": 20,
-            "fta": 25,
-            "oreb": 12,
-            "dreb": 28,
-            "reb": 40,
-            "ast": 24,
-            "stl": 14,
-            "blk": 6,
-            "tov": 10,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 85,
-            "fg3m": 11,
-            "fg3a": 31,
-            "ftm": 18,
-            "fta": 22,
-            "oreb": 15,
-            "dreb": 29,
-            "reb": 44,
-            "ast": 23,
-            "stl": 7,
-            "blk": 1,
-            "tov": 21,
-            "pf": 25
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 38,
-              "pts": 37,
-              "reb": 5,
-              "ast": 9
-            },
-            {
-              "name": "Chet Holmgren",
-              "min": 32,
-              "pts": 19,
-              "reb": 8,
-              "ast": 0
-            },
-            {
-              "name": "Ajay Mitchell",
-              "min": 29,
-              "pts": 14,
-              "reb": 5,
-              "ast": 5
-            },
-            {
-              "name": "Luguentz Dort",
-              "min": 24,
-              "pts": 9,
-              "reb": 1,
-              "ast": 0
-            },
-            {
-              "name": "Jalen Williams",
-              "min": 23,
-              "pts": 19,
-              "reb": 1,
-              "ast": 4
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Jalen Green",
-              "min": 41,
-              "pts": 21,
-              "reb": 5,
-              "ast": 3
-            },
-            {
-              "name": "Devin Booker",
-              "min": 40,
-              "pts": 22,
-              "reb": 7,
-              "ast": 4
-            },
-            {
-              "name": "Dillon Brooks",
-              "min": 38,
-              "pts": 30,
-              "reb": 6,
-              "ast": 1
-            },
-            {
-              "name": "Royce O'Neale",
-              "min": 34,
-              "pts": 16,
-              "reb": 9,
-              "ast": 4
-            },
-            {
-              "name": "Oso Ighodaro",
-              "min": 29,
-              "pts": 7,
-              "reb": 8,
-              "ast": 5
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 18203,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 12.0,
           "favorite_was_home": false,
@@ -3850,138 +3721,9 @@
     "DET_ORL": {
       "favorite": "DET",
       "underdog": "ORL",
-      "favorite_wins": 4,
+      "favorite_wins": 3,
       "underdog_wins": 2,
       "completed_games": [
-        {
-          "margin": 15.0,
-          "favorite_was_home": true,
-          "date": "2026-04-22",
-          "fav_score": 98,
-          "und_score": 83,
-          "espn_event_id": "401869411",
-          "fav_box": {
-            "fgm": 39,
-            "fga": 85,
-            "fg3m": 6,
-            "fg3a": 26,
-            "ftm": 14,
-            "fta": 24,
-            "oreb": 17,
-            "dreb": 40,
-            "reb": 57,
-            "ast": 22,
-            "stl": 9,
-            "blk": 11,
-            "tov": 22,
-            "pf": 23
-          },
-          "und_box": {
-            "fgm": 26,
-            "fga": 80,
-            "fg3m": 8,
-            "fg3a": 32,
-            "ftm": 23,
-            "fta": 32,
-            "oreb": 13,
-            "dreb": 29,
-            "reb": 42,
-            "ast": 17,
-            "stl": 16,
-            "blk": 6,
-            "tov": 17,
-            "pf": 25
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Cade Cunningham",
-              "min": 37,
-              "pts": 27,
-              "reb": 6,
-              "ast": 11
-            },
-            {
-              "name": "Tobias Harris",
-              "min": 33,
-              "pts": 16,
-              "reb": 11,
-              "ast": 1
-            },
-            {
-              "name": "Duncan Robinson",
-              "min": 32,
-              "pts": 10,
-              "reb": 6,
-              "ast": 3
-            },
-            {
-              "name": "Jalen Duren",
-              "min": 32,
-              "pts": 11,
-              "reb": 9,
-              "ast": 4
-            },
-            {
-              "name": "Ausar Thompson",
-              "min": 28,
-              "pts": 11,
-              "reb": 8,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Paolo Banchero",
-              "min": 34,
-              "pts": 18,
-              "reb": 6,
-              "ast": 8
-            },
-            {
-              "name": "Desmond Bane",
-              "min": 34,
-              "pts": 12,
-              "reb": 4,
-              "ast": 2
-            },
-            {
-              "name": "Franz Wagner",
-              "min": 32,
-              "pts": 12,
-              "reb": 7,
-              "ast": 1
-            },
-            {
-              "name": "Jalen Suggs",
-              "min": 32,
-              "pts": 19,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Wendell Carter Jr.",
-              "min": 24,
-              "pts": 3,
-              "reb": 5,
-              "ast": 0
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 20062,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -8.0,
           "favorite_was_home": false,
@@ -4628,9 +4370,9 @@
           "espn_pregame_home_win_prob": null
         }
       ],
-      "favorite_has_home_court": true,
+      "favorite_has_home_court": false,
       "kalshi_ticker_match": "R1-DET",
-      "complete": true
+      "complete": false
     },
     "NYK_PHI": {
       "favorite": "NYK",

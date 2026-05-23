@@ -58,16 +58,11 @@
     "OKC_PHX": {
       "favorite": "OKC",
       "underdog": "PHX",
-      "favorite_wins": 3,
+      "favorite_wins": 2,
       "underdog_wins": 0,
       "complete": false,
       "round": 1,
       "games": [
-        {
-          "date": "2026-04-23",
-          "favorite_was_home": true,
-          "margin": 13.0
-        },
         {
           "date": "2026-04-25",
           "favorite_was_home": false,
@@ -253,16 +248,11 @@
     "DET_ORL": {
       "favorite": "DET",
       "underdog": "ORL",
-      "favorite_wins": 4,
+      "favorite_wins": 3,
       "underdog_wins": 2,
-      "complete": true,
+      "complete": false,
       "round": 1,
       "games": [
-        {
-          "date": "2026-04-22",
-          "favorite_was_home": true,
-          "margin": 15.0
-        },
         {
           "date": "2026-04-25",
           "favorite_was_home": false,
