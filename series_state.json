@@ -1,111 +1,17 @@
 {
-  "fetched_at": "2026-05-28T23:49:40.265918+00:00",
+  "fetched_at": "2026-05-29T03:32:18.801764+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-04-28",
-    "2026-05-31"
+    "2026-04-29",
+    "2026-06-01"
   ],
   "series": {
     "SAS_POR": {
       "favorite": "SAS",
       "underdog": "POR",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
-      "completed_games": [
-        {
-          "margin": 19.0,
-          "favorite_was_home": true,
-          "date": "2026-04-29",
-          "fav_score": 114,
-          "und_score": 95,
-          "espn_event_id": "401869386",
-          "fav_box": {
-            "fgm": 41,
-            "fga": 75,
-            "fg3m": 12,
-            "fg3a": 30,
-            "ftm": 20,
-            "fta": 29,
-            "oreb": 7,
-            "dreb": 35,
-            "reb": 42,
-            "ast": 27,
-            "stl": 5,
-            "blk": 8,
-            "tov": 14,
-            "pf": 24
-          },
-          "und_box": {
-            "fgm": 33,
-            "fga": 94,
-            "fg3m": 11,
-            "fg3a": 47,
-            "ftm": 18,
-            "fta": 23,
-            "oreb": 14,
-            "dreb": 24,
-            "reb": 38,
-            "ast": 24,
-            "stl": 8,
-            "blk": 2,
-            "tov": 9,
-            "pf": 28
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [
-            {
-              "name": "Jrue Holiday",
-              "min": 40,
-              "pts": 8,
-              "reb": 6,
-              "ast": 7
-            },
-            {
-              "name": "Toumani Camara",
-              "min": 33,
-              "pts": 7,
-              "reb": 8,
-              "ast": 2
-            },
-            {
-              "name": "Deni Avdija",
-              "min": 32,
-              "pts": 22,
-              "reb": 3,
-              "ast": 3
-            },
-            {
-              "name": "Donovan Clingan",
-              "min": 27,
-              "pts": 10,
-              "reb": 5,
-              "ast": 6
-            },
-            {
-              "name": "Sidy Cissoko",
-              "min": 20,
-              "pts": 11,
-              "reb": 4,
-              "ast": 0
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19063,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
+      "completed_games": [],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "PORSASR1-SAS",
       "complete": false
@@ -392,102 +298,9 @@
     "NYK_ATL": {
       "favorite": "NYK",
       "underdog": "ATL",
-      "favorite_wins": 2,
+      "favorite_wins": 1,
       "underdog_wins": 0,
       "completed_games": [
-        {
-          "margin": 29.0,
-          "favorite_was_home": true,
-          "date": "2026-04-29",
-          "fav_score": 126,
-          "und_score": 97,
-          "espn_event_id": "401869392",
-          "fav_box": {
-            "fgm": 45,
-            "fga": 79,
-            "fg3m": 11,
-            "fg3a": 26,
-            "ftm": 25,
-            "fta": 34,
-            "oreb": 8,
-            "dreb": 40,
-            "reb": 48,
-            "ast": 26,
-            "stl": 6,
-            "blk": 6,
-            "tov": 11,
-            "pf": 23
-          },
-          "und_box": {
-            "fgm": 37,
-            "fga": 83,
-            "fg3m": 13,
-            "fg3a": 42,
-            "ftm": 10,
-            "fta": 17,
-            "oreb": 5,
-            "dreb": 22,
-            "reb": 27,
-            "ast": 25,
-            "stl": 7,
-            "blk": 2,
-            "tov": 10,
-            "pf": 26
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [
-            {
-              "name": "Jalen Johnson",
-              "min": 35,
-              "pts": 18,
-              "reb": 10,
-              "ast": 6
-            },
-            {
-              "name": "Onyeka Okongwu",
-              "min": 34,
-              "pts": 16,
-              "reb": 5,
-              "ast": 4
-            },
-            {
-              "name": "Nickeil Alexander-Walker",
-              "min": 34,
-              "pts": 16,
-              "reb": 0,
-              "ast": 3
-            },
-            {
-              "name": "CJ McCollum",
-              "min": 32,
-              "pts": 6,
-              "reb": 3,
-              "ast": 1
-            },
-            {
-              "name": "Dyson Daniels",
-              "min": 25,
-              "pts": 17,
-              "reb": 2,
-              "ast": 5
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19812,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 51.0,
           "favorite_was_home": false,
@@ -1130,7 +943,7 @@
       "favorite": "OKC",
       "underdog": "SAS",
       "favorite_wins": 3,
-      "underdog_wins": 2,
+      "underdog_wins": 3,
       "completed_games": [
         {
           "margin": -7.0,
@@ -1600,56 +1413,45 @@
           "is_overtime": false,
           "attendance": 18203,
           "espn_pregame_home_win_prob": null
-        }
-      ],
-      "favorite_has_home_court": true,
-      "kalshi_ticker_match": "R1-OKC",
-      "complete": false
-    },
-    "BOS_PHI": {
-      "favorite": "BOS",
-      "underdog": "PHI",
-      "favorite_wins": 0,
-      "underdog_wins": 3,
-      "completed_games": [
+        },
         {
-          "margin": -16.0,
-          "favorite_was_home": true,
-          "date": "2026-04-28",
-          "fav_score": 97,
-          "und_score": 113,
-          "espn_event_id": "401869408",
+          "margin": -27.0,
+          "favorite_was_home": false,
+          "date": "2026-05-29",
+          "fav_score": 91,
+          "und_score": 118,
+          "espn_event_id": "401873202",
           "fav_box": {
-            "fgm": 36,
-            "fga": 89,
-            "fg3m": 11,
-            "fg3a": 39,
-            "ftm": 14,
-            "fta": 23,
-            "oreb": 15,
-            "dreb": 34,
-            "reb": 49,
-            "ast": 25,
-            "stl": 6,
-            "blk": 0,
+            "fgm": 35,
+            "fga": 94,
+            "fg3m": 10,
+            "fg3a": 40,
+            "ftm": 11,
+            "fta": 12,
+            "oreb": 12,
+            "dreb": 30,
+            "reb": 42,
+            "ast": 22,
+            "stl": 9,
+            "blk": 3,
             "tov": 12,
-            "pf": 17
+            "pf": 21
           },
           "und_box": {
-            "fgm": 39,
-            "fga": 78,
+            "fgm": 41,
+            "fga": 88,
             "fg3m": 15,
-            "fg3a": 42,
-            "ftm": 20,
-            "fta": 23,
-            "oreb": 5,
-            "dreb": 42,
-            "reb": 47,
-            "ast": 24,
-            "stl": 5,
-            "blk": 3,
-            "tov": 9,
-            "pf": 20
+            "fg3a": 41,
+            "ftm": 21,
+            "fta": 25,
+            "oreb": 11,
+            "dreb": 41,
+            "reb": 52,
+            "ast": 30,
+            "stl": 7,
+            "blk": 7,
+            "tov": 12,
+            "pf": 14
           },
           "fav_quarters": [
             null,
@@ -1665,82 +1467,57 @@
           ],
           "fav_top_minutes": [
             {
-              "name": "Jayson Tatum",
-              "min": 41,
-              "pts": 24,
-              "reb": 16,
+              "name": "Shai Gilgeous-Alexander",
+              "min": 28,
+              "pts": 15,
+              "reb": 1,
               "ast": 4
             },
             {
-              "name": "Jaylen Brown",
-              "min": 41,
-              "pts": 22,
-              "reb": 5,
-              "ast": 5
-            },
-            {
-              "name": "Derrick White",
-              "min": 36,
-              "pts": 6,
-              "reb": 1,
-              "ast": 3
-            },
-            {
-              "name": "Neemias Queta",
-              "min": 26,
-              "pts": 8,
-              "reb": 14,
-              "ast": 1
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 26,
-              "pts": 12,
+              "name": "Jared McCain",
+              "min": 27,
+              "pts": 13,
               "reb": 2,
               "ast": 6
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Paul George",
-              "min": 43,
-              "pts": 16,
-              "reb": 9,
-              "ast": 7
             },
             {
-              "name": "Tyrese Maxey",
-              "min": 43,
-              "pts": 25,
-              "reb": 10,
-              "ast": 5
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 40,
-              "pts": 10,
-              "reb": 7,
-              "ast": 3
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 39,
-              "pts": 33,
-              "reb": 4,
-              "ast": 8
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 32,
+              "name": "Jaylin Williams",
+              "min": 26,
               "pts": 4,
-              "reb": 6,
+              "reb": 9,
+              "ast": 2
+            },
+            {
+              "name": "Chet Holmgren",
+              "min": 24,
+              "pts": 10,
+              "reb": 11,
               "ast": 1
+            },
+            {
+              "name": "Luguentz Dort",
+              "min": 23,
+              "pts": 5,
+              "reb": 1,
+              "ast": 0
             }
           ],
+          "und_top_minutes": [],
           "is_overtime": false,
-          "attendance": 19156,
+          "attendance": 19066,
           "espn_pregame_home_win_prob": null
-        },
+        }
+      ],
+      "favorite_has_home_court": true,
+      "kalshi_ticker_match": "R1-OKC",
+      "complete": false
+    },
+    "BOS_PHI": {
+      "favorite": "BOS",
+      "underdog": "PHI",
+      "favorite_wins": 0,
+      "underdog_wins": 2,
+      "completed_games": [
         {
           "margin": -13.0,
           "favorite_was_home": false,
