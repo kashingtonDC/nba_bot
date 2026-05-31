@@ -71,51 +71,6 @@
       "round": 1,
       "games": []
     },
-    "OKC_SAS": {
-      "favorite": "OKC",
-      "underdog": "SAS",
-      "favorite_wins": 3,
-      "underdog_wins": 4,
-      "complete": true,
-      "round": 2,
-      "games": [
-        {
-          "date": "2026-05-19",
-          "favorite_was_home": true,
-          "margin": -7.0
-        },
-        {
-          "date": "2026-05-21",
-          "favorite_was_home": true,
-          "margin": 9.0
-        },
-        {
-          "date": "2026-05-23",
-          "favorite_was_home": false,
-          "margin": 15.0
-        },
-        {
-          "date": "2026-05-25",
-          "favorite_was_home": false,
-          "margin": -21.0
-        },
-        {
-          "date": "2026-05-27",
-          "favorite_was_home": true,
-          "margin": 13.0
-        },
-        {
-          "date": "2026-05-29",
-          "favorite_was_home": false,
-          "margin": -27.0
-        },
-        {
-          "date": "2026-05-31",
-          "favorite_was_home": true,
-          "margin": -8.0
-        }
-      ]
-    },
     "BOS_PHI": {
       "favorite": "BOS",
       "underdog": "PHI",
@@ -150,6 +105,15 @@
           "margin": 22.0
         }
       ]
+    },
+    "SAS_NYK": {
+      "favorite": "SAS",
+      "underdog": "NYK",
+      "favorite_wins": 0,
+      "underdog_wins": 0,
+      "complete": false,
+      "round": 2,
+      "games": []
     },
     "NYK_PHI": {
       "favorite": "NYK",
@@ -296,6 +260,51 @@
         }
       ]
     },
+    "OKC_SAS": {
+      "favorite": "OKC",
+      "underdog": "SAS",
+      "favorite_wins": 3,
+      "underdog_wins": 4,
+      "complete": true,
+      "round": 2,
+      "games": [
+        {
+          "date": "2026-05-19",
+          "favorite_was_home": true,
+          "margin": -7.0
+        },
+        {
+          "date": "2026-05-21",
+          "favorite_was_home": true,
+          "margin": 9.0
+        },
+        {
+          "date": "2026-05-23",
+          "favorite_was_home": false,
+          "margin": 15.0
+        },
+        {
+          "date": "2026-05-25",
+          "favorite_was_home": false,
+          "margin": -21.0
+        },
+        {
+          "date": "2026-05-27",
+          "favorite_was_home": true,
+          "margin": 13.0
+        },
+        {
+          "date": "2026-05-29",
+          "favorite_was_home": false,
+          "margin": -27.0
+        },
+        {
+          "date": "2026-05-31",
+          "favorite_was_home": true,
+          "margin": -8.0
+        }
+      ]
+    },
     "CLE_NYK": {
       "favorite": "CLE",
       "underdog": "NYK",
@@ -325,15 +334,6 @@
           "margin": -37.0
         }
       ]
-    },
-    "SAS_NYK": {
-      "favorite": "SAS",
-      "underdog": "NYK",
-      "favorite_wins": 0,
-      "underdog_wins": 0,
-      "complete": false,
-      "round": 2,
-      "games": []
     }
   }
 }
