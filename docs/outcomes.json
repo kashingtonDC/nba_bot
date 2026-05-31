@@ -36,17 +36,11 @@
     "NYK_ATL": {
       "favorite": "NYK",
       "underdog": "ATL",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 1,
-      "games": [
-        {
-          "date": "2026-04-30",
-          "favorite_was_home": false,
-          "margin": 51.0
-        }
-      ]
+      "games": []
     },
     "CLE_TOR": {
       "favorite": "CLE",
@@ -72,16 +66,10 @@
       "favorite": "DEN",
       "underdog": "MIN",
       "favorite_wins": 0,
-      "underdog_wins": 1,
+      "underdog_wins": 0,
       "complete": false,
       "round": 1,
-      "games": [
-        {
-          "date": "2026-05-01",
-          "favorite_was_home": false,
-          "margin": -12.0
-        }
-      ]
+      "games": []
     },
     "OKC_SAS": {
       "favorite": "OKC",
@@ -127,15 +115,10 @@
       "favorite": "BOS",
       "underdog": "PHI",
       "favorite_wins": 0,
-      "underdog_wins": 2,
+      "underdog_wins": 1,
       "complete": false,
       "round": 1,
       "games": [
-        {
-          "date": "2026-05-01",
-          "favorite_was_home": false,
-          "margin": -13.0
-        },
         {
           "date": "2026-05-02",
           "favorite_was_home": true,
