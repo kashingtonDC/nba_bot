@@ -12,17 +12,11 @@
     "LAL_HOU": {
       "favorite": "LAL",
       "underdog": "HOU",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 1,
-      "games": [
-        {
-          "date": "2026-05-02",
-          "favorite_was_home": false,
-          "margin": 20.0
-        }
-      ]
+      "games": []
     },
     "OKC_PHX": {
       "favorite": "OKC",
@@ -46,15 +40,10 @@
       "favorite": "CLE",
       "underdog": "TOR",
       "favorite_wins": 1,
-      "underdog_wins": 1,
+      "underdog_wins": 0,
       "complete": false,
       "round": 1,
       "games": [
-        {
-          "date": "2026-05-01",
-          "favorite_was_home": false,
-          "margin": -2.0
-        },
         {
           "date": "2026-05-03",
           "favorite_was_home": true,
@@ -89,16 +78,11 @@
     "DET_ORL": {
       "favorite": "DET",
       "underdog": "ORL",
-      "favorite_wins": 2,
+      "favorite_wins": 1,
       "underdog_wins": 0,
       "complete": false,
       "round": 1,
       "games": [
-        {
-          "date": "2026-05-01",
-          "favorite_was_home": false,
-          "margin": 14.0
-        },
         {
           "date": "2026-05-03",
           "favorite_was_home": true,
