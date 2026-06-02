@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-01T23:57:58.900911+00:00",
+  "fetched_at": "2026-06-02T04:40:33.508257+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-02",
-    "2026-06-04"
+    "2026-05-03",
+    "2026-06-05"
   ],
   "series": {
     "SAS_POR": {
@@ -200,138 +200,8 @@
       "favorite": "BOS",
       "underdog": "PHI",
       "favorite_wins": 0,
-      "underdog_wins": 1,
-      "completed_games": [
-        {
-          "margin": -9.0,
-          "favorite_was_home": true,
-          "date": "2026-05-02",
-          "fav_score": 100,
-          "und_score": 109,
-          "espn_event_id": "401869412",
-          "fav_box": {
-            "fgm": 37,
-            "fga": 93,
-            "fg3m": 13,
-            "fg3a": 49,
-            "ftm": 13,
-            "fta": 16,
-            "oreb": 10,
-            "dreb": 34,
-            "reb": 44,
-            "ast": 19,
-            "stl": 4,
-            "blk": 7,
-            "tov": 5,
-            "pf": 23
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 82,
-            "fg3m": 11,
-            "fg3a": 28,
-            "ftm": 20,
-            "fta": 23,
-            "oreb": 3,
-            "dreb": 41,
-            "reb": 44,
-            "ast": 25,
-            "stl": 0,
-            "blk": 1,
-            "tov": 9,
-            "pf": 19
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Derrick White",
-              "min": 45,
-              "pts": 26,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Jaylen Brown",
-              "min": 40,
-              "pts": 33,
-              "reb": 9,
-              "ast": 4
-            },
-            {
-              "name": "Payton Pritchard",
-              "min": 39,
-              "pts": 13,
-              "reb": 5,
-              "ast": 7
-            },
-            {
-              "name": "Neemias Queta",
-              "min": 33,
-              "pts": 17,
-              "reb": 12,
-              "ast": 1
-            },
-            {
-              "name": "Sam Hauser",
-              "min": 30,
-              "pts": 11,
-              "reb": 3,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 45,
-              "pts": 30,
-              "reb": 11,
-              "ast": 7
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 44,
-              "pts": 23,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Paul George",
-              "min": 42,
-              "pts": 13,
-              "reb": 3,
-              "ast": 1
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 39,
-              "pts": 34,
-              "reb": 12,
-              "ast": 6
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 31,
-              "pts": 6,
-              "reb": 5,
-              "ast": 2
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19156,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
+      "underdog_wins": 0,
+      "completed_games": [],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "PHIBOSR1-BOS",
       "complete": false
