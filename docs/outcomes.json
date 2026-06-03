@@ -39,17 +39,11 @@
     "CLE_TOR": {
       "favorite": "CLE",
       "underdog": "TOR",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 1,
-      "games": [
-        {
-          "date": "2026-05-03",
-          "favorite_was_home": true,
-          "margin": 12.0
-        }
-      ]
+      "games": []
     },
     "DEN_MIN": {
       "favorite": "DEN",
@@ -72,17 +66,11 @@
     "DET_ORL": {
       "favorite": "DET",
       "underdog": "ORL",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 1,
-      "games": [
-        {
-          "date": "2026-05-03",
-          "favorite_was_home": true,
-          "margin": 22.0
-        }
-      ]
+      "games": []
     },
     "SAS_NYK": {
       "favorite": "SAS",
