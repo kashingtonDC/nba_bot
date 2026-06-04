@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-04T00:00:54.068891+00:00",
+  "fetched_at": "2026-06-04T05:04:51.933404+00:00",
   "source": "site.api.espn.com",
   "date_range": [
     "2026-05-05",
@@ -90,10 +90,358 @@
       "favorite": "SAS",
       "underdog": "NYK",
       "favorite_wins": 0,
-      "underdog_wins": 0,
-      "completed_games": [],
+      "underdog_wins": 1,
+      "completed_games": [
+        {
+          "margin": -10.0,
+          "favorite_was_home": true,
+          "date": "2026-06-04",
+          "fav_score": 95,
+          "und_score": 105,
+          "espn_event_id": "401859963",
+          "fav_box": {
+            "fgm": 32,
+            "fga": 89,
+            "fg3m": 11,
+            "fg3a": 43,
+            "ftm": 20,
+            "fta": 25,
+            "oreb": 14,
+            "dreb": 40,
+            "reb": 54,
+            "ast": 16,
+            "stl": 4,
+            "blk": 4,
+            "tov": 13,
+            "pf": 23
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 94,
+            "fg3m": 11,
+            "fg3a": 36,
+            "ftm": 16,
+            "fta": 18,
+            "oreb": 10,
+            "dreb": 39,
+            "reb": 49,
+            "ast": 20,
+            "stl": 8,
+            "blk": 4,
+            "tov": 8,
+            "pf": 23
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [],
+          "is_overtime": false,
+          "attendance": 18835,
+          "espn_pregame_home_win_prob": null
+        }
+      ],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R4-SAS",
+      "complete": false
+    },
+    "NYK_PHI": {
+      "favorite": "NYK",
+      "underdog": "PHI",
+      "favorite_wins": 3,
+      "underdog_wins": 0,
+      "completed_games": [
+        {
+          "margin": 6.0,
+          "favorite_was_home": true,
+          "date": "2026-05-06",
+          "fav_score": 108,
+          "und_score": 102,
+          "espn_event_id": "401871160",
+          "fav_box": {
+            "fgm": 40,
+            "fga": 79,
+            "fg3m": 7,
+            "fg3a": 26,
+            "ftm": 21,
+            "fta": 25,
+            "oreb": 9,
+            "dreb": 28,
+            "reb": 37,
+            "ast": 25,
+            "stl": 10,
+            "blk": 2,
+            "tov": 13,
+            "pf": 20
+          },
+          "und_box": {
+            "fgm": 34,
+            "fga": 75,
+            "fg3m": 13,
+            "fg3a": 34,
+            "ftm": 21,
+            "fta": 28,
+            "oreb": 11,
+            "dreb": 28,
+            "reb": 39,
+            "ast": 20,
+            "stl": 8,
+            "blk": 6,
+            "tov": 18,
+            "pf": 23
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 47,
+              "pts": 26,
+              "reb": 3,
+              "ast": 6
+            },
+            {
+              "name": "Paul George",
+              "min": 43,
+              "pts": 19,
+              "reb": 6,
+              "ast": 4
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 40,
+              "pts": 19,
+              "reb": 5,
+              "ast": 2
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 40,
+              "pts": 17,
+              "reb": 5,
+              "ast": 3
+            },
+            {
+              "name": "Quentin Grimes",
+              "min": 24,
+              "pts": 7,
+              "reb": 3,
+              "ast": 3
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19812,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 14.0,
+          "favorite_was_home": false,
+          "date": "2026-05-08",
+          "fav_score": 108,
+          "und_score": 94,
+          "espn_event_id": "401871161",
+          "fav_box": {
+            "fgm": 38,
+            "fga": 76,
+            "fg3m": 9,
+            "fg3a": 27,
+            "ftm": 23,
+            "fta": 32,
+            "oreb": 13,
+            "dreb": 36,
+            "reb": 49,
+            "ast": 25,
+            "stl": 6,
+            "blk": 4,
+            "tov": 14,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 36,
+            "fga": 84,
+            "fg3m": 9,
+            "fg3a": 32,
+            "ftm": 13,
+            "fta": 16,
+            "oreb": 9,
+            "dreb": 24,
+            "reb": 33,
+            "ast": 23,
+            "stl": 7,
+            "blk": 3,
+            "tov": 11,
+            "pf": 25
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 44,
+              "pts": 17,
+              "reb": 2,
+              "ast": 7
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 40,
+              "pts": 11,
+              "reb": 7,
+              "ast": 4
+            },
+            {
+              "name": "Paul George",
+              "min": 38,
+              "pts": 15,
+              "reb": 5,
+              "ast": 3
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 36,
+              "pts": 22,
+              "reb": 8,
+              "ast": 1
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 35,
+              "pts": 18,
+              "reb": 6,
+              "ast": 5
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 30.0,
+          "favorite_was_home": false,
+          "date": "2026-05-10",
+          "fav_score": 144,
+          "und_score": 114,
+          "espn_event_id": "401871162",
+          "fav_box": {
+            "fgm": 49,
+            "fga": 91,
+            "fg3m": 25,
+            "fg3a": 44,
+            "ftm": 21,
+            "fta": 29,
+            "oreb": 15,
+            "dreb": 32,
+            "reb": 47,
+            "ast": 33,
+            "stl": 6,
+            "blk": 4,
+            "tov": 9,
+            "pf": 22
+          },
+          "und_box": {
+            "fgm": 43,
+            "fga": 86,
+            "fg3m": 8,
+            "fg3a": 35,
+            "ftm": 20,
+            "fta": 28,
+            "oreb": 7,
+            "dreb": 23,
+            "reb": 30,
+            "ast": 24,
+            "stl": 5,
+            "blk": 3,
+            "tov": 9,
+            "pf": 23
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [
+            {
+              "name": "Tyrese Maxey",
+              "min": 33,
+              "pts": 17,
+              "reb": 2,
+              "ast": 4
+            },
+            {
+              "name": "VJ Edgecombe",
+              "min": 30,
+              "pts": 8,
+              "reb": 6,
+              "ast": 7
+            },
+            {
+              "name": "Joel Embiid",
+              "min": 28,
+              "pts": 24,
+              "reb": 5,
+              "ast": 4
+            },
+            {
+              "name": "Paul George",
+              "min": 27,
+              "pts": 7,
+              "reb": 1,
+              "ast": 2
+            },
+            {
+              "name": "Kelly Oubre Jr.",
+              "min": 26,
+              "pts": 10,
+              "reb": 4,
+              "ast": 0
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19746,
+          "espn_pregame_home_win_prob": null
+        }
+      ],
+      "favorite_has_home_court": true,
+      "kalshi_ticker_match": "R2-NYK",
       "complete": false
     },
     "DET_CLE": {
@@ -1538,296 +1886,6 @@
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R2-OKC",
       "complete": true
-    },
-    "NYK_PHI": {
-      "favorite": "NYK",
-      "underdog": "PHI",
-      "favorite_wins": 3,
-      "underdog_wins": 0,
-      "completed_games": [
-        {
-          "margin": 6.0,
-          "favorite_was_home": true,
-          "date": "2026-05-06",
-          "fav_score": 108,
-          "und_score": 102,
-          "espn_event_id": "401871160",
-          "fav_box": {
-            "fgm": 40,
-            "fga": 79,
-            "fg3m": 7,
-            "fg3a": 26,
-            "ftm": 21,
-            "fta": 25,
-            "oreb": 9,
-            "dreb": 28,
-            "reb": 37,
-            "ast": 25,
-            "stl": 10,
-            "blk": 2,
-            "tov": 13,
-            "pf": 20
-          },
-          "und_box": {
-            "fgm": 34,
-            "fga": 75,
-            "fg3m": 13,
-            "fg3a": 34,
-            "ftm": 21,
-            "fta": 28,
-            "oreb": 11,
-            "dreb": 28,
-            "reb": 39,
-            "ast": 20,
-            "stl": 8,
-            "blk": 6,
-            "tov": 18,
-            "pf": 23
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 47,
-              "pts": 26,
-              "reb": 3,
-              "ast": 6
-            },
-            {
-              "name": "Paul George",
-              "min": 43,
-              "pts": 19,
-              "reb": 6,
-              "ast": 4
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 40,
-              "pts": 19,
-              "reb": 5,
-              "ast": 2
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 40,
-              "pts": 17,
-              "reb": 5,
-              "ast": 3
-            },
-            {
-              "name": "Quentin Grimes",
-              "min": 24,
-              "pts": 7,
-              "reb": 3,
-              "ast": 3
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19812,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": 14.0,
-          "favorite_was_home": false,
-          "date": "2026-05-08",
-          "fav_score": 108,
-          "und_score": 94,
-          "espn_event_id": "401871161",
-          "fav_box": {
-            "fgm": 38,
-            "fga": 76,
-            "fg3m": 9,
-            "fg3a": 27,
-            "ftm": 23,
-            "fta": 32,
-            "oreb": 13,
-            "dreb": 36,
-            "reb": 49,
-            "ast": 25,
-            "stl": 6,
-            "blk": 4,
-            "tov": 14,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 36,
-            "fga": 84,
-            "fg3m": 9,
-            "fg3a": 32,
-            "ftm": 13,
-            "fta": 16,
-            "oreb": 9,
-            "dreb": 24,
-            "reb": 33,
-            "ast": 23,
-            "stl": 7,
-            "blk": 3,
-            "tov": 11,
-            "pf": 25
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 44,
-              "pts": 17,
-              "reb": 2,
-              "ast": 7
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 40,
-              "pts": 11,
-              "reb": 7,
-              "ast": 4
-            },
-            {
-              "name": "Paul George",
-              "min": 38,
-              "pts": 15,
-              "reb": 5,
-              "ast": 3
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 36,
-              "pts": 22,
-              "reb": 8,
-              "ast": 1
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 35,
-              "pts": 18,
-              "reb": 6,
-              "ast": 5
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19746,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": 30.0,
-          "favorite_was_home": false,
-          "date": "2026-05-10",
-          "fav_score": 144,
-          "und_score": 114,
-          "espn_event_id": "401871162",
-          "fav_box": {
-            "fgm": 49,
-            "fga": 91,
-            "fg3m": 25,
-            "fg3a": 44,
-            "ftm": 21,
-            "fta": 29,
-            "oreb": 15,
-            "dreb": 32,
-            "reb": 47,
-            "ast": 33,
-            "stl": 6,
-            "blk": 4,
-            "tov": 9,
-            "pf": 22
-          },
-          "und_box": {
-            "fgm": 43,
-            "fga": 86,
-            "fg3m": 8,
-            "fg3a": 35,
-            "ftm": 20,
-            "fta": 28,
-            "oreb": 7,
-            "dreb": 23,
-            "reb": 30,
-            "ast": 24,
-            "stl": 5,
-            "blk": 3,
-            "tov": 9,
-            "pf": 23
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [
-            {
-              "name": "Tyrese Maxey",
-              "min": 33,
-              "pts": 17,
-              "reb": 2,
-              "ast": 4
-            },
-            {
-              "name": "VJ Edgecombe",
-              "min": 30,
-              "pts": 8,
-              "reb": 6,
-              "ast": 7
-            },
-            {
-              "name": "Joel Embiid",
-              "min": 28,
-              "pts": 24,
-              "reb": 5,
-              "ast": 4
-            },
-            {
-              "name": "Paul George",
-              "min": 27,
-              "pts": 7,
-              "reb": 1,
-              "ast": 2
-            },
-            {
-              "name": "Kelly Oubre Jr.",
-              "min": 26,
-              "pts": 10,
-              "reb": 4,
-              "ast": 0
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19746,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
-      "favorite_has_home_court": true,
-      "kalshi_ticker_match": "R2-NYK",
-      "complete": false
     },
     "SAS_MIN": {
       "favorite": "SAS",
