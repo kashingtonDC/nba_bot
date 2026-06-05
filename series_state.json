@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-05T01:53:37.845283+00:00",
+  "fetched_at": "2026-06-05T06:22:32.488211+00:00",
   "source": "site.api.espn.com",
   "date_range": [
     "2026-05-06",
@@ -442,6 +442,404 @@
       ],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R2-NYK",
+      "complete": false
+    },
+    "OKC_LAL": {
+      "favorite": "OKC",
+      "underdog": "LAL",
+      "favorite_wins": 3,
+      "underdog_wins": 0,
+      "completed_games": [
+        {
+          "margin": 18.0,
+          "favorite_was_home": true,
+          "date": "2026-05-08",
+          "fav_score": 125,
+          "und_score": 107,
+          "espn_event_id": "401871327",
+          "fav_box": {
+            "fgm": 45,
+            "fga": 81,
+            "fg3m": 14,
+            "fg3a": 36,
+            "ftm": 21,
+            "fta": 26,
+            "oreb": 9,
+            "dreb": 23,
+            "reb": 32,
+            "ast": 26,
+            "stl": 12,
+            "blk": 5,
+            "tov": 12,
+            "pf": 21
+          },
+          "und_box": {
+            "fgm": 39,
+            "fga": 78,
+            "fg3m": 11,
+            "fg3a": 29,
+            "ftm": 18,
+            "fta": 21,
+            "oreb": 10,
+            "dreb": 20,
+            "reb": 30,
+            "ast": 24,
+            "stl": 7,
+            "blk": 0,
+            "tov": 20,
+            "pf": 26
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Chet Holmgren",
+              "min": 33,
+              "pts": 22,
+              "reb": 9,
+              "ast": 3
+            },
+            {
+              "name": "Cason Wallace",
+              "min": 31,
+              "pts": 12,
+              "reb": 2,
+              "ast": 4
+            },
+            {
+              "name": "Ajay Mitchell",
+              "min": 30,
+              "pts": 20,
+              "reb": 3,
+              "ast": 6
+            },
+            {
+              "name": "Shai Gilgeous-Alexander",
+              "min": 28,
+              "pts": 22,
+              "reb": 2,
+              "ast": 2
+            },
+            {
+              "name": "Isaiah Hartenstein",
+              "min": 27,
+              "pts": 10,
+              "reb": 9,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Rui Hachimura",
+              "min": 39,
+              "pts": 16,
+              "reb": 4,
+              "ast": 2
+            },
+            {
+              "name": "LeBron James",
+              "min": 38,
+              "pts": 23,
+              "reb": 2,
+              "ast": 6
+            },
+            {
+              "name": "Austin Reaves",
+              "min": 38,
+              "pts": 31,
+              "reb": 2,
+              "ast": 6
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 34,
+              "pts": 14,
+              "reb": 4,
+              "ast": 5
+            },
+            {
+              "name": "Deandre Ayton",
+              "min": 27,
+              "pts": 3,
+              "reb": 10,
+              "ast": 0
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 18203,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 23.0,
+          "favorite_was_home": false,
+          "date": "2026-05-10",
+          "fav_score": 131,
+          "und_score": 108,
+          "espn_event_id": "401871328",
+          "fav_box": {
+            "fgm": 53,
+            "fga": 94,
+            "fg3m": 17,
+            "fg3a": 38,
+            "ftm": 8,
+            "fta": 10,
+            "oreb": 12,
+            "dreb": 31,
+            "reb": 43,
+            "ast": 30,
+            "stl": 12,
+            "blk": 3,
+            "tov": 9,
+            "pf": 22
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 81,
+            "fg3m": 14,
+            "fg3a": 30,
+            "ftm": 18,
+            "fta": 25,
+            "oreb": 14,
+            "dreb": 23,
+            "reb": 37,
+            "ast": 31,
+            "stl": 6,
+            "blk": 1,
+            "tov": 16,
+            "pf": 16
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Shai Gilgeous-Alexander",
+              "min": 33,
+              "pts": 23,
+              "reb": 4,
+              "ast": 9
+            },
+            {
+              "name": "Isaiah Hartenstein",
+              "min": 31,
+              "pts": 12,
+              "reb": 9,
+              "ast": 2
+            },
+            {
+              "name": "Chet Holmgren",
+              "min": 31,
+              "pts": 18,
+              "reb": 9,
+              "ast": 1
+            },
+            {
+              "name": "Ajay Mitchell",
+              "min": 30,
+              "pts": 24,
+              "reb": 4,
+              "ast": 10
+            },
+            {
+              "name": "Cason Wallace",
+              "min": 25,
+              "pts": 16,
+              "reb": 1,
+              "ast": 1
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Rui Hachimura",
+              "min": 39,
+              "pts": 21,
+              "reb": 5,
+              "ast": 4
+            },
+            {
+              "name": "Austin Reaves",
+              "min": 39,
+              "pts": 17,
+              "reb": 3,
+              "ast": 9
+            },
+            {
+              "name": "LeBron James",
+              "min": 37,
+              "pts": 19,
+              "reb": 6,
+              "ast": 8
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 32,
+              "pts": 10,
+              "reb": 3,
+              "ast": 3
+            },
+            {
+              "name": "Luke Kennard",
+              "min": 29,
+              "pts": 18,
+              "reb": 2,
+              "ast": 2
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19057,
+          "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": 5.0,
+          "favorite_was_home": false,
+          "date": "2026-05-12",
+          "fav_score": 115,
+          "und_score": 110,
+          "espn_event_id": "401871329",
+          "fav_box": {
+            "fgm": 42,
+            "fga": 81,
+            "fg3m": 11,
+            "fg3a": 31,
+            "ftm": 20,
+            "fta": 24,
+            "oreb": 6,
+            "dreb": 28,
+            "reb": 34,
+            "ast": 19,
+            "stl": 12,
+            "blk": 0,
+            "tov": 11,
+            "pf": 24
+          },
+          "und_box": {
+            "fgm": 38,
+            "fga": 75,
+            "fg3m": 10,
+            "fg3a": 28,
+            "ftm": 24,
+            "fta": 27,
+            "oreb": 7,
+            "dreb": 30,
+            "reb": 37,
+            "ast": 18,
+            "stl": 3,
+            "blk": 5,
+            "tov": 19,
+            "pf": 22
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [
+            {
+              "name": "Shai Gilgeous-Alexander",
+              "min": 39,
+              "pts": 35,
+              "reb": 1,
+              "ast": 8
+            },
+            {
+              "name": "Chet Holmgren",
+              "min": 35,
+              "pts": 16,
+              "reb": 9,
+              "ast": 0
+            },
+            {
+              "name": "Ajay Mitchell",
+              "min": 33,
+              "pts": 28,
+              "reb": 3,
+              "ast": 4
+            },
+            {
+              "name": "Luguentz Dort",
+              "min": 31,
+              "pts": 6,
+              "reb": 2,
+              "ast": 0
+            },
+            {
+              "name": "Isaiah Hartenstein",
+              "min": 28,
+              "pts": 5,
+              "reb": 10,
+              "ast": 5
+            }
+          ],
+          "und_top_minutes": [
+            {
+              "name": "Rui Hachimura",
+              "min": 43,
+              "pts": 25,
+              "reb": 5,
+              "ast": 2
+            },
+            {
+              "name": "Austin Reaves",
+              "min": 43,
+              "pts": 27,
+              "reb": 7,
+              "ast": 6
+            },
+            {
+              "name": "LeBron James",
+              "min": 40,
+              "pts": 24,
+              "reb": 12,
+              "ast": 3
+            },
+            {
+              "name": "Marcus Smart",
+              "min": 36,
+              "pts": 5,
+              "reb": 2,
+              "ast": 3
+            },
+            {
+              "name": "Jaxson Hayes",
+              "min": 27,
+              "pts": 18,
+              "reb": 5,
+              "ast": 1
+            }
+          ],
+          "is_overtime": false,
+          "attendance": 19057,
+          "espn_pregame_home_win_prob": null
+        }
+      ],
+      "favorite_has_home_court": true,
+      "kalshi_ticker_match": "R2-OKC",
       "complete": false
     },
     "SAS_MIN": {
@@ -1706,404 +2104,6 @@
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R2-DET",
       "complete": true
-    },
-    "OKC_LAL": {
-      "favorite": "OKC",
-      "underdog": "LAL",
-      "favorite_wins": 3,
-      "underdog_wins": 0,
-      "completed_games": [
-        {
-          "margin": 18.0,
-          "favorite_was_home": true,
-          "date": "2026-05-08",
-          "fav_score": 125,
-          "und_score": 107,
-          "espn_event_id": "401871327",
-          "fav_box": {
-            "fgm": 45,
-            "fga": 81,
-            "fg3m": 14,
-            "fg3a": 36,
-            "ftm": 21,
-            "fta": 26,
-            "oreb": 9,
-            "dreb": 23,
-            "reb": 32,
-            "ast": 26,
-            "stl": 12,
-            "blk": 5,
-            "tov": 12,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 78,
-            "fg3m": 11,
-            "fg3a": 29,
-            "ftm": 18,
-            "fta": 21,
-            "oreb": 10,
-            "dreb": 20,
-            "reb": 30,
-            "ast": 24,
-            "stl": 7,
-            "blk": 0,
-            "tov": 20,
-            "pf": 26
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Chet Holmgren",
-              "min": 33,
-              "pts": 22,
-              "reb": 9,
-              "ast": 3
-            },
-            {
-              "name": "Cason Wallace",
-              "min": 31,
-              "pts": 12,
-              "reb": 2,
-              "ast": 4
-            },
-            {
-              "name": "Ajay Mitchell",
-              "min": 30,
-              "pts": 20,
-              "reb": 3,
-              "ast": 6
-            },
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 28,
-              "pts": 22,
-              "reb": 2,
-              "ast": 2
-            },
-            {
-              "name": "Isaiah Hartenstein",
-              "min": 27,
-              "pts": 10,
-              "reb": 9,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Rui Hachimura",
-              "min": 39,
-              "pts": 16,
-              "reb": 4,
-              "ast": 2
-            },
-            {
-              "name": "LeBron James",
-              "min": 38,
-              "pts": 23,
-              "reb": 2,
-              "ast": 6
-            },
-            {
-              "name": "Austin Reaves",
-              "min": 38,
-              "pts": 31,
-              "reb": 2,
-              "ast": 6
-            },
-            {
-              "name": "Marcus Smart",
-              "min": 34,
-              "pts": 14,
-              "reb": 4,
-              "ast": 5
-            },
-            {
-              "name": "Deandre Ayton",
-              "min": 27,
-              "pts": 3,
-              "reb": 10,
-              "ast": 0
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 18203,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": 23.0,
-          "favorite_was_home": false,
-          "date": "2026-05-10",
-          "fav_score": 131,
-          "und_score": 108,
-          "espn_event_id": "401871328",
-          "fav_box": {
-            "fgm": 53,
-            "fga": 94,
-            "fg3m": 17,
-            "fg3a": 38,
-            "ftm": 8,
-            "fta": 10,
-            "oreb": 12,
-            "dreb": 31,
-            "reb": 43,
-            "ast": 30,
-            "stl": 12,
-            "blk": 3,
-            "tov": 9,
-            "pf": 22
-          },
-          "und_box": {
-            "fgm": 38,
-            "fga": 81,
-            "fg3m": 14,
-            "fg3a": 30,
-            "ftm": 18,
-            "fta": 25,
-            "oreb": 14,
-            "dreb": 23,
-            "reb": 37,
-            "ast": 31,
-            "stl": 6,
-            "blk": 1,
-            "tov": 16,
-            "pf": 16
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 33,
-              "pts": 23,
-              "reb": 4,
-              "ast": 9
-            },
-            {
-              "name": "Isaiah Hartenstein",
-              "min": 31,
-              "pts": 12,
-              "reb": 9,
-              "ast": 2
-            },
-            {
-              "name": "Chet Holmgren",
-              "min": 31,
-              "pts": 18,
-              "reb": 9,
-              "ast": 1
-            },
-            {
-              "name": "Ajay Mitchell",
-              "min": 30,
-              "pts": 24,
-              "reb": 4,
-              "ast": 10
-            },
-            {
-              "name": "Cason Wallace",
-              "min": 25,
-              "pts": 16,
-              "reb": 1,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Rui Hachimura",
-              "min": 39,
-              "pts": 21,
-              "reb": 5,
-              "ast": 4
-            },
-            {
-              "name": "Austin Reaves",
-              "min": 39,
-              "pts": 17,
-              "reb": 3,
-              "ast": 9
-            },
-            {
-              "name": "LeBron James",
-              "min": 37,
-              "pts": 19,
-              "reb": 6,
-              "ast": 8
-            },
-            {
-              "name": "Marcus Smart",
-              "min": 32,
-              "pts": 10,
-              "reb": 3,
-              "ast": 3
-            },
-            {
-              "name": "Luke Kennard",
-              "min": 29,
-              "pts": 18,
-              "reb": 2,
-              "ast": 2
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19057,
-          "espn_pregame_home_win_prob": null
-        },
-        {
-          "margin": 5.0,
-          "favorite_was_home": false,
-          "date": "2026-05-12",
-          "fav_score": 115,
-          "und_score": 110,
-          "espn_event_id": "401871329",
-          "fav_box": {
-            "fgm": 42,
-            "fga": 81,
-            "fg3m": 11,
-            "fg3a": 31,
-            "ftm": 20,
-            "fta": 24,
-            "oreb": 6,
-            "dreb": 28,
-            "reb": 34,
-            "ast": 19,
-            "stl": 12,
-            "blk": 0,
-            "tov": 11,
-            "pf": 24
-          },
-          "und_box": {
-            "fgm": 38,
-            "fga": 75,
-            "fg3m": 10,
-            "fg3a": 28,
-            "ftm": 24,
-            "fta": 27,
-            "oreb": 7,
-            "dreb": 30,
-            "reb": 37,
-            "ast": 18,
-            "stl": 3,
-            "blk": 5,
-            "tov": 19,
-            "pf": 22
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 39,
-              "pts": 35,
-              "reb": 1,
-              "ast": 8
-            },
-            {
-              "name": "Chet Holmgren",
-              "min": 35,
-              "pts": 16,
-              "reb": 9,
-              "ast": 0
-            },
-            {
-              "name": "Ajay Mitchell",
-              "min": 33,
-              "pts": 28,
-              "reb": 3,
-              "ast": 4
-            },
-            {
-              "name": "Luguentz Dort",
-              "min": 31,
-              "pts": 6,
-              "reb": 2,
-              "ast": 0
-            },
-            {
-              "name": "Isaiah Hartenstein",
-              "min": 28,
-              "pts": 5,
-              "reb": 10,
-              "ast": 5
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Rui Hachimura",
-              "min": 43,
-              "pts": 25,
-              "reb": 5,
-              "ast": 2
-            },
-            {
-              "name": "Austin Reaves",
-              "min": 43,
-              "pts": 27,
-              "reb": 7,
-              "ast": 6
-            },
-            {
-              "name": "LeBron James",
-              "min": 40,
-              "pts": 24,
-              "reb": 12,
-              "ast": 3
-            },
-            {
-              "name": "Marcus Smart",
-              "min": 36,
-              "pts": 5,
-              "reb": 2,
-              "ast": 3
-            },
-            {
-              "name": "Jaxson Hayes",
-              "min": 27,
-              "pts": 18,
-              "reb": 5,
-              "ast": 1
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 19057,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
-      "favorite_has_home_court": true,
-      "kalshi_ticker_match": "R2-OKC",
-      "complete": false
     },
     "OKC_SAS": {
       "favorite": "OKC",

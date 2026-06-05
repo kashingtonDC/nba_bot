@@ -112,6 +112,31 @@
         }
       ]
     },
+    "OKC_LAL": {
+      "favorite": "OKC",
+      "underdog": "LAL",
+      "favorite_wins": 3,
+      "underdog_wins": 0,
+      "complete": false,
+      "round": 2,
+      "games": [
+        {
+          "date": "2026-05-08",
+          "favorite_was_home": true,
+          "margin": 18.0
+        },
+        {
+          "date": "2026-05-10",
+          "favorite_was_home": false,
+          "margin": 23.0
+        },
+        {
+          "date": "2026-05-12",
+          "favorite_was_home": false,
+          "margin": 5.0
+        }
+      ]
+    },
     "SAS_MIN": {
       "favorite": "SAS",
       "underdog": "MIN",
@@ -184,31 +209,6 @@
           "date": "2026-05-18",
           "favorite_was_home": true,
           "margin": -31.0
-        }
-      ]
-    },
-    "OKC_LAL": {
-      "favorite": "OKC",
-      "underdog": "LAL",
-      "favorite_wins": 3,
-      "underdog_wins": 0,
-      "complete": false,
-      "round": 2,
-      "games": [
-        {
-          "date": "2026-05-08",
-          "favorite_was_home": true,
-          "margin": 18.0
-        },
-        {
-          "date": "2026-05-10",
-          "favorite_was_home": false,
-          "margin": 23.0
-        },
-        {
-          "date": "2026-05-12",
-          "favorite_was_home": false,
-          "margin": 5.0
         }
       ]
     },
