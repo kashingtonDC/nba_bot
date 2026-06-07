@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-06T23:44:55.846159+00:00",
+  "fetched_at": "2026-06-07T01:58:41.696811+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-07",
-    "2026-06-09"
+    "2026-05-08",
+    "2026-06-10"
   ],
   "series": {
     "SAS_POR": {
@@ -411,138 +411,9 @@
     "OKC_LAL": {
       "favorite": "OKC",
       "underdog": "LAL",
-      "favorite_wins": 3,
+      "favorite_wins": 2,
       "underdog_wins": 0,
       "completed_games": [
-        {
-          "margin": 18.0,
-          "favorite_was_home": true,
-          "date": "2026-05-08",
-          "fav_score": 125,
-          "und_score": 107,
-          "espn_event_id": "401871327",
-          "fav_box": {
-            "fgm": 45,
-            "fga": 81,
-            "fg3m": 14,
-            "fg3a": 36,
-            "ftm": 21,
-            "fta": 26,
-            "oreb": 9,
-            "dreb": 23,
-            "reb": 32,
-            "ast": 26,
-            "stl": 12,
-            "blk": 5,
-            "tov": 12,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 78,
-            "fg3m": 11,
-            "fg3a": 29,
-            "ftm": 18,
-            "fta": 21,
-            "oreb": 10,
-            "dreb": 20,
-            "reb": 30,
-            "ast": 24,
-            "stl": 7,
-            "blk": 0,
-            "tov": 20,
-            "pf": 26
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Chet Holmgren",
-              "min": 33,
-              "pts": 22,
-              "reb": 9,
-              "ast": 3
-            },
-            {
-              "name": "Cason Wallace",
-              "min": 31,
-              "pts": 12,
-              "reb": 2,
-              "ast": 4
-            },
-            {
-              "name": "Ajay Mitchell",
-              "min": 30,
-              "pts": 20,
-              "reb": 3,
-              "ast": 6
-            },
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 28,
-              "pts": 22,
-              "reb": 2,
-              "ast": 2
-            },
-            {
-              "name": "Isaiah Hartenstein",
-              "min": 27,
-              "pts": 10,
-              "reb": 9,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Rui Hachimura",
-              "min": 39,
-              "pts": 16,
-              "reb": 4,
-              "ast": 2
-            },
-            {
-              "name": "LeBron James",
-              "min": 38,
-              "pts": 23,
-              "reb": 2,
-              "ast": 6
-            },
-            {
-              "name": "Austin Reaves",
-              "min": 38,
-              "pts": 31,
-              "reb": 2,
-              "ast": 6
-            },
-            {
-              "name": "Marcus Smart",
-              "min": 34,
-              "pts": 14,
-              "reb": 4,
-              "ast": 5
-            },
-            {
-              "name": "Deandre Ayton",
-              "min": 27,
-              "pts": 3,
-              "reb": 10,
-              "ast": 0
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 18203,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 23.0,
           "favorite_was_home": false,
@@ -1192,138 +1063,9 @@
     "DET_CLE": {
       "favorite": "DET",
       "underdog": "CLE",
-      "favorite_wins": 2,
+      "favorite_wins": 1,
       "underdog_wins": 4,
       "completed_games": [
-        {
-          "margin": 10.0,
-          "favorite_was_home": true,
-          "date": "2026-05-07",
-          "fav_score": 107,
-          "und_score": 97,
-          "espn_event_id": "401871334",
-          "fav_box": {
-            "fgm": 39,
-            "fga": 80,
-            "fg3m": 14,
-            "fg3a": 28,
-            "ftm": 15,
-            "fta": 20,
-            "oreb": 12,
-            "dreb": 30,
-            "reb": 42,
-            "ast": 21,
-            "stl": 9,
-            "blk": 5,
-            "tov": 10,
-            "pf": 22
-          },
-          "und_box": {
-            "fgm": 34,
-            "fga": 81,
-            "fg3m": 7,
-            "fg3a": 32,
-            "ftm": 22,
-            "fta": 27,
-            "oreb": 9,
-            "dreb": 27,
-            "reb": 36,
-            "ast": 20,
-            "stl": 7,
-            "blk": 6,
-            "tov": 11,
-            "pf": 19
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Cade Cunningham",
-              "min": 42,
-              "pts": 25,
-              "reb": 3,
-              "ast": 10
-            },
-            {
-              "name": "Tobias Harris",
-              "min": 37,
-              "pts": 21,
-              "reb": 7,
-              "ast": 0
-            },
-            {
-              "name": "Duncan Robinson",
-              "min": 37,
-              "pts": 17,
-              "reb": 3,
-              "ast": 3
-            },
-            {
-              "name": "Jalen Duren",
-              "min": 33,
-              "pts": 8,
-              "reb": 10,
-              "ast": 1
-            },
-            {
-              "name": "Daniss Jenkins",
-              "min": 26,
-              "pts": 14,
-              "reb": 6,
-              "ast": 4
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "James Harden",
-              "min": 37,
-              "pts": 10,
-              "reb": 6,
-              "ast": 3
-            },
-            {
-              "name": "Donovan Mitchell",
-              "min": 37,
-              "pts": 31,
-              "reb": 6,
-              "ast": 3
-            },
-            {
-              "name": "Evan Mobley",
-              "min": 36,
-              "pts": 9,
-              "reb": 1,
-              "ast": 4
-            },
-            {
-              "name": "Jarrett Allen",
-              "min": 31,
-              "pts": 22,
-              "reb": 7,
-              "ast": 3
-            },
-            {
-              "name": "Max Strus",
-              "min": 28,
-              "pts": 3,
-              "reb": 3,
-              "ast": 1
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 20062,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -7.0,
           "favorite_was_home": false,
@@ -1972,7 +1714,7 @@
           "espn_pregame_home_win_prob": null
         }
       ],
-      "favorite_has_home_court": true,
+      "favorite_has_home_court": false,
       "kalshi_ticker_match": "R2-DET",
       "complete": true
     },
