@@ -100,17 +100,11 @@
     "NYK_PHI": {
       "favorite": "NYK",
       "underdog": "PHI",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 2,
-      "games": [
-        {
-          "date": "2026-05-10",
-          "favorite_was_home": false,
-          "margin": 30.0
-        }
-      ]
+      "games": []
     },
     "OKC_LAL": {
       "favorite": "OKC",
@@ -131,15 +125,10 @@
       "favorite": "SAS",
       "underdog": "MIN",
       "favorite_wins": 2,
-      "underdog_wins": 1,
+      "underdog_wins": 0,
       "complete": false,
       "round": 2,
       "games": [
-        {
-          "date": "2026-05-10",
-          "favorite_was_home": false,
-          "margin": -5.0
-        },
         {
           "date": "2026-05-13",
           "favorite_was_home": true,
