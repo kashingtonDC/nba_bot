@@ -109,17 +109,11 @@
     "OKC_LAL": {
       "favorite": "OKC",
       "underdog": "LAL",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 2,
-      "games": [
-        {
-          "date": "2026-05-12",
-          "favorite_was_home": false,
-          "margin": 5.0
-        }
-      ]
+      "games": []
     },
     "SAS_MIN": {
       "favorite": "SAS",
@@ -145,15 +139,10 @@
       "favorite": "DET",
       "underdog": "CLE",
       "favorite_wins": 1,
-      "underdog_wins": 3,
+      "underdog_wins": 2,
       "complete": false,
       "round": 2,
       "games": [
-        {
-          "date": "2026-05-12",
-          "favorite_was_home": false,
-          "margin": -9.0
-        },
         {
           "date": "2026-05-14",
           "favorite_was_home": true,
