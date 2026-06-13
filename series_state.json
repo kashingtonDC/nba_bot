@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-12T23:50:12.190733+00:00",
+  "fetched_at": "2026-06-13T03:38:20.877223+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-13",
-    "2026-06-15"
+    "2026-05-14",
+    "2026-06-16"
   ],
   "series": {
     "SAS_POR": {
@@ -453,139 +453,8 @@
       "favorite": "DET",
       "underdog": "CLE",
       "favorite_wins": 1,
-      "underdog_wins": 2,
+      "underdog_wins": 1,
       "completed_games": [
-        {
-          "margin": -4.0,
-          "favorite_was_home": true,
-          "date": "2026-05-14",
-          "fav_score": 113,
-          "und_score": 117,
-          "espn_event_id": "401871337",
-          "fav_box": {
-            "fgm": 42,
-            "fga": 95,
-            "fg3m": 11,
-            "fg3a": 33,
-            "ftm": 18,
-            "fta": 20,
-            "oreb": 15,
-            "dreb": 25,
-            "reb": 40,
-            "ast": 28,
-            "stl": 10,
-            "blk": 10,
-            "tov": 10,
-            "pf": 26
-          },
-          "und_box": {
-            "fgm": 36,
-            "fga": 80,
-            "fg3m": 14,
-            "fg3a": 35,
-            "ftm": 31,
-            "fta": 38,
-            "oreb": 13,
-            "dreb": 31,
-            "reb": 44,
-            "ast": 25,
-            "stl": 6,
-            "blk": 9,
-            "tov": 16,
-            "pf": 16
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Cade Cunningham",
-              "min": 48,
-              "pts": 39,
-              "reb": 7,
-              "ast": 9
-            },
-            {
-              "name": "Ausar Thompson",
-              "min": 41,
-              "pts": 6,
-              "reb": 7,
-              "ast": 5
-            },
-            {
-              "name": "Daniss Jenkins",
-              "min": 41,
-              "pts": 19,
-              "reb": 2,
-              "ast": 3
-            },
-            {
-              "name": "Tobias Harris",
-              "min": 40,
-              "pts": 13,
-              "reb": 6,
-              "ast": 3
-            },
-            {
-              "name": "Jalen Duren",
-              "min": 25,
-              "pts": 9,
-              "reb": 5,
-              "ast": 4
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Evan Mobley",
-              "min": 43,
-              "pts": 19,
-              "reb": 8,
-              "ast": 8
-            },
-            {
-              "name": "James Harden",
-              "min": 43,
-              "pts": 30,
-              "reb": 8,
-              "ast": 6
-            },
-            {
-              "name": "Donovan Mitchell",
-              "min": 42,
-              "pts": 21,
-              "reb": 4,
-              "ast": 3
-            },
-            {
-              "name": "Jarrett Allen",
-              "min": 36,
-              "pts": 16,
-              "reb": 10,
-              "ast": 1
-            },
-            {
-              "name": "Max Strus",
-              "min": 36,
-              "pts": 20,
-              "reb": 8,
-              "ast": 1
-            }
-          ],
-          "is_overtime": true,
-          "attendance": 20062,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 21.0,
           "favorite_was_home": false,
