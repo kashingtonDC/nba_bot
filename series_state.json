@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-14T00:06:19.012314+00:00",
+  "fetched_at": "2026-06-14T05:06:28.585568+00:00",
   "source": "site.api.espn.com",
   "date_range": [
     "2026-05-15",
@@ -90,7 +90,7 @@
       "favorite": "SAS",
       "underdog": "NYK",
       "favorite_wins": 1,
-      "underdog_wins": 3,
+      "underdog_wins": 4,
       "completed_games": [
         {
           "margin": -10.0,
@@ -319,11 +319,68 @@
           "is_overtime": false,
           "attendance": 19812,
           "espn_pregame_home_win_prob": null
+        },
+        {
+          "margin": -4.0,
+          "favorite_was_home": true,
+          "date": "2026-06-14",
+          "fav_score": 90,
+          "und_score": 94,
+          "espn_event_id": "401859967",
+          "fav_box": {
+            "fgm": 33,
+            "fga": 86,
+            "fg3m": 12,
+            "fg3a": 37,
+            "ftm": 12,
+            "fta": 18,
+            "oreb": 14,
+            "dreb": 33,
+            "reb": 47,
+            "ast": 18,
+            "stl": 6,
+            "blk": 7,
+            "tov": 12,
+            "pf": 22
+          },
+          "und_box": {
+            "fgm": 31,
+            "fga": 87,
+            "fg3m": 12,
+            "fg3a": 37,
+            "ftm": 20,
+            "fta": 28,
+            "oreb": 13,
+            "dreb": 35,
+            "reb": 48,
+            "ast": 14,
+            "stl": 8,
+            "blk": 4,
+            "tov": 10,
+            "pf": 21
+          },
+          "fav_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "und_quarters": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "fav_top_minutes": [],
+          "und_top_minutes": [],
+          "is_overtime": false,
+          "attendance": 18984,
+          "espn_pregame_home_win_prob": null
         }
       ],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R4-SAS",
-      "complete": false
+      "complete": true
     },
     "NYK_PHI": {
       "favorite": "NYK",

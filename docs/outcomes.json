@@ -76,8 +76,8 @@
       "favorite": "SAS",
       "underdog": "NYK",
       "favorite_wins": 1,
-      "underdog_wins": 3,
-      "complete": false,
+      "underdog_wins": 4,
+      "complete": true,
       "round": 2,
       "games": [
         {
@@ -99,6 +99,11 @@
           "date": "2026-06-11",
           "favorite_was_home": false,
           "margin": -1.0
+        },
+        {
+          "date": "2026-06-14",
+          "favorite_was_home": true,
+          "margin": -4.0
         }
       ]
     },
