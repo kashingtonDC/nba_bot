@@ -93,31 +93,20 @@
     "SAS_MIN": {
       "favorite": "SAS",
       "underdog": "MIN",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 0,
       "complete": false,
       "round": 2,
-      "games": [
-        {
-          "date": "2026-05-16",
-          "favorite_was_home": false,
-          "margin": 30.0
-        }
-      ]
+      "games": []
     },
     "DET_CLE": {
       "favorite": "DET",
       "underdog": "CLE",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 1,
       "complete": false,
       "round": 2,
       "games": [
-        {
-          "date": "2026-05-15",
-          "favorite_was_home": false,
-          "margin": 21.0
-        },
         {
           "date": "2026-05-18",
           "favorite_was_home": true,
