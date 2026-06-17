@@ -103,16 +103,10 @@
       "favorite": "DET",
       "underdog": "CLE",
       "favorite_wins": 0,
-      "underdog_wins": 1,
+      "underdog_wins": 0,
       "complete": false,
       "round": 2,
-      "games": [
-        {
-          "date": "2026-05-18",
-          "favorite_was_home": true,
-          "margin": -31.0
-        }
-      ]
+      "games": []
     },
     "OKC_SAS": {
       "favorite": "OKC",

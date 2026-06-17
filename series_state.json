@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-16T23:42:40.720921+00:00",
+  "fetched_at": "2026-06-17T02:06:36.202248+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-17",
-    "2026-06-19"
+    "2026-05-18",
+    "2026-06-20"
   ],
   "series": {
     "SAS_POR": {
@@ -120,138 +120,8 @@
       "favorite": "DET",
       "underdog": "CLE",
       "favorite_wins": 0,
-      "underdog_wins": 1,
-      "completed_games": [
-        {
-          "margin": -31.0,
-          "favorite_was_home": true,
-          "date": "2026-05-18",
-          "fav_score": 94,
-          "und_score": 125,
-          "espn_event_id": "401871339",
-          "fav_box": {
-            "fgm": 30,
-            "fga": 85,
-            "fg3m": 12,
-            "fg3a": 39,
-            "ftm": 22,
-            "fta": 29,
-            "oreb": 10,
-            "dreb": 31,
-            "reb": 41,
-            "ast": 21,
-            "stl": 7,
-            "blk": 5,
-            "tov": 14,
-            "pf": 31
-          },
-          "und_box": {
-            "fgm": 43,
-            "fga": 85,
-            "fg3m": 11,
-            "fg3a": 34,
-            "ftm": 28,
-            "fta": 44,
-            "oreb": 14,
-            "dreb": 36,
-            "reb": 50,
-            "ast": 31,
-            "stl": 10,
-            "blk": 4,
-            "tov": 11,
-            "pf": 22
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Cade Cunningham",
-              "min": 37,
-              "pts": 13,
-              "reb": 4,
-              "ast": 5
-            },
-            {
-              "name": "Daniss Jenkins",
-              "min": 34,
-              "pts": 17,
-              "reb": 3,
-              "ast": 5
-            },
-            {
-              "name": "Ausar Thompson",
-              "min": 29,
-              "pts": 5,
-              "reb": 7,
-              "ast": 0
-            },
-            {
-              "name": "Jalen Duren",
-              "min": 26,
-              "pts": 7,
-              "reb": 9,
-              "ast": 3
-            },
-            {
-              "name": "Tobias Harris",
-              "min": 23,
-              "pts": 5,
-              "reb": 5,
-              "ast": 2
-            }
-          ],
-          "und_top_minutes": [
-            {
-              "name": "Evan Mobley",
-              "min": 36,
-              "pts": 21,
-              "reb": 12,
-              "ast": 6
-            },
-            {
-              "name": "James Harden",
-              "min": 36,
-              "pts": 9,
-              "reb": 5,
-              "ast": 6
-            },
-            {
-              "name": "Donovan Mitchell",
-              "min": 31,
-              "pts": 26,
-              "reb": 6,
-              "ast": 8
-            },
-            {
-              "name": "Max Strus",
-              "min": 28,
-              "pts": 9,
-              "reb": 3,
-              "ast": 2
-            },
-            {
-              "name": "Jarrett Allen",
-              "min": 25,
-              "pts": 23,
-              "reb": 7,
-              "ast": 1
-            }
-          ],
-          "is_overtime": false,
-          "attendance": 20062,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
+      "underdog_wins": 0,
+      "completed_games": [],
       "favorite_has_home_court": false,
       "kalshi_ticker_match": "R2-DET",
       "complete": false
