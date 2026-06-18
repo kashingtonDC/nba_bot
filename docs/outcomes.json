@@ -108,19 +108,44 @@
       "round": 2,
       "games": []
     },
-    "OKC_SAS": {
-      "favorite": "OKC",
-      "underdog": "SAS",
-      "favorite_wins": 3,
+    "CLE_NYK": {
+      "favorite": "CLE",
+      "underdog": "NYK",
+      "favorite_wins": 0,
       "underdog_wins": 4,
       "complete": true,
       "round": 2,
       "games": [
         {
-          "date": "2026-05-19",
-          "favorite_was_home": true,
-          "margin": -7.0
+          "date": "2026-05-20",
+          "favorite_was_home": false,
+          "margin": -11.0
         },
+        {
+          "date": "2026-05-22",
+          "favorite_was_home": false,
+          "margin": -16.0
+        },
+        {
+          "date": "2026-05-24",
+          "favorite_was_home": true,
+          "margin": -13.0
+        },
+        {
+          "date": "2026-05-26",
+          "favorite_was_home": true,
+          "margin": -37.0
+        }
+      ]
+    },
+    "OKC_SAS": {
+      "favorite": "OKC",
+      "underdog": "SAS",
+      "favorite_wins": 3,
+      "underdog_wins": 3,
+      "complete": false,
+      "round": 2,
+      "games": [
         {
           "date": "2026-05-21",
           "favorite_was_home": true,
@@ -150,36 +175,6 @@
           "date": "2026-05-31",
           "favorite_was_home": true,
           "margin": -8.0
-        }
-      ]
-    },
-    "CLE_NYK": {
-      "favorite": "CLE",
-      "underdog": "NYK",
-      "favorite_wins": 0,
-      "underdog_wins": 4,
-      "complete": true,
-      "round": 2,
-      "games": [
-        {
-          "date": "2026-05-20",
-          "favorite_was_home": false,
-          "margin": -11.0
-        },
-        {
-          "date": "2026-05-22",
-          "favorite_was_home": false,
-          "margin": -16.0
-        },
-        {
-          "date": "2026-05-24",
-          "favorite_was_home": true,
-          "margin": -13.0
-        },
-        {
-          "date": "2026-05-26",
-          "favorite_was_home": true,
-          "margin": -37.0
         }
       ]
     },
