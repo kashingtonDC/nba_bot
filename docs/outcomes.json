@@ -152,15 +152,10 @@
       "favorite": "CLE",
       "underdog": "NYK",
       "favorite_wins": 0,
-      "underdog_wins": 4,
-      "complete": true,
+      "underdog_wins": 3,
+      "complete": false,
       "round": 2,
       "games": [
-        {
-          "date": "2026-05-20",
-          "favorite_was_home": false,
-          "margin": -11.0
-        },
         {
           "date": "2026-05-22",
           "favorite_was_home": false,

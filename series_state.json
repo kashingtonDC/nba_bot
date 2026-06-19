@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-18T23:11:08.179191+00:00",
+  "fetched_at": "2026-06-19T02:06:32.288318+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-19",
-    "2026-06-21"
+    "2026-05-20",
+    "2026-06-22"
   ],
   "series": {
     "SAS_POR": {
@@ -699,103 +699,8 @@
       "favorite": "CLE",
       "underdog": "NYK",
       "favorite_wins": 0,
-      "underdog_wins": 4,
+      "underdog_wins": 3,
       "completed_games": [
-        {
-          "margin": -11.0,
-          "favorite_was_home": false,
-          "date": "2026-05-20",
-          "fav_score": 104,
-          "und_score": 115,
-          "espn_event_id": "401873341",
-          "fav_box": {
-            "fgm": 36,
-            "fga": 90,
-            "fg3m": 16,
-            "fg3a": 50,
-            "ftm": 16,
-            "fta": 23,
-            "oreb": 11,
-            "dreb": 27,
-            "reb": 38,
-            "ast": 23,
-            "stl": 11,
-            "blk": 6,
-            "tov": 19,
-            "pf": 29
-          },
-          "und_box": {
-            "fgm": 42,
-            "fga": 88,
-            "fg3m": 10,
-            "fg3a": 32,
-            "ftm": 21,
-            "fta": 32,
-            "oreb": 9,
-            "dreb": 38,
-            "reb": 47,
-            "ast": 20,
-            "stl": 10,
-            "blk": 2,
-            "tov": 17,
-            "pf": 26
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "James Harden",
-              "min": 42,
-              "pts": 15,
-              "reb": 4,
-              "ast": 3
-            },
-            {
-              "name": "Donovan Mitchell",
-              "min": 41,
-              "pts": 29,
-              "reb": 5,
-              "ast": 3
-            },
-            {
-              "name": "Evan Mobley",
-              "min": 40,
-              "pts": 15,
-              "reb": 14,
-              "ast": 3
-            },
-            {
-              "name": "Jarrett Allen",
-              "min": 35,
-              "pts": 10,
-              "reb": 7,
-              "ast": 3
-            },
-            {
-              "name": "Dean Wade",
-              "min": 29,
-              "pts": 10,
-              "reb": 5,
-              "ast": 3
-            }
-          ],
-          "und_top_minutes": [],
-          "is_overtime": true,
-          "attendance": 19812,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -16.0,
           "favorite_was_home": false,
@@ -1078,7 +983,7 @@
       ],
       "favorite_has_home_court": false,
       "kalshi_ticker_match": "R1-CLE",
-      "complete": true
+      "complete": false
     },
     "SAS_NYK": {
       "favorite": "SAS",
