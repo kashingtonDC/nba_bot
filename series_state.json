@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-22T22:47:10.779110+00:00",
+  "fetched_at": "2026-06-23T00:05:00.366362+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-23",
-    "2026-06-25"
+    "2026-05-24",
+    "2026-06-26"
   ],
   "series": {
     "SAS_POR": {
@@ -513,101 +513,8 @@
       "favorite": "CLE",
       "underdog": "NYK",
       "favorite_wins": 0,
-      "underdog_wins": 2,
+      "underdog_wins": 1,
       "completed_games": [
-        {
-          "margin": -13.0,
-          "favorite_was_home": true,
-          "date": "2026-05-24",
-          "fav_score": 108,
-          "und_score": 121,
-          "espn_event_id": "401873343",
-          "fav_box": {
-            "fgm": 42,
-            "fga": 84,
-            "fg3m": 12,
-            "fg3a": 41,
-            "ftm": 12,
-            "fta": 19,
-            "oreb": 9,
-            "dreb": 25,
-            "reb": 34,
-            "ast": 22,
-            "stl": 7,
-            "blk": 1,
-            "tov": 17,
-            "pf": 22
-          },
-          "und_box": {
-            "fgm": 43,
-            "fga": 77,
-            "fg3m": 11,
-            "fg3a": 28,
-            "ftm": 24,
-            "fta": 27,
-            "oreb": 8,
-            "dreb": 29,
-            "reb": 37,
-            "ast": 27,
-            "stl": 11,
-            "blk": 4,
-            "tov": 14,
-            "pf": 19
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "James Harden",
-              "min": 41,
-              "pts": 19,
-              "reb": 5,
-              "ast": 5
-            },
-            {
-              "name": "Donovan Mitchell",
-              "min": 38,
-              "pts": 23,
-              "reb": 1,
-              "ast": 4
-            },
-            {
-              "name": "Jarrett Allen",
-              "min": 36,
-              "pts": 17,
-              "reb": 7,
-              "ast": 0
-            },
-            {
-              "name": "Evan Mobley",
-              "min": 36,
-              "pts": 24,
-              "reb": 6,
-              "ast": 2
-            },
-            {
-              "name": "Max Strus",
-              "min": 31,
-              "pts": 13,
-              "reb": 7,
-              "ast": 6
-            }
-          ],
-          "und_top_minutes": [],
-          "is_overtime": false,
-          "attendance": 19432,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -37.0,
           "favorite_was_home": true,
