@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-23T23:31:48.014284+00:00",
+  "fetched_at": "2026-06-24T01:31:55.312300+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-24",
-    "2026-06-26"
+    "2026-05-25",
+    "2026-06-27"
   ],
   "series": {
     "SAS_POR": {
@@ -130,101 +130,8 @@
       "favorite": "OKC",
       "underdog": "SAS",
       "favorite_wins": 1,
-      "underdog_wins": 3,
+      "underdog_wins": 2,
       "completed_games": [
-        {
-          "margin": -21.0,
-          "favorite_was_home": false,
-          "date": "2026-05-25",
-          "fav_score": 82,
-          "und_score": 103,
-          "espn_event_id": "401873200",
-          "fav_box": {
-            "fgm": 30,
-            "fga": 91,
-            "fg3m": 6,
-            "fg3a": 33,
-            "ftm": 16,
-            "fta": 18,
-            "oreb": 11,
-            "dreb": 36,
-            "reb": 47,
-            "ast": 22,
-            "stl": 9,
-            "blk": 5,
-            "tov": 17,
-            "pf": 25
-          },
-          "und_box": {
-            "fgm": 35,
-            "fga": 90,
-            "fg3m": 9,
-            "fg3a": 33,
-            "ftm": 24,
-            "fta": 32,
-            "oreb": 14,
-            "dreb": 38,
-            "reb": 52,
-            "ast": 25,
-            "stl": 11,
-            "blk": 10,
-            "tov": 12,
-            "pf": 20
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 31,
-              "pts": 19,
-              "reb": 4,
-              "ast": 7
-            },
-            {
-              "name": "Chet Holmgren",
-              "min": 26,
-              "pts": 10,
-              "reb": 9,
-              "ast": 2
-            },
-            {
-              "name": "Jared McCain",
-              "min": 24,
-              "pts": 4,
-              "reb": 2,
-              "ast": 0
-            },
-            {
-              "name": "Jaylin Williams",
-              "min": 23,
-              "pts": 3,
-              "reb": 3,
-              "ast": 1
-            },
-            {
-              "name": "Kenrich Williams",
-              "min": 23,
-              "pts": 10,
-              "reb": 5,
-              "ast": 3
-            }
-          ],
-          "und_top_minutes": [],
-          "is_overtime": false,
-          "attendance": 19405,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": 13.0,
           "favorite_was_home": true,
