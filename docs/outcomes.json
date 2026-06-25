@@ -137,16 +137,10 @@
       "favorite": "CLE",
       "underdog": "NYK",
       "favorite_wins": 0,
-      "underdog_wins": 1,
+      "underdog_wins": 0,
       "complete": false,
       "round": 2,
-      "games": [
-        {
-          "date": "2026-05-26",
-          "favorite_was_home": true,
-          "margin": -37.0
-        }
-      ]
+      "games": []
     },
     "SAS_NYK": {
       "favorite": "SAS",
