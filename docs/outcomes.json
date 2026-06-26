@@ -111,16 +111,11 @@
     "OKC_SAS": {
       "favorite": "OKC",
       "underdog": "SAS",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 2,
       "complete": false,
       "round": 2,
       "games": [
-        {
-          "date": "2026-05-27",
-          "favorite_was_home": true,
-          "margin": 13.0
-        },
         {
           "date": "2026-05-29",
           "favorite_was_home": false,

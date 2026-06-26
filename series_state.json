@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-25T22:46:00.642475+00:00",
+  "fetched_at": "2026-06-26T00:08:24.319301+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-26",
-    "2026-06-28"
+    "2026-05-27",
+    "2026-06-29"
   ],
   "series": {
     "SAS_POR": {
@@ -129,102 +129,9 @@
     "OKC_SAS": {
       "favorite": "OKC",
       "underdog": "SAS",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 2,
       "completed_games": [
-        {
-          "margin": 13.0,
-          "favorite_was_home": true,
-          "date": "2026-05-27",
-          "fav_score": 127,
-          "und_score": 114,
-          "espn_event_id": "401873201",
-          "fav_box": {
-            "fgm": 40,
-            "fga": 83,
-            "fg3m": 14,
-            "fg3a": 32,
-            "ftm": 33,
-            "fta": 38,
-            "oreb": 14,
-            "dreb": 34,
-            "reb": 48,
-            "ast": 26,
-            "stl": 9,
-            "blk": 5,
-            "tov": 16,
-            "pf": 22
-          },
-          "und_box": {
-            "fgm": 37,
-            "fga": 92,
-            "fg3m": 12,
-            "fg3a": 41,
-            "ftm": 28,
-            "fta": 32,
-            "oreb": 15,
-            "dreb": 26,
-            "reb": 41,
-            "ast": 25,
-            "stl": 14,
-            "blk": 3,
-            "tov": 15,
-            "pf": 29
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 37,
-              "pts": 32,
-              "reb": 2,
-              "ast": 9
-            },
-            {
-              "name": "Jared McCain",
-              "min": 33,
-              "pts": 20,
-              "reb": 3,
-              "ast": 0
-            },
-            {
-              "name": "Isaiah Hartenstein",
-              "min": 31,
-              "pts": 12,
-              "reb": 15,
-              "ast": 4
-            },
-            {
-              "name": "Cason Wallace",
-              "min": 31,
-              "pts": 7,
-              "reb": 4,
-              "ast": 5
-            },
-            {
-              "name": "Chet Holmgren",
-              "min": 30,
-              "pts": 16,
-              "reb": 11,
-              "ast": 1
-            }
-          ],
-          "und_top_minutes": [],
-          "is_overtime": false,
-          "attendance": 18203,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -27.0,
           "favorite_was_home": false,
