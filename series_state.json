@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-06-29T23:41:44.890891+00:00",
+  "fetched_at": "2026-06-30T01:50:10.968151+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-05-30",
-    "2026-07-02"
+    "2026-05-31",
+    "2026-07-03"
   ],
   "series": {
     "SAS_POR": {
@@ -130,102 +130,8 @@
       "favorite": "OKC",
       "underdog": "SAS",
       "favorite_wins": 0,
-      "underdog_wins": 1,
-      "completed_games": [
-        {
-          "margin": -8.0,
-          "favorite_was_home": true,
-          "date": "2026-05-31",
-          "fav_score": 103,
-          "und_score": 111,
-          "espn_event_id": "401873203",
-          "fav_box": {
-            "fgm": 37,
-            "fga": 83,
-            "fg3m": 12,
-            "fg3a": 35,
-            "ftm": 17,
-            "fta": 22,
-            "oreb": 10,
-            "dreb": 28,
-            "reb": 38,
-            "ast": 23,
-            "stl": 9,
-            "blk": 5,
-            "tov": 13,
-            "pf": 16
-          },
-          "und_box": {
-            "fgm": 40,
-            "fga": 88,
-            "fg3m": 17,
-            "fg3a": 40,
-            "ftm": 14,
-            "fta": 19,
-            "oreb": 15,
-            "dreb": 25,
-            "reb": 40,
-            "ast": 21,
-            "stl": 9,
-            "blk": 2,
-            "tov": 12,
-            "pf": 18
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [
-            {
-              "name": "Shai Gilgeous-Alexander",
-              "min": 43,
-              "pts": 35,
-              "reb": 4,
-              "ast": 9
-            },
-            {
-              "name": "Alex Caruso",
-              "min": 39,
-              "pts": 12,
-              "reb": 5,
-              "ast": 4
-            },
-            {
-              "name": "Cason Wallace",
-              "min": 36,
-              "pts": 17,
-              "reb": 7,
-              "ast": 4
-            },
-            {
-              "name": "Chet Holmgren",
-              "min": 33,
-              "pts": 4,
-              "reb": 4,
-              "ast": 0
-            },
-            {
-              "name": "Jaylin Williams",
-              "min": 26,
-              "pts": 11,
-              "reb": 10,
-              "ast": 4
-            }
-          ],
-          "und_top_minutes": [],
-          "is_overtime": false,
-          "attendance": 18203,
-          "espn_pregame_home_win_prob": null
-        }
-      ],
+      "underdog_wins": 0,
+      "completed_games": [],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R1-OKC",
       "complete": false
