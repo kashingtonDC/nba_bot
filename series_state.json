@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-07-03T23:43:52.262840+00:00",
+  "fetched_at": "2026-07-04T01:19:29.369806+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-06-03",
-    "2026-07-06"
+    "2026-06-04",
+    "2026-07-07"
   ],
   "series": {
     "SAS_POR": {
@@ -150,65 +150,8 @@
       "favorite": "SAS",
       "underdog": "NYK",
       "favorite_wins": 1,
-      "underdog_wins": 4,
+      "underdog_wins": 3,
       "completed_games": [
-        {
-          "margin": -10.0,
-          "favorite_was_home": true,
-          "date": "2026-06-04",
-          "fav_score": 95,
-          "und_score": 105,
-          "espn_event_id": "401859963",
-          "fav_box": {
-            "fgm": 32,
-            "fga": 89,
-            "fg3m": 11,
-            "fg3a": 43,
-            "ftm": 20,
-            "fta": 25,
-            "oreb": 14,
-            "dreb": 40,
-            "reb": 54,
-            "ast": 16,
-            "stl": 4,
-            "blk": 4,
-            "tov": 13,
-            "pf": 23
-          },
-          "und_box": {
-            "fgm": 39,
-            "fga": 94,
-            "fg3m": 11,
-            "fg3a": 36,
-            "ftm": 16,
-            "fta": 18,
-            "oreb": 10,
-            "dreb": 39,
-            "reb": 49,
-            "ast": 20,
-            "stl": 8,
-            "blk": 4,
-            "tov": 8,
-            "pf": 23
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [],
-          "is_overtime": false,
-          "attendance": 18835,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -1.0,
           "favorite_was_home": true,
@@ -440,7 +383,7 @@
       ],
       "favorite_has_home_court": true,
       "kalshi_ticker_match": "R4-SAS",
-      "complete": true
+      "complete": false
     }
   }
 }
