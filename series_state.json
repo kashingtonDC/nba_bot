@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-07-08T23:48:56.343714+00:00",
+  "fetched_at": "2026-07-09T02:53:21.594481+00:00",
   "source": "site.api.espn.com",
   "date_range": [
-    "2026-06-08",
-    "2026-07-11"
+    "2026-06-09",
+    "2026-07-12"
   ],
   "series": {
     "SAS_POR": {
@@ -149,66 +149,9 @@
     "SAS_NYK": {
       "favorite": "SAS",
       "underdog": "NYK",
-      "favorite_wins": 1,
+      "favorite_wins": 0,
       "underdog_wins": 2,
       "completed_games": [
-        {
-          "margin": 4.0,
-          "favorite_was_home": false,
-          "date": "2026-06-09",
-          "fav_score": 115,
-          "und_score": 111,
-          "espn_event_id": "401859965",
-          "fav_box": {
-            "fgm": 39,
-            "fga": 84,
-            "fg3m": 12,
-            "fg3a": 34,
-            "ftm": 25,
-            "fta": 32,
-            "oreb": 6,
-            "dreb": 31,
-            "reb": 37,
-            "ast": 28,
-            "stl": 7,
-            "blk": 7,
-            "tov": 8,
-            "pf": 21
-          },
-          "und_box": {
-            "fgm": 40,
-            "fga": 88,
-            "fg3m": 13,
-            "fg3a": 37,
-            "ftm": 18,
-            "fta": 22,
-            "oreb": 12,
-            "dreb": 34,
-            "reb": 46,
-            "ast": 18,
-            "stl": 4,
-            "blk": 6,
-            "tov": 13,
-            "pf": 23
-          },
-          "fav_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "und_quarters": [
-            null,
-            null,
-            null,
-            null
-          ],
-          "fav_top_minutes": [],
-          "und_top_minutes": [],
-          "is_overtime": false,
-          "attendance": 19812,
-          "espn_pregame_home_win_prob": null
-        },
         {
           "margin": -1.0,
           "favorite_was_home": false,
